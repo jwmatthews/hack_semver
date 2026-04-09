@@ -1,0 +1,4 @@
+I think I was hitting an issue due to needing to upgrade java-external-provider to an unreleased version.
+I saw issues with 0.9.2, went to latest from main and worked.
+
+

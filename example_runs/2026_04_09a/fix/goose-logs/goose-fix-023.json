@@ -1,0 +1,378 @@
+{
+  "file": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/addSourcesScanModal.tsx",
+  "rule_ids": [
+    "semver-modal-component-import-deprecated",
+    "semver-packages-react-core-src-components-modal-modal-d-ts-modalprops-signature-changed"
+  ],
+  "chunks": [
+    {
+      "chunk": 1,
+      "prompt": "You are applying code migration fixes to a single file.\n\nFile: /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/addSourcesScanModal.tsx\n\nApply ALL of the following 2 fixes to this file:\n\n### Fix 1\nLine: 73\nRule [semver-modal-component-import-deprecated]:\nMIGRATION: <Modal> has been restructured (12 of 28 props removed).\n\nThe component still exists but its API changed significantly.\nProps that were removed have moved to composed child components.\nKeep <Modal> and restructure by replacing removed props with child components that provide the same functionality.\n\nRemoved props (move to child components):\n  - actions\n  - bodyAriaLabel\n  - bodyAriaRole\n  - description\n  - footer\n  - hasNoBodyWrapper\n  - header\n  - help\n  - showClose\n  - title\n  - titleIconVariant\n  - titleLabel\n\nUse these child components inside <Modal>:\n  - <ModalBody> — wrap relevant content as children\n  - <ModalFooter> — wrap relevant content as children\n  - <ModalHeader> — pass as props: description, help, title, titleIconVariant\n\nProps with no direct child component match (handle manually): actions, bodyAriaLabel, bodyAriaRole, footer, hasNoBodyWrapper, header, showClose, titleLabel\n\nKeep Modal in the import statement. Restructure JSX to use composed children instead of the removed props.\n\nCode context:\n```\n   72    return (\n   73      <Modal variant={ModalVariant.small} title=\"Scan\" isOpen={isOpen} onClose={() => onCloseModal()}>\n   74        <FormContextProvider\n\n```\n\n### Fix 2\nLine: 16\nRule [semver-packages-react-core-src-components-modal-modal-d-ts-modalprops-signature-changed]:\nInterface 'ModalProps' had its signature changed (interface): `ModalProps` base class changed from Omit<React.HTMLProps<HTMLDivElement>, 'title'> to React.HTMLProps<HTMLDivElement>\n\nFile: packages/react-core/src/components/Modal/Modal.d.ts\nBefore: Omit<React.HTMLProps<HTMLDivElement>, 'title'>\nAfter: React.HTMLProps<HTMLDivElement>\n\nCode context:\n```\n   15    HelperText,\n   16    Modal,\n   17    ModalVariant,\n\n```\n\nInstructions:\n1. Read the file at /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/addSourcesScanModal.tsx\n2. Process each fix INDEPENDENTLY in sequence. For each fix:\n   a. Identify the exact code affected (line number and affected element)\n   b. Determine the specific change needed (add/remove/rename identifiers, update references)\n   c. Track all changes for the final write\n3. Make the minimum edits necessary — do not change unrelated code, but DO clean up any artifacts caused by your changes (e.g., remove imports that are no longer referenced, delete dead declarations)\n4. Do NOT revert any changes that were already applied in previous passes\n5. Write the fixed file once with ALL changes from every fix applied\n\n\nBefore writing, reason through each fix step by step to ensure nothing is missed. Then read the file, make the edits, and write it.",
+      "response": "The file has been successfully updated with both fixes applied. Here's a summary of the changes:\n\n### Fix 1 — Modal restructuring (Line 73)\n- **Removed** the `title=\"Scan\"` prop from `<Modal>`\n- **Added** `<ModalHeader title=\"Scan\" />` as the first child inside `<Modal>`\n- **Wrapped** the `<FormContextProvider>` content in `<ModalBody>`\n- **Added** `ModalBody` and `ModalHeader` to the imports from `@patternfly/react-core`\n\n### Fix 2 — ModalProps signature change (Line 16)\n- This fix is addressed by Fix 1: since `ModalProps` no longer excludes `title` from `React.HTMLProps<HTMLDivElement>`, the `title` prop on `<Modal>` would now be treated as the native HTML `title` attribute rather than the custom Modal title prop. Moving `title` to `<ModalHeader title=\"Scan\" />` correctly handles this signature change.\n- The `Modal` import remains in place, and `ModalVariant` is still used.",
+      "response_length": 892,
+      "elapsed_secs": 43.321652917,
+      "retried": false,
+      "status": "ok",
+      "goose_session": {
+        "messages": [
+          {
+            "id": null,
+            "role": "user",
+            "created": 1775752141,
+            "content": [
+              {
+                "type": "text",
+                "text": "You are applying code migration fixes to a single file.\n\nFile: /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/addSourcesScanModal.tsx\n\nApply ALL of the following 2 fixes to this file:\n\n### Fix 1\nLine: 73\nRule [semver-modal-component-import-deprecated]:\nMIGRATION: <Modal> has been restructured (12 of 28 props removed).\n\nThe component still exists but its API changed significantly.\nProps that were removed have moved to composed child components.\nKeep <Modal> and restructure by replacing removed props with child components that provide the same functionality.\n\nRemoved props (move to child components):\n  - actions\n  - bodyAriaLabel\n  - bodyAriaRole\n  - description\n  - footer\n  - hasNoBodyWrapper\n  - header\n  - help\n  - showClose\n  - title\n  - titleIconVariant\n  - titleLabel\n\nUse these child components inside <Modal>:\n  - <ModalBody> — wrap relevant content as children\n  - <ModalFooter> — wrap relevant content as children\n  - <ModalHeader> — pass as props: description, help, title, titleIconVariant\n\nProps with no direct child component match (handle manually): actions, bodyAriaLabel, bodyAriaRole, footer, hasNoBodyWrapper, header, showClose, titleLabel\n\nKeep Modal in the import statement. Restructure JSX to use composed children instead of the removed props.\n\nCode context:\n```\n   72    return (\n   73      <Modal variant={ModalVariant.small} title=\"Scan\" isOpen={isOpen} onClose={() => onCloseModal()}>\n   74        <FormContextProvider\n\n```\n\n### Fix 2\nLine: 16\nRule [semver-packages-react-core-src-components-modal-modal-d-ts-modalprops-signature-changed]:\nInterface 'ModalProps' had its signature changed (interface): `ModalProps` base class changed from Omit<React.HTMLProps<HTMLDivElement>, 'title'> to React.HTMLProps<HTMLDivElement>\n\nFile: packages/react-core/src/components/Modal/Modal.d.ts\nBefore: Omit<React.HTMLProps<HTMLDivElement>, 'title'>\nAfter: React.HTMLProps<HTMLDivElement>\n\nCode context:\n```\n   15    HelperText,\n   16    Modal,\n   17    ModalVariant,\n\n```\n\nInstructions:\n1. Read the file at /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/addSourcesScanModal.tsx\n2. Process each fix INDEPENDENTLY in sequence. For each fix:\n   a. Identify the exact code affected (line number and affected element)\n   b. Determine the specific change needed (add/remove/rename identifiers, update references)\n   c. Track all changes for the final write\n3. Make the minimum edits necessary — do not change unrelated code, but DO clean up any artifacts caused by your changes (e.g., remove imports that are no longer referenced, delete dead declarations)\n4. Do NOT revert any changes that were already applied in previous passes\n5. Write the fixed file once with ALL changes from every fix applied\n\n\nBefore writing, reason through each fix step by step to ensure nothing is missed. Then read the file, make the edits, and write it."
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_vrtx_01Nf9y4Ju7jRJziUPMP26fMi",
+            "role": "assistant",
+            "created": 1775752143,
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "Let me start by reading the file to understand its current state, then apply both fixes.",
+                "signature": "EpUCClsIDBACGAIqQPlQ0xiMCfHRa7XbE4C4AndhJzukNoEjyPHpjM6fbqWbQh35HoFcxHTl/SQsbXLe6LJUlexz/cftiqyQKv19GRQyD2NsYXVkZS1vcHVzLTQtNjgAEgwykg94HTFo9fceEWQaDOS5Ss33DlX0ZCPAQSIw//DwVM/SJSgd8h0jvrctdQDKFt8vUyhDwNMsSO1oHef2pGNMcpoj3qSRPgMVj3XOKmiH6qRNa5omHQGIFIywviGxARel+c5aMWe8/Kk3cMwZtJ/G9+vphcBvfgFUZ+zHwNTvuI7FPfcqe48Nk9He5laPww7AkIQNW7s+yBSu6zlxE8bQ+ki0ZQ7OTJntPwWzivfWpJ7w1kxMdhgB"
+              },
+              {
+                "type": "toolRequest",
+                "id": "toolu_vrtx_011U1ER1pEeF9NiP2igVK3qf",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "name": "shell",
+                    "arguments": {
+                      "command": "cat -n /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/addSourcesScanModal.tsx"
+                    }
+                  }
+                },
+                "_meta": {
+                  "goose_extension": "developer"
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_c48b3f86-c79c-42e7-8e4f-b262c5f7d09f",
+            "role": "user",
+            "created": 1775752144,
+            "content": [
+              {
+                "type": "toolResponse",
+                "id": "toolu_vrtx_011U1ER1pEeF9NiP2igVK3qf",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "     1\t/**\n     2\t * Modal component for setting up scans with options for deep scans and concurrency.\n     3\t * Allows specifying products for deep scanning and custom directories. Uses PatternFly for UI elements.\n     4\t *\n     5\t * @module sourcesScanModal\n     6\t */\n     7\timport React, { useState } from 'react';\n     8\timport {\n     9\t  ActionGroup,\n    10\t  Button,\n    11\t  Checkbox,\n    12\t  Form,\n    13\t  FormContextProvider,\n    14\t  FormGroup,\n    15\t  HelperText,\n    16\t  Modal,\n    17\t  ModalVariant,\n    18\t  NumberInput,\n    19\t  TextArea,\n    20\t  TextInput\n    21\t} from '@patternfly/react-core';\n    22\timport { helpers } from '../../helpers';\n    23\timport { type Scan, type SourceType } from '../../types/types';\n    24\t\n    25\tinterface AddSourcesScanModalProps {\n    26\t  isOpen: boolean;\n    27\t  sources?: SourceType[];\n    28\t  onClose?: () => void;\n    29\t  onSubmit?: (payload: Scan) => Promise<void>;\n    30\t}\n    31\t\n    32\tconst AddSourcesScanModal: React.FC<AddSourcesScanModalProps> = ({\n    33\t  isOpen,\n    34\t  sources,\n    35\t  onClose = Function.prototype,\n    36\t  onSubmit = Function.prototype\n    37\t}) => {\n    38\t  const [deepScans, setDeepScans] = useState<string[]>([]);\n    39\t\n    40\t  const onCloseModal = () => {\n    41\t    setDeepScans([]);\n    42\t    onClose();\n    43\t  };\n    44\t\n    45\t  const onDeepScanChange = (option, checked) => {\n    46\t    if (checked) {\n    47\t      setDeepScans([...deepScans, option]);\n    48\t    } else {\n    49\t      setDeepScans(deepScans.filter(o => o !== option));\n    50\t    }\n    51\t  };\n    52\t\n    53\t  const onScan = values => {\n    54\t    const payload = {\n    55\t      name: values['scan-name'],\n    56\t      sources: sources?.map(s => s.id),\n    57\t      options: {\n    58\t        max_concurrency: values['scan-max-concurrent'],\n    59\t        enabled_extended_product_search: {\n    60\t          jboss_eap: deepScans.includes('jboss_eap'),\n    61\t          jboss_fuse: deepScans.includes('jboss_fuse'),\n    62\t          jboss_ws: deepScans.includes('jboss_ws'),\n    63\t          search_directories: helpers.normalizeCommaSeparated(values['scan-alt-scan'])\n    64\t        }\n    65\t      }\n    66\t    };\n    67\t    onSubmit(payload).finally(() => {\n    68\t      setDeepScans([]);\n    69\t    });\n    70\t  };\n    71\t\n    72\t  return (\n    73\t    <Modal variant={ModalVariant.small} title=\"Scan\" isOpen={isOpen} onClose={() => onCloseModal()}>\n    74\t      <FormContextProvider\n    75\t        initialValues={{\n    76\t          'scan-sources': sources?.map(s => s.name).join(', ') || '',\n    77\t          'scan-max-concurrent': '25'\n    78\t        }}\n    79\t      >\n    80\t        {({ setValue, getValue, values }) => (\n    81\t          <Form>\n    82\t            <FormGroup label=\"Name\" isRequired fieldId=\"scan-name\">\n    83\t              <TextInput\n    84\t                value={getValue('scan-name')}\n    85\t                placeholder=\"Enter a name for the scan.\"\n    86\t                isRequired\n    87\t                type=\"text\"\n    88\t                id=\"scan-name\"\n    89\t                name=\"scan-name\"\n    90\t                onChange={ev => {\n    91\t                  setValue('scan-name', (ev.target as HTMLInputElement).value);\n    92\t                }}\n    93\t                ouiaId=\"name\"\n    94\t              />\n    95\t            </FormGroup>\n    96\t            <FormGroup label=\"Sources\" isRequired fieldId=\"scan-sources\">\n    97\t              <TextArea value={getValue('scan-sources')} isDisabled isRequired id=\"scan-sources\" name=\"scan-sources\" />\n    98\t            </FormGroup>\n    99\t            <FormGroup label=\"Maximum concurrent scans\" fieldId=\"scan-max-concurrent\">\n   100\t              <NumberInput\n   101\t                value={Number(getValue('scan-max-concurrent'))}\n   102\t                onMinus={() =>\n   103\t                  setValue('scan-max-concurrent', '' + Math.max(1, Number(getValue('scan-max-concurrent')) - 1))\n   104\t                }\n   105\t                onChange={ev =>\n   106\t                  setValue(\n   107\t                    'scan-max-concurrent',\n   108\t                    '' + Math.max(1, Math.min(200, Number((ev.target as HTMLInputElement).value)))\n   109\t                  )\n   110\t                }\n   111\t                onPlus={() =>\n   112\t                  setValue('scan-max-concurrent', '' + Math.min(200, Number(getValue('scan-max-concurrent')) + 1))\n   113\t                }\n   114\t                inputName=\"input\"\n   115\t                inputAriaLabel=\"number input\"\n   116\t                minusBtnAriaLabel=\"minus\"\n   117\t                plusBtnAriaLabel=\"plus\"\n   118\t                data-ouia-component-id=\"scan_concurrency\"\n   119\t              />\n   120\t            </FormGroup>\n   121\t            <FormGroup\n   122\t              label=\"Deep scan for these products\"\n   123\t              isStack\n   124\t              fieldId=\"scan-deep-scan\"\n   125\t              hasNoPaddingTop\n   126\t              role=\"group\"\n   127\t            >\n   128\t              {[\n   129\t                { label: 'JBoss EAP', value: 'jboss_eap' },\n   130\t                { label: 'Fuse', value: 'jboss_fuse' },\n   131\t                { label: 'JBoss web server', value: 'jboss_ws' }\n   132\t              ].map(o => (\n   133\t                <Checkbox\n   134\t                  key={`deep-scan-${o.value}`}\n   135\t                  label={o.label}\n   136\t                  id={`deep-scan-${o.value}`}\n   137\t                  isChecked={deepScans.includes(o.value)}\n   138\t                  onChange={(_ev, ch) => onDeepScanChange(o.value, ch)}\n   139\t                  ouiaId={`options_${o.value}`}\n   140\t                />\n   141\t              ))}\n   142\t            </FormGroup>\n   143\t            {!!deepScans.length && (\n   144\t              <FormGroup label=\"Scan alternate directories\" fieldId=\"scan-alt-scan\">\n   145\t                <TextArea\n   146\t                  value={getValue('scan-alt-scan')}\n   147\t                  onChange={(_ev, val) => setValue('scan-alt-scan', val)}\n   148\t                  id=\"scan-alt-scan\"\n   149\t                  name=\"scan-alt-scan\"\n   150\t                  data-ouia-component-id=\"scan_alt_dirs\"\n   151\t                />\n   152\t                <HelperText>Default: directories are /./opt./app./home/usr</HelperText>\n   153\t              </FormGroup>\n   154\t            )}\n   155\t            <ActionGroup>\n   156\t              <Button variant=\"primary\" onClick={() => onScan({ ...values, deepScans })}>\n   157\t                Save\n   158\t              </Button>\n   159\t              <Button variant=\"link\" onClick={() => onCloseModal()}>\n   160\t                Cancel\n   161\t              </Button>\n   162\t            </ActionGroup>\n   163\t          </Form>\n   164\t        )}\n   165\t      </FormContextProvider>\n   166\t    </Modal>\n   167\t  );\n   168\t};\n   169\t\n   170\texport { AddSourcesScanModal as default, AddSourcesScanModal, type AddSourcesScanModalProps };",
+                        "annotations": {
+                          "priority": 0.0
+                        }
+                      }
+                    ],
+                    "structuredContent": {
+                      "stdout": "     1\t/**\n     2\t * Modal component for setting up scans with options for deep scans and concurrency.\n     3\t * Allows specifying products for deep scanning and custom directories. Uses PatternFly for UI elements.\n     4\t *\n     5\t * @module sourcesScanModal\n     6\t */\n     7\timport React, { useState } from 'react';\n     8\timport {\n     9\t  ActionGroup,\n    10\t  Button,\n    11\t  Checkbox,\n    12\t  Form,\n    13\t  FormContextProvider,\n    14\t  FormGroup,\n    15\t  HelperText,\n    16\t  Modal,\n    17\t  ModalVariant,\n    18\t  NumberInput,\n    19\t  TextArea,\n    20\t  TextInput\n    21\t} from '@patternfly/react-core';\n    22\timport { helpers } from '../../helpers';\n    23\timport { type Scan, type SourceType } from '../../types/types';\n    24\t\n    25\tinterface AddSourcesScanModalProps {\n    26\t  isOpen: boolean;\n    27\t  sources?: SourceType[];\n    28\t  onClose?: () => void;\n    29\t  onSubmit?: (payload: Scan) => Promise<void>;\n    30\t}\n    31\t\n    32\tconst AddSourcesScanModal: React.FC<AddSourcesScanModalProps> = ({\n    33\t  isOpen,\n    34\t  sources,\n    35\t  onClose = Function.prototype,\n    36\t  onSubmit = Function.prototype\n    37\t}) => {\n    38\t  const [deepScans, setDeepScans] = useState<string[]>([]);\n    39\t\n    40\t  const onCloseModal = () => {\n    41\t    setDeepScans([]);\n    42\t    onClose();\n    43\t  };\n    44\t\n    45\t  const onDeepScanChange = (option, checked) => {\n    46\t    if (checked) {\n    47\t      setDeepScans([...deepScans, option]);\n    48\t    } else {\n    49\t      setDeepScans(deepScans.filter(o => o !== option));\n    50\t    }\n    51\t  };\n    52\t\n    53\t  const onScan = values => {\n    54\t    const payload = {\n    55\t      name: values['scan-name'],\n    56\t      sources: sources?.map(s => s.id),\n    57\t      options: {\n    58\t        max_concurrency: values['scan-max-concurrent'],\n    59\t        enabled_extended_product_search: {\n    60\t          jboss_eap: deepScans.includes('jboss_eap'),\n    61\t          jboss_fuse: deepScans.includes('jboss_fuse'),\n    62\t          jboss_ws: deepScans.includes('jboss_ws'),\n    63\t          search_directories: helpers.normalizeCommaSeparated(values['scan-alt-scan'])\n    64\t        }\n    65\t      }\n    66\t    };\n    67\t    onSubmit(payload).finally(() => {\n    68\t      setDeepScans([]);\n    69\t    });\n    70\t  };\n    71\t\n    72\t  return (\n    73\t    <Modal variant={ModalVariant.small} title=\"Scan\" isOpen={isOpen} onClose={() => onCloseModal()}>\n    74\t      <FormContextProvider\n    75\t        initialValues={{\n    76\t          'scan-sources': sources?.map(s => s.name).join(', ') || '',\n    77\t          'scan-max-concurrent': '25'\n    78\t        }}\n    79\t      >\n    80\t        {({ setValue, getValue, values }) => (\n    81\t          <Form>\n    82\t            <FormGroup label=\"Name\" isRequired fieldId=\"scan-name\">\n    83\t              <TextInput\n    84\t                value={getValue('scan-name')}\n    85\t                placeholder=\"Enter a name for the scan.\"\n    86\t                isRequired\n    87\t                type=\"text\"\n    88\t                id=\"scan-name\"\n    89\t                name=\"scan-name\"\n    90\t                onChange={ev => {\n    91\t                  setValue('scan-name', (ev.target as HTMLInputElement).value);\n    92\t                }}\n    93\t                ouiaId=\"name\"\n    94\t              />\n    95\t            </FormGroup>\n    96\t            <FormGroup label=\"Sources\" isRequired fieldId=\"scan-sources\">\n    97\t              <TextArea value={getValue('scan-sources')} isDisabled isRequired id=\"scan-sources\" name=\"scan-sources\" />\n    98\t            </FormGroup>\n    99\t            <FormGroup label=\"Maximum concurrent scans\" fieldId=\"scan-max-concurrent\">\n   100\t              <NumberInput\n   101\t                value={Number(getValue('scan-max-concurrent'))}\n   102\t                onMinus={() =>\n   103\t                  setValue('scan-max-concurrent', '' + Math.max(1, Number(getValue('scan-max-concurrent')) - 1))\n   104\t                }\n   105\t                onChange={ev =>\n   106\t                  setValue(\n   107\t                    'scan-max-concurrent',\n   108\t                    '' + Math.max(1, Math.min(200, Number((ev.target as HTMLInputElement).value)))\n   109\t                  )\n   110\t                }\n   111\t                onPlus={() =>\n   112\t                  setValue('scan-max-concurrent', '' + Math.min(200, Number(getValue('scan-max-concurrent')) + 1))\n   113\t                }\n   114\t                inputName=\"input\"\n   115\t                inputAriaLabel=\"number input\"\n   116\t                minusBtnAriaLabel=\"minus\"\n   117\t                plusBtnAriaLabel=\"plus\"\n   118\t                data-ouia-component-id=\"scan_concurrency\"\n   119\t              />\n   120\t            </FormGroup>\n   121\t            <FormGroup\n   122\t              label=\"Deep scan for these products\"\n   123\t              isStack\n   124\t              fieldId=\"scan-deep-scan\"\n   125\t              hasNoPaddingTop\n   126\t              role=\"group\"\n   127\t            >\n   128\t              {[\n   129\t                { label: 'JBoss EAP', value: 'jboss_eap' },\n   130\t                { label: 'Fuse', value: 'jboss_fuse' },\n   131\t                { label: 'JBoss web server', value: 'jboss_ws' }\n   132\t              ].map(o => (\n   133\t                <Checkbox\n   134\t                  key={`deep-scan-${o.value}`}\n   135\t                  label={o.label}\n   136\t                  id={`deep-scan-${o.value}`}\n   137\t                  isChecked={deepScans.includes(o.value)}\n   138\t                  onChange={(_ev, ch) => onDeepScanChange(o.value, ch)}\n   139\t                  ouiaId={`options_${o.value}`}\n   140\t                />\n   141\t              ))}\n   142\t            </FormGroup>\n   143\t            {!!deepScans.length && (\n   144\t              <FormGroup label=\"Scan alternate directories\" fieldId=\"scan-alt-scan\">\n   145\t                <TextArea\n   146\t                  value={getValue('scan-alt-scan')}\n   147\t                  onChange={(_ev, val) => setValue('scan-alt-scan', val)}\n   148\t                  id=\"scan-alt-scan\"\n   149\t                  name=\"scan-alt-scan\"\n   150\t                  data-ouia-component-id=\"scan_alt_dirs\"\n   151\t                />\n   152\t                <HelperText>Default: directories are /./opt./app./home/usr</HelperText>\n   153\t              </FormGroup>\n   154\t            )}\n   155\t            <ActionGroup>\n   156\t              <Button variant=\"primary\" onClick={() => onScan({ ...values, deepScans })}>\n   157\t                Save\n   158\t              </Button>\n   159\t              <Button variant=\"link\" onClick={() => onCloseModal()}>\n   160\t                Cancel\n   161\t              </Button>\n   162\t            </ActionGroup>\n   163\t          </Form>\n   164\t        )}\n   165\t      </FormContextProvider>\n   166\t    </Modal>\n   167\t  );\n   168\t};\n   169\t\n   170\texport { AddSourcesScanModal as default, AddSourcesScanModal, type AddSourcesScanModalProps };",
+                      "stderr": "",
+                      "exit_code": 0
+                    },
+                    "isError": false
+                  }
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_vrtx_01KbXiQaym8xZA2tkvNRuJoM",
+            "role": "assistant",
+            "created": 1775752167,
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "Let me analyze the two fixes:\n\n### Fix 1 (Line 73): Modal restructuring\nThe `<Modal>` component on line 73 uses these props:\n- `variant={ModalVariant.small}` — kept (not removed)\n- `title=\"Scan\"` — REMOVED, move to `<ModalHeader>`\n- `isOpen={isOpen}` — kept\n- `onClose={() => onCloseModal()}` — kept\n\nSo I need to:\n1. Remove `title=\"Scan\"` from `<Modal>` props\n2. Add `<ModalHeader>` as the first child with `title=\"Scan\"`\n\n\n3. Wrap the form content in `<ModalBody>`\n4. Import `ModalHeader` and `ModalBody` from `@patternfly/react-core`\n\nNow I'm checking whether the ActionGroup needs its own `ModalFooter` or if it can stay inside the Form. Looking at the current structure, the form and its action buttons are nested together, so I should verify if they need to be separated into distinct modal sections.\n\nThe changes I need to make are straightforward: remove the `title` prop from the Modal component, add a `ModalHeader` with the title as the first child, and wrap the FormContextProvider in `ModalBody`. Since the ActionGroup is already part of the Form and there's no separate footer being used, I don't need to add a `ModalFooter`.\n\nNow I'm looking at how the ModalProps interface has changed... I need to update the imports to include `ModalBody` and `ModalHeader` while keeping `ModalVariant`, then modify the JSX to remove the `title` prop from `Modal` and restructure it with the header component instead.",
+                "signature": "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"
+              },
+              {
+                "type": "text",
+                "text": "Let me analyze the fixes:\n\n**Fix 1 (Line 73):** The `<Modal>` uses `title=\"Scan\"` which is a removed prop. I need to:\n- Remove `title` from `<Modal>` props\n- Add `<ModalHeader title=\"Scan\" />` as first child\n- Wrap body content in `<ModalBody>`\n- Add `ModalBody` and `ModalHeader` to imports\n\n**Fix 2 (Line 16):** `ModalProps` signature changed — `title` is no longer excluded from HTML props (it's now a regular HTML attribute, not a custom Modal prop). This aligns with Fix 1's approach. The `Modal` import remains valid; no additional change needed beyond Fix 1.\n\nLet me apply both fixes:"
+              },
+              {
+                "type": "toolRequest",
+                "id": "toolu_vrtx_019TKZ5JzpRNWAA5FvariGcA",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "name": "edit",
+                    "arguments": {
+                      "path": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/addSourcesScanModal.tsx",
+                      "before": "  Modal,\n  ModalVariant,",
+                      "after": "  Modal,\n  ModalBody,\n  ModalHeader,\n  ModalVariant,"
+                    }
+                  }
+                },
+                "_meta": {
+                  "goose_extension": "developer"
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_cccdd17e-18a8-4201-a346-762a81f2da77",
+            "role": "user",
+            "created": 1775752169,
+            "content": [
+              {
+                "type": "toolResponse",
+                "id": "toolu_vrtx_019TKZ5JzpRNWAA5FvariGcA",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Edited /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/addSourcesScanModal.tsx (2 lines -> 4 lines)",
+                        "annotations": {
+                          "priority": 0.0
+                        }
+                      }
+                    ],
+                    "isError": false
+                  }
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_vrtx_01CAWzwqfkURWtbAQyPZWgKU",
+            "role": "assistant",
+            "created": 1775752172,
+            "content": [
+              {
+                "type": "toolRequest",
+                "id": "toolu_vrtx_01ALx7nW4nL5bgEfwxuK3zYA",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "name": "edit",
+                    "arguments": {
+                      "path": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/addSourcesScanModal.tsx",
+                      "before": "    <Modal variant={ModalVariant.small} title=\"Scan\" isOpen={isOpen} onClose={() => onCloseModal()}>\n      <FormContextProvider",
+                      "after": "    <Modal variant={ModalVariant.small} isOpen={isOpen} onClose={() => onCloseModal()}>\n      <ModalHeader title=\"Scan\" />\n      <ModalBody>\n      <FormContextProvider"
+                    }
+                  }
+                },
+                "_meta": {
+                  "goose_extension": "developer"
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_9c5e163f-fed6-456a-abcd-8fd5e3543312",
+            "role": "user",
+            "created": 1775752172,
+            "content": [
+              {
+                "type": "toolResponse",
+                "id": "toolu_vrtx_01ALx7nW4nL5bgEfwxuK3zYA",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Edited /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/addSourcesScanModal.tsx (2 lines -> 4 lines)",
+                        "annotations": {
+                          "priority": 0.0
+                        }
+                      }
+                    ],
+                    "isError": false
+                  }
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_vrtx_015bNoDYDyToixkdfPCKLs5n",
+            "role": "assistant",
+            "created": 1775752174,
+            "content": [
+              {
+                "type": "toolRequest",
+                "id": "toolu_vrtx_01Dy4vXZuuCE4X3ApvmrFxp1",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "name": "edit",
+                    "arguments": {
+                      "path": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/addSourcesScanModal.tsx",
+                      "before": "      </FormContextProvider>\n    </Modal>",
+                      "after": "      </FormContextProvider>\n      </ModalBody>\n    </Modal>"
+                    }
+                  }
+                },
+                "_meta": {
+                  "goose_extension": "developer"
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_ce742c9d-5c7f-43f8-be53-053a552b0e41",
+            "role": "user",
+            "created": 1775752174,
+            "content": [
+              {
+                "type": "toolResponse",
+                "id": "toolu_vrtx_01Dy4vXZuuCE4X3ApvmrFxp1",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Edited /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/addSourcesScanModal.tsx (2 lines -> 3 lines)",
+                        "annotations": {
+                          "priority": 0.0
+                        }
+                      }
+                    ],
+                    "isError": false
+                  }
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_vrtx_01P5pYij6ZLMKbvEB2iYYZS2",
+            "role": "assistant",
+            "created": 1775752175,
+            "content": [
+              {
+                "type": "text",
+                "text": "Now let me verify the final result:"
+              },
+              {
+                "type": "toolRequest",
+                "id": "toolu_vrtx_01GZEtXtQTXDjxW9LzpZFBEY",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "name": "shell",
+                    "arguments": {
+                      "command": "cat -n /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/addSourcesScanModal.tsx"
+                    }
+                  }
+                },
+                "_meta": {
+                  "goose_extension": "developer"
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_6ba02e5c-c092-4b96-a4b1-b8e12acd6b3d",
+            "role": "user",
+            "created": 1775752176,
+            "content": [
+              {
+                "type": "toolResponse",
+                "id": "toolu_vrtx_01GZEtXtQTXDjxW9LzpZFBEY",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "     1\t/**\n     2\t * Modal component for setting up scans with options for deep scans and concurrency.\n     3\t * Allows specifying products for deep scanning and custom directories. Uses PatternFly for UI elements.\n     4\t *\n     5\t * @module sourcesScanModal\n     6\t */\n     7\timport React, { useState } from 'react';\n     8\timport {\n     9\t  ActionGroup,\n    10\t  Button,\n    11\t  Checkbox,\n    12\t  Form,\n    13\t  FormContextProvider,\n    14\t  FormGroup,\n    15\t  HelperText,\n    16\t  Modal,\n    17\t  ModalBody,\n    18\t  ModalHeader,\n    19\t  ModalVariant,\n    20\t  NumberInput,\n    21\t  TextArea,\n    22\t  TextInput\n    23\t} from '@patternfly/react-core';\n    24\timport { helpers } from '../../helpers';\n    25\timport { type Scan, type SourceType } from '../../types/types';\n    26\t\n    27\tinterface AddSourcesScanModalProps {\n    28\t  isOpen: boolean;\n    29\t  sources?: SourceType[];\n    30\t  onClose?: () => void;\n    31\t  onSubmit?: (payload: Scan) => Promise<void>;\n    32\t}\n    33\t\n    34\tconst AddSourcesScanModal: React.FC<AddSourcesScanModalProps> = ({\n    35\t  isOpen,\n    36\t  sources,\n    37\t  onClose = Function.prototype,\n    38\t  onSubmit = Function.prototype\n    39\t}) => {\n    40\t  const [deepScans, setDeepScans] = useState<string[]>([]);\n    41\t\n    42\t  const onCloseModal = () => {\n    43\t    setDeepScans([]);\n    44\t    onClose();\n    45\t  };\n    46\t\n    47\t  const onDeepScanChange = (option, checked) => {\n    48\t    if (checked) {\n    49\t      setDeepScans([...deepScans, option]);\n    50\t    } else {\n    51\t      setDeepScans(deepScans.filter(o => o !== option));\n    52\t    }\n    53\t  };\n    54\t\n    55\t  const onScan = values => {\n    56\t    const payload = {\n    57\t      name: values['scan-name'],\n    58\t      sources: sources?.map(s => s.id),\n    59\t      options: {\n    60\t        max_concurrency: values['scan-max-concurrent'],\n    61\t        enabled_extended_product_search: {\n    62\t          jboss_eap: deepScans.includes('jboss_eap'),\n    63\t          jboss_fuse: deepScans.includes('jboss_fuse'),\n    64\t          jboss_ws: deepScans.includes('jboss_ws'),\n    65\t          search_directories: helpers.normalizeCommaSeparated(values['scan-alt-scan'])\n    66\t        }\n    67\t      }\n    68\t    };\n    69\t    onSubmit(payload).finally(() => {\n    70\t      setDeepScans([]);\n    71\t    });\n    72\t  };\n    73\t\n    74\t  return (\n    75\t    <Modal variant={ModalVariant.small} isOpen={isOpen} onClose={() => onCloseModal()}>\n    76\t      <ModalHeader title=\"Scan\" />\n    77\t      <ModalBody>\n    78\t      <FormContextProvider\n    79\t        initialValues={{\n    80\t          'scan-sources': sources?.map(s => s.name).join(', ') || '',\n    81\t          'scan-max-concurrent': '25'\n    82\t        }}\n    83\t      >\n    84\t        {({ setValue, getValue, values }) => (\n    85\t          <Form>\n    86\t            <FormGroup label=\"Name\" isRequired fieldId=\"scan-name\">\n    87\t              <TextInput\n    88\t                value={getValue('scan-name')}\n    89\t                placeholder=\"Enter a name for the scan.\"\n    90\t                isRequired\n    91\t                type=\"text\"\n    92\t                id=\"scan-name\"\n    93\t                name=\"scan-name\"\n    94\t                onChange={ev => {\n    95\t                  setValue('scan-name', (ev.target as HTMLInputElement).value);\n    96\t                }}\n    97\t                ouiaId=\"name\"\n    98\t              />\n    99\t            </FormGroup>\n   100\t            <FormGroup label=\"Sources\" isRequired fieldId=\"scan-sources\">\n   101\t              <TextArea value={getValue('scan-sources')} isDisabled isRequired id=\"scan-sources\" name=\"scan-sources\" />\n   102\t            </FormGroup>\n   103\t            <FormGroup label=\"Maximum concurrent scans\" fieldId=\"scan-max-concurrent\">\n   104\t              <NumberInput\n   105\t                value={Number(getValue('scan-max-concurrent'))}\n   106\t                onMinus={() =>\n   107\t                  setValue('scan-max-concurrent', '' + Math.max(1, Number(getValue('scan-max-concurrent')) - 1))\n   108\t                }\n   109\t                onChange={ev =>\n   110\t                  setValue(\n   111\t                    'scan-max-concurrent',\n   112\t                    '' + Math.max(1, Math.min(200, Number((ev.target as HTMLInputElement).value)))\n   113\t                  )\n   114\t                }\n   115\t                onPlus={() =>\n   116\t                  setValue('scan-max-concurrent', '' + Math.min(200, Number(getValue('scan-max-concurrent')) + 1))\n   117\t                }\n   118\t                inputName=\"input\"\n   119\t                inputAriaLabel=\"number input\"\n   120\t                minusBtnAriaLabel=\"minus\"\n   121\t                plusBtnAriaLabel=\"plus\"\n   122\t                data-ouia-component-id=\"scan_concurrency\"\n   123\t              />\n   124\t            </FormGroup>\n   125\t            <FormGroup\n   126\t              label=\"Deep scan for these products\"\n   127\t              isStack\n   128\t              fieldId=\"scan-deep-scan\"\n   129\t              hasNoPaddingTop\n   130\t              role=\"group\"\n   131\t            >\n   132\t              {[\n   133\t                { label: 'JBoss EAP', value: 'jboss_eap' },\n   134\t                { label: 'Fuse', value: 'jboss_fuse' },\n   135\t                { label: 'JBoss web server', value: 'jboss_ws' }\n   136\t              ].map(o => (\n   137\t                <Checkbox\n   138\t                  key={`deep-scan-${o.value}`}\n   139\t                  label={o.label}\n   140\t                  id={`deep-scan-${o.value}`}\n   141\t                  isChecked={deepScans.includes(o.value)}\n   142\t                  onChange={(_ev, ch) => onDeepScanChange(o.value, ch)}\n   143\t                  ouiaId={`options_${o.value}`}\n   144\t                />\n   145\t              ))}\n   146\t            </FormGroup>\n   147\t            {!!deepScans.length && (\n   148\t              <FormGroup label=\"Scan alternate directories\" fieldId=\"scan-alt-scan\">\n   149\t                <TextArea\n   150\t                  value={getValue('scan-alt-scan')}\n   151\t                  onChange={(_ev, val) => setValue('scan-alt-scan', val)}\n   152\t                  id=\"scan-alt-scan\"\n   153\t                  name=\"scan-alt-scan\"\n   154\t                  data-ouia-component-id=\"scan_alt_dirs\"\n   155\t                />\n   156\t                <HelperText>Default: directories are /./opt./app./home/usr</HelperText>\n   157\t              </FormGroup>\n   158\t            )}\n   159\t            <ActionGroup>\n   160\t              <Button variant=\"primary\" onClick={() => onScan({ ...values, deepScans })}>\n   161\t                Save\n   162\t              </Button>\n   163\t              <Button variant=\"link\" onClick={() => onCloseModal()}>\n   164\t                Cancel\n   165\t              </Button>\n   166\t            </ActionGroup>\n   167\t          </Form>\n   168\t        )}\n   169\t      </FormContextProvider>\n   170\t      </ModalBody>\n   171\t    </Modal>\n   172\t  );\n   173\t};\n   174\t\n   175\texport { AddSourcesScanModal as default, AddSourcesScanModal, type AddSourcesScanModalProps };",
+                        "annotations": {
+                          "priority": 0.0
+                        }
+                      }
+                    ],
+                    "structuredContent": {
+                      "stdout": "     1\t/**\n     2\t * Modal component for setting up scans with options for deep scans and concurrency.\n     3\t * Allows specifying products for deep scanning and custom directories. Uses PatternFly for UI elements.\n     4\t *\n     5\t * @module sourcesScanModal\n     6\t */\n     7\timport React, { useState } from 'react';\n     8\timport {\n     9\t  ActionGroup,\n    10\t  Button,\n    11\t  Checkbox,\n    12\t  Form,\n    13\t  FormContextProvider,\n    14\t  FormGroup,\n    15\t  HelperText,\n    16\t  Modal,\n    17\t  ModalBody,\n    18\t  ModalHeader,\n    19\t  ModalVariant,\n    20\t  NumberInput,\n    21\t  TextArea,\n    22\t  TextInput\n    23\t} from '@patternfly/react-core';\n    24\timport { helpers } from '../../helpers';\n    25\timport { type Scan, type SourceType } from '../../types/types';\n    26\t\n    27\tinterface AddSourcesScanModalProps {\n    28\t  isOpen: boolean;\n    29\t  sources?: SourceType[];\n    30\t  onClose?: () => void;\n    31\t  onSubmit?: (payload: Scan) => Promise<void>;\n    32\t}\n    33\t\n    34\tconst AddSourcesScanModal: React.FC<AddSourcesScanModalProps> = ({\n    35\t  isOpen,\n    36\t  sources,\n    37\t  onClose = Function.prototype,\n    38\t  onSubmit = Function.prototype\n    39\t}) => {\n    40\t  const [deepScans, setDeepScans] = useState<string[]>([]);\n    41\t\n    42\t  const onCloseModal = () => {\n    43\t    setDeepScans([]);\n    44\t    onClose();\n    45\t  };\n    46\t\n    47\t  const onDeepScanChange = (option, checked) => {\n    48\t    if (checked) {\n    49\t      setDeepScans([...deepScans, option]);\n    50\t    } else {\n    51\t      setDeepScans(deepScans.filter(o => o !== option));\n    52\t    }\n    53\t  };\n    54\t\n    55\t  const onScan = values => {\n    56\t    const payload = {\n    57\t      name: values['scan-name'],\n    58\t      sources: sources?.map(s => s.id),\n    59\t      options: {\n    60\t        max_concurrency: values['scan-max-concurrent'],\n    61\t        enabled_extended_product_search: {\n    62\t          jboss_eap: deepScans.includes('jboss_eap'),\n    63\t          jboss_fuse: deepScans.includes('jboss_fuse'),\n    64\t          jboss_ws: deepScans.includes('jboss_ws'),\n    65\t          search_directories: helpers.normalizeCommaSeparated(values['scan-alt-scan'])\n    66\t        }\n    67\t      }\n    68\t    };\n    69\t    onSubmit(payload).finally(() => {\n    70\t      setDeepScans([]);\n    71\t    });\n    72\t  };\n    73\t\n    74\t  return (\n    75\t    <Modal variant={ModalVariant.small} isOpen={isOpen} onClose={() => onCloseModal()}>\n    76\t      <ModalHeader title=\"Scan\" />\n    77\t      <ModalBody>\n    78\t      <FormContextProvider\n    79\t        initialValues={{\n    80\t          'scan-sources': sources?.map(s => s.name).join(', ') || '',\n    81\t          'scan-max-concurrent': '25'\n    82\t        }}\n    83\t      >\n    84\t        {({ setValue, getValue, values }) => (\n    85\t          <Form>\n    86\t            <FormGroup label=\"Name\" isRequired fieldId=\"scan-name\">\n    87\t              <TextInput\n    88\t                value={getValue('scan-name')}\n    89\t                placeholder=\"Enter a name for the scan.\"\n    90\t                isRequired\n    91\t                type=\"text\"\n    92\t                id=\"scan-name\"\n    93\t                name=\"scan-name\"\n    94\t                onChange={ev => {\n    95\t                  setValue('scan-name', (ev.target as HTMLInputElement).value);\n    96\t                }}\n    97\t                ouiaId=\"name\"\n    98\t              />\n    99\t            </FormGroup>\n   100\t            <FormGroup label=\"Sources\" isRequired fieldId=\"scan-sources\">\n   101\t              <TextArea value={getValue('scan-sources')} isDisabled isRequired id=\"scan-sources\" name=\"scan-sources\" />\n   102\t            </FormGroup>\n   103\t            <FormGroup label=\"Maximum concurrent scans\" fieldId=\"scan-max-concurrent\">\n   104\t              <NumberInput\n   105\t                value={Number(getValue('scan-max-concurrent'))}\n   106\t                onMinus={() =>\n   107\t                  setValue('scan-max-concurrent', '' + Math.max(1, Number(getValue('scan-max-concurrent')) - 1))\n   108\t                }\n   109\t                onChange={ev =>\n   110\t                  setValue(\n   111\t                    'scan-max-concurrent',\n   112\t                    '' + Math.max(1, Math.min(200, Number((ev.target as HTMLInputElement).value)))\n   113\t                  )\n   114\t                }\n   115\t                onPlus={() =>\n   116\t                  setValue('scan-max-concurrent', '' + Math.min(200, Number(getValue('scan-max-concurrent')) + 1))\n   117\t                }\n   118\t                inputName=\"input\"\n   119\t                inputAriaLabel=\"number input\"\n   120\t                minusBtnAriaLabel=\"minus\"\n   121\t                plusBtnAriaLabel=\"plus\"\n   122\t                data-ouia-component-id=\"scan_concurrency\"\n   123\t              />\n   124\t            </FormGroup>\n   125\t            <FormGroup\n   126\t              label=\"Deep scan for these products\"\n   127\t              isStack\n   128\t              fieldId=\"scan-deep-scan\"\n   129\t              hasNoPaddingTop\n   130\t              role=\"group\"\n   131\t            >\n   132\t              {[\n   133\t                { label: 'JBoss EAP', value: 'jboss_eap' },\n   134\t                { label: 'Fuse', value: 'jboss_fuse' },\n   135\t                { label: 'JBoss web server', value: 'jboss_ws' }\n   136\t              ].map(o => (\n   137\t                <Checkbox\n   138\t                  key={`deep-scan-${o.value}`}\n   139\t                  label={o.label}\n   140\t                  id={`deep-scan-${o.value}`}\n   141\t                  isChecked={deepScans.includes(o.value)}\n   142\t                  onChange={(_ev, ch) => onDeepScanChange(o.value, ch)}\n   143\t                  ouiaId={`options_${o.value}`}\n   144\t                />\n   145\t              ))}\n   146\t            </FormGroup>\n   147\t            {!!deepScans.length && (\n   148\t              <FormGroup label=\"Scan alternate directories\" fieldId=\"scan-alt-scan\">\n   149\t                <TextArea\n   150\t                  value={getValue('scan-alt-scan')}\n   151\t                  onChange={(_ev, val) => setValue('scan-alt-scan', val)}\n   152\t                  id=\"scan-alt-scan\"\n   153\t                  name=\"scan-alt-scan\"\n   154\t                  data-ouia-component-id=\"scan_alt_dirs\"\n   155\t                />\n   156\t                <HelperText>Default: directories are /./opt./app./home/usr</HelperText>\n   157\t              </FormGroup>\n   158\t            )}\n   159\t            <ActionGroup>\n   160\t              <Button variant=\"primary\" onClick={() => onScan({ ...values, deepScans })}>\n   161\t                Save\n   162\t              </Button>\n   163\t              <Button variant=\"link\" onClick={() => onCloseModal()}>\n   164\t                Cancel\n   165\t              </Button>\n   166\t            </ActionGroup>\n   167\t          </Form>\n   168\t        )}\n   169\t      </FormContextProvider>\n   170\t      </ModalBody>\n   171\t    </Modal>\n   172\t  );\n   173\t};\n   174\t\n   175\texport { AddSourcesScanModal as default, AddSourcesScanModal, type AddSourcesScanModalProps };",
+                      "stderr": "",
+                      "exit_code": 0
+                    },
+                    "isError": false
+                  }
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_vrtx_01N9hHhthq3BCSmgsaU5tKG5",
+            "role": "assistant",
+            "created": 1775752177,
+            "content": [
+              {
+                "type": "text",
+                "text": "The file has been successfully updated with both fixes applied. Here's a summary of the changes:\n\n### Fix 1 — Modal restructuring (Line 73)\n- **Removed** the `title=\"Scan\"` prop from `<Modal>`\n- **Added** `<ModalHeader title=\"Scan\" />` as the first child inside `<Modal>`\n- **Wrapped** the `<FormContextProvider>` content in `<ModalBody>`\n- **Added** `ModalBody` and `ModalHeader` to the imports from `@patternfly/react-core`\n\n### Fix 2 — ModalProps signature change (Line 16)\n- This fix is addressed by Fix 1: since `ModalProps` no longer excludes `title` from `React.HTMLProps<HTMLDivElement>`, the `title` prop on `<Modal>` would now be treated as the native HTML `title` attribute rather than the custom Modal title prop. Moving `title` to `<ModalHeader title=\"Scan\" />` correctly handles this signature change.\n- The `Modal` import remains in place, and `ModalVariant` is still used."
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          }
+        ],
+        "metadata": {
+          "total_tokens": 10198,
+          "status": "completed"
+        }
+      }
+    }
+  ],
+  "total_chunks": 1,
+  "success": true,
+  "elapsed_secs": 43.322545917
+}

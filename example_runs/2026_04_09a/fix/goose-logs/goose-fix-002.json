@@ -1,0 +1,319 @@
+{
+  "file": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/components/errorMessage/errorMessage.tsx",
+  "rule_ids": [
+    "sd-child-to-prop-emptystate-emptystateicon-to-icon",
+    "semver-emptystateicon-component-import-deprecated"
+  ],
+  "chunks": [
+    {
+      "chunk": 1,
+      "prompt": "You are applying code migration fixes to a single file.\n\nFile: /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/components/errorMessage/errorMessage.tsx\n\nApply ALL of the following 2 fixes to this file:\n\n### Fix 1\nLine: 16\nRule [sd-child-to-prop-emptystate-emptystateicon-to-icon]:\n<EmptyStateIcon> has been removed. Use the `icon` prop on <EmptyState> instead.\n\nBefore:\n  <EmptyState>\n    <EmptyStateIcon />\n  </EmptyState>\n\nAfter:\n  <EmptyState icon={...} />\n\nCode context:\n```\n   15      <EmptyState variant={EmptyStateVariant.full}>\n   16        <EmptyStateIcon icon={ExclamationCircleIcon} />\n   17        <Title headingLevel=\"h2\" size=\"lg\">\n\n```\n\n### Fix 2\nLine: 3\nRule [semver-emptystateicon-component-import-deprecated]:\nMIGRATION: Replace <EmptyStateIcon> with props on <EmptyState>.\n\nProperty mapping:\n  - EmptyStateIcon.icon  →  EmptyState.icon\n\nRemoved with no direct equivalent: className\n\nRemove <EmptyStateIcon> from JSX and move its props to <EmptyState>.\nAlso remove EmptyStateIcon from the import statement.\n\nCode context:\n```\n    2  import { useTranslation } from 'react-i18next';\n    3  import { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant, Title } from '@patternfly/react-core';\n    4  import { ExclamationCircleIcon } from '@patternfly/react-icons';\n\n```\n\nInstructions:\n1. Read the file at /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/components/errorMessage/errorMessage.tsx\n2. Process each fix INDEPENDENTLY in sequence. For each fix:\n   a. Identify the exact code affected (line number and affected element)\n   b. Determine the specific change needed (add/remove/rename identifiers, update references)\n   c. Track all changes for the final write\n3. Make the minimum edits necessary — do not change unrelated code, but DO clean up any artifacts caused by your changes (e.g., remove imports that are no longer referenced, delete dead declarations)\n4. Do NOT revert any changes that were already applied in previous passes\n5. Write the fixed file once with ALL changes from every fix applied\n\n\nBefore writing, reason through each fix step by step to ensure nothing is missed. Then read the file, make the edits, and write it.",
+      "response": "Both fixes have been successfully applied:\n\n1. **Fix 1 (Line 16 → now line 15):** Removed `<EmptyStateIcon icon={ExclamationCircleIcon} />` from JSX and moved the `icon={ExclamationCircleIcon}` prop onto the parent `<EmptyState>` component.\n\n2. **Fix 2 (Line 3):** Removed `EmptyStateIcon` from the `@patternfly/react-core` import statement since it's no longer used.\n\nThe file is clean with no unused imports or artifacts.",
+      "response_length": 425,
+      "elapsed_secs": 22.351452292,
+      "retried": false,
+      "status": "ok",
+      "goose_session": {
+        "messages": [
+          {
+            "id": null,
+            "role": "user",
+            "created": 1775751331,
+            "content": [
+              {
+                "type": "text",
+                "text": "You are applying code migration fixes to a single file.\n\nFile: /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/components/errorMessage/errorMessage.tsx\n\nApply ALL of the following 2 fixes to this file:\n\n### Fix 1\nLine: 16\nRule [sd-child-to-prop-emptystate-emptystateicon-to-icon]:\n<EmptyStateIcon> has been removed. Use the `icon` prop on <EmptyState> instead.\n\nBefore:\n  <EmptyState>\n    <EmptyStateIcon />\n  </EmptyState>\n\nAfter:\n  <EmptyState icon={...} />\n\nCode context:\n```\n   15      <EmptyState variant={EmptyStateVariant.full}>\n   16        <EmptyStateIcon icon={ExclamationCircleIcon} />\n   17        <Title headingLevel=\"h2\" size=\"lg\">\n\n```\n\n### Fix 2\nLine: 3\nRule [semver-emptystateicon-component-import-deprecated]:\nMIGRATION: Replace <EmptyStateIcon> with props on <EmptyState>.\n\nProperty mapping:\n  - EmptyStateIcon.icon  →  EmptyState.icon\n\nRemoved with no direct equivalent: className\n\nRemove <EmptyStateIcon> from JSX and move its props to <EmptyState>.\nAlso remove EmptyStateIcon from the import statement.\n\nCode context:\n```\n    2  import { useTranslation } from 'react-i18next';\n    3  import { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant, Title } from '@patternfly/react-core';\n    4  import { ExclamationCircleIcon } from '@patternfly/react-icons';\n\n```\n\nInstructions:\n1. Read the file at /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/components/errorMessage/errorMessage.tsx\n2. Process each fix INDEPENDENTLY in sequence. For each fix:\n   a. Identify the exact code affected (line number and affected element)\n   b. Determine the specific change needed (add/remove/rename identifiers, update references)\n   c. Track all changes for the final write\n3. Make the minimum edits necessary — do not change unrelated code, but DO clean up any artifacts caused by your changes (e.g., remove imports that are no longer referenced, delete dead declarations)\n4. Do NOT revert any changes that were already applied in previous passes\n5. Write the fixed file once with ALL changes from every fix applied\n\n\nBefore writing, reason through each fix step by step to ensure nothing is missed. Then read the file, make the edits, and write it."
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_vrtx_01VezNitSdP4Jod348LoABpa",
+            "role": "assistant",
+            "created": 1775751335,
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "Let me analyze the two fixes needed:\n\n**Fix 1**: Remove `<EmptyStateIcon icon={ExclamationCircleIcon} />` from JSX and move the `icon` prop to `<EmptyState>`.\n\n**Fix 2**: Remove `EmptyStateIcon` from the import statement.\n\nLet me read the file first, then apply both fixes.",
+                "signature": "EssDClsIDBACGAIqQKZPXZDz93hkK0IOpp3zKEiZySbBrSxdJo7bf1D4ZJRCe7rRboNbhw8tN45S91jtd1buMkkx1PrrGZ4NumNgu+IyD2NsYXVkZS1vcHVzLTQtNjgAEgzaYXNm5nAXYJTXVDIaDADmaW6JBg939apvwCIwCIoZUGXwmJXjr0ZIFWnvFECcCS6daRd9r2gQk4tTtmZ7MJN6CHNJ1MK0UZAcB7RAKp0CelQwL3YXJpYWL88zGXSmJ6McH9VsdGdU8JlNF9vdYwT0GzQJGykQGAH4iWIn+sFV1AcX5AGmgmSnxAqhdsvi+o7vJG4A9pZWT1pHErZMYCTbOJVZMTblwpiCg7xhRmjflAb5C45EC8wU2M9P8VuziqOEx0esGIvwQl9JBXyBEMe98NcxWYb5CG2WKg/50CotkS1taSnXIZROUWCZV71nSHufhd/ZBAUG81pghzjYLJwBmsm/H35SyFHo3hvj9P0y8qBkrng5d5GnwV1VdnIVwJsThFq8Bfr/FpqBNvZL6f1d+vGdau/60pndaSkNOUCdpJE/sL9Y5OxTnaJgKBJMiHoCLcSnuRv21FwpABHNaKTzM2ESZaZZTcvnI/q7GAE="
+              },
+              {
+                "type": "toolRequest",
+                "id": "toolu_vrtx_015pfbskAw2En8Avx7kQq6qb",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "name": "shell",
+                    "arguments": {
+                      "command": "cat -n /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/components/errorMessage/errorMessage.tsx"
+                    }
+                  }
+                },
+                "_meta": {
+                  "goose_extension": "developer"
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_67f01e39-caf9-440b-a89c-faa5f90c4aec",
+            "role": "user",
+            "created": 1775751336,
+            "content": [
+              {
+                "type": "toolResponse",
+                "id": "toolu_vrtx_015pfbskAw2En8Avx7kQq6qb",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "     1\timport React from 'react';\n     2\timport { useTranslation } from 'react-i18next';\n     3\timport { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant, Title } from '@patternfly/react-core';\n     4\timport { ExclamationCircleIcon } from '@patternfly/react-icons';\n     5\timport { helpers } from '../../helpers';\n     6\t\n     7\tinterface ErrorMessageProps {\n     8\t  description?: string;\n     9\t  title?: string;\n    10\t}\n    11\t\n    12\tconst ErrorMessage: React.FC<ErrorMessageProps> = ({ description, title }) => {\n    13\t  const { t } = useTranslation();\n    14\t  return (\n    15\t    <EmptyState variant={EmptyStateVariant.full}>\n    16\t      <EmptyStateIcon icon={ExclamationCircleIcon} />\n    17\t      <Title headingLevel=\"h2\" size=\"lg\">\n    18\t        {title || t('view.error', { context: 'title', appName: helpers.UI_NAME })}\n    19\t      </Title>\n    20\t      <EmptyStateBody>{description || t('view.error', { context: 'description' })}</EmptyStateBody>\n    21\t    </EmptyState>\n    22\t  );\n    23\t};\n    24\t\n    25\texport { ErrorMessage as default, ErrorMessage, type ErrorMessageProps };",
+                        "annotations": {
+                          "priority": 0.0
+                        }
+                      }
+                    ],
+                    "structuredContent": {
+                      "stdout": "     1\timport React from 'react';\n     2\timport { useTranslation } from 'react-i18next';\n     3\timport { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant, Title } from '@patternfly/react-core';\n     4\timport { ExclamationCircleIcon } from '@patternfly/react-icons';\n     5\timport { helpers } from '../../helpers';\n     6\t\n     7\tinterface ErrorMessageProps {\n     8\t  description?: string;\n     9\t  title?: string;\n    10\t}\n    11\t\n    12\tconst ErrorMessage: React.FC<ErrorMessageProps> = ({ description, title }) => {\n    13\t  const { t } = useTranslation();\n    14\t  return (\n    15\t    <EmptyState variant={EmptyStateVariant.full}>\n    16\t      <EmptyStateIcon icon={ExclamationCircleIcon} />\n    17\t      <Title headingLevel=\"h2\" size=\"lg\">\n    18\t        {title || t('view.error', { context: 'title', appName: helpers.UI_NAME })}\n    19\t      </Title>\n    20\t      <EmptyStateBody>{description || t('view.error', { context: 'description' })}</EmptyStateBody>\n    21\t    </EmptyState>\n    22\t  );\n    23\t};\n    24\t\n    25\texport { ErrorMessage as default, ErrorMessage, type ErrorMessageProps };",
+                      "stderr": "",
+                      "exit_code": 0
+                    },
+                    "isError": false
+                  }
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_vrtx_01BxrTN3WXTFZgugYbNs559R",
+            "role": "assistant",
+            "created": 1775751341,
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "Let me analyze both fixes:\n\n**Fix 1** (Line 16): Remove `<EmptyStateIcon icon={ExclamationCircleIcon} />` from JSX and move the `icon` prop to `<EmptyState>`.\n\n**Fix 2** (Line 3): Remove `EmptyStateIcon` from the import statement.\n\nLet me apply both:\n\n1. Line 3: Remove `EmptyStateIcon` from the import → `import { EmptyState, EmptyStateBody, EmptyStateVariant, Title } from '@patternfly/react-core';`\n2. Line 15-16: Change `<EmptyState variant={EmptyStateVariant.full}>` + `<EmptyStateIcon icon={ExclamationCircleIcon} />` → `<EmptyState variant={EmptyStateVariant.full} icon={ExclamationCircleIcon}>` and remove line 16.\n\n\n3. Now I'll apply these changes to the code.",
+                "signature": "EsEGClsIDBACGAIqQB+H1hFfUiCKK+ZW5r6fmyzUYhnkXRZ4304ZQDinGkwlEqfXan5lzJn/mrZgQYztj8LcKJo6ozlG0LqZNkhVT0kyD2NsYXVkZS1vcHVzLTQtNjgAEgxuF5wpSXzjv0CWor8aDAVOtyqIpM6my6Vr+iIwANnl5S2BhF2UdOBm9N+6VMX6V43XMCmp1NBEpDdyeRnSH+TJ09qNtzjVsSp/un7sKpMFc7mMRSl3MFF1XZJ8KmZ1Z81Q4dJgWtj/iwEyQ11YGWouQ9PZZD+Cv/hgVO36Qb+tlzaJaRisi5vsN2c2qrK1cPzv6Pxh45ioYknzG4xTD8qekvTAl6ESVJTsqaCTv33bibO+mltTsNuBUo7u5H/o53bb+iQ4LiQlho+ImNIzPqBPTHrnjAvaevt+3mrlpb5siBZ4NGXK58NyD3vSK/PaKDRV83whBBCCqktm9+AFRzRzVSMZXUGHELkV7/u43QsukmVrFv6jDcsA5u78JSv3K2HwnBDd9xHqFeFrsA+dBmVQ/zlyRFWYxbCI4/IvVfagIr54VjGVXTnHrNQm9OUFbycW74ef0O4d63nwd8B+Ev73HfWhdE3gUmGS8wIxdmuJEvkmp8gjD0dUzpWVpjo9nf3zQQ6xtsefYVLgnw5J2TEGSdI9Nk0zEAHJRX1frkYUOvF54jS4TpE0th8HVNK4Hi7PkM4j3/XRcMzH1mCh+wxksHj9nFwfux6rR9UbzWaoYbjtc+ZluluQxoSJYsTr4olaA4/NuAPft8ck4hXz3a/Mrby1c/nkgxtEGY1mXzwliknwkx47ip/7jq/aagnMnjjW/Ei+up1O74/pjK1wLo8+G+xQ3k7gvCIoLqK0jsXcF9rfxmJbvAbA+mlL9am57VzwNRJISBgsw1YFArY5dqhsdJw6sL7Emh5Zt7pQMKFK7nnm3vzOj4SrNgMdciWz8bbI52r5/c8DoUR1ZzeqORLhpU395FV+wkz+an9Mq/CnO8oReE4J7Zr45Dg38M9uK3S9i6C/yiCZAtMvm4wncnElEGrk2CCAF52ERRy+fd8Pkr44x1OQlFqSEiB1EZtJQl4cGZfi7YbPfd92w6uICYVynOkYAQ=="
+              },
+              {
+                "type": "text",
+                "text": "Now I'll reason through each fix:\n\n**Fix 1 (Line 16):** Remove `<EmptyStateIcon icon={ExclamationCircleIcon} />` from JSX and move the `icon` prop to the parent `<EmptyState>` component.\n\n**Fix 2 (Line 3):** Remove `EmptyStateIcon` from the import statement since it's no longer used.\n\nLet me apply both edits:"
+              },
+              {
+                "type": "toolRequest",
+                "id": "toolu_vrtx_01RvGbcoETTKyFLazEbET2jd",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "name": "edit",
+                    "arguments": {
+                      "path": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/components/errorMessage/errorMessage.tsx",
+                      "before": "import { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant, Title } from '@patternfly/react-core';",
+                      "after": "import { EmptyState, EmptyStateBody, EmptyStateVariant, Title } from '@patternfly/react-core';"
+                    }
+                  }
+                },
+                "_meta": {
+                  "goose_extension": "developer"
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_984349b9-573c-4e9e-8fa5-e85dcda4f151",
+            "role": "user",
+            "created": 1775751343,
+            "content": [
+              {
+                "type": "toolResponse",
+                "id": "toolu_vrtx_01RvGbcoETTKyFLazEbET2jd",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Edited /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/components/errorMessage/errorMessage.tsx (1 lines -> 1 lines)",
+                        "annotations": {
+                          "priority": 0.0
+                        }
+                      }
+                    ],
+                    "isError": false
+                  }
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_vrtx_0112BF3WBBjmyko8h83KMeKx",
+            "role": "assistant",
+            "created": 1775751346,
+            "content": [
+              {
+                "type": "toolRequest",
+                "id": "toolu_vrtx_014JqVF6QwasPbyHRArUjW6e",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "name": "edit",
+                    "arguments": {
+                      "path": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/components/errorMessage/errorMessage.tsx",
+                      "before": "    <EmptyState variant={EmptyStateVariant.full}>\n      <EmptyStateIcon icon={ExclamationCircleIcon} />",
+                      "after": "    <EmptyState variant={EmptyStateVariant.full} icon={ExclamationCircleIcon}>"
+                    }
+                  }
+                },
+                "_meta": {
+                  "goose_extension": "developer"
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_cea315fe-9bad-4fe4-a60e-434be071fa3e",
+            "role": "user",
+            "created": 1775751346,
+            "content": [
+              {
+                "type": "toolResponse",
+                "id": "toolu_vrtx_014JqVF6QwasPbyHRArUjW6e",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Edited /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/components/errorMessage/errorMessage.tsx (2 lines -> 1 lines)",
+                        "annotations": {
+                          "priority": 0.0
+                        }
+                      }
+                    ],
+                    "isError": false
+                  }
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_vrtx_01U2E2Mi4J2aE8hpVeerZaLt",
+            "role": "assistant",
+            "created": 1775751346,
+            "content": [
+              {
+                "type": "text",
+                "text": "Let me verify the final result:"
+              },
+              {
+                "type": "toolRequest",
+                "id": "toolu_vrtx_01BcPzXMmUSajRdF2SYrnP9h",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "name": "shell",
+                    "arguments": {
+                      "command": "cat -n /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/components/errorMessage/errorMessage.tsx"
+                    }
+                  }
+                },
+                "_meta": {
+                  "goose_extension": "developer"
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_151d2509-86fc-46ad-9796-2b95a0fd3d61",
+            "role": "user",
+            "created": 1775751347,
+            "content": [
+              {
+                "type": "toolResponse",
+                "id": "toolu_vrtx_01BcPzXMmUSajRdF2SYrnP9h",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "     1\timport React from 'react';\n     2\timport { useTranslation } from 'react-i18next';\n     3\timport { EmptyState, EmptyStateBody, EmptyStateVariant, Title } from '@patternfly/react-core';\n     4\timport { ExclamationCircleIcon } from '@patternfly/react-icons';\n     5\timport { helpers } from '../../helpers';\n     6\t\n     7\tinterface ErrorMessageProps {\n     8\t  description?: string;\n     9\t  title?: string;\n    10\t}\n    11\t\n    12\tconst ErrorMessage: React.FC<ErrorMessageProps> = ({ description, title }) => {\n    13\t  const { t } = useTranslation();\n    14\t  return (\n    15\t    <EmptyState variant={EmptyStateVariant.full} icon={ExclamationCircleIcon}>\n    16\t      <Title headingLevel=\"h2\" size=\"lg\">\n    17\t        {title || t('view.error', { context: 'title', appName: helpers.UI_NAME })}\n    18\t      </Title>\n    19\t      <EmptyStateBody>{description || t('view.error', { context: 'description' })}</EmptyStateBody>\n    20\t    </EmptyState>\n    21\t  );\n    22\t};\n    23\t\n    24\texport { ErrorMessage as default, ErrorMessage, type ErrorMessageProps };",
+                        "annotations": {
+                          "priority": 0.0
+                        }
+                      }
+                    ],
+                    "structuredContent": {
+                      "stdout": "     1\timport React from 'react';\n     2\timport { useTranslation } from 'react-i18next';\n     3\timport { EmptyState, EmptyStateBody, EmptyStateVariant, Title } from '@patternfly/react-core';\n     4\timport { ExclamationCircleIcon } from '@patternfly/react-icons';\n     5\timport { helpers } from '../../helpers';\n     6\t\n     7\tinterface ErrorMessageProps {\n     8\t  description?: string;\n     9\t  title?: string;\n    10\t}\n    11\t\n    12\tconst ErrorMessage: React.FC<ErrorMessageProps> = ({ description, title }) => {\n    13\t  const { t } = useTranslation();\n    14\t  return (\n    15\t    <EmptyState variant={EmptyStateVariant.full} icon={ExclamationCircleIcon}>\n    16\t      <Title headingLevel=\"h2\" size=\"lg\">\n    17\t        {title || t('view.error', { context: 'title', appName: helpers.UI_NAME })}\n    18\t      </Title>\n    19\t      <EmptyStateBody>{description || t('view.error', { context: 'description' })}</EmptyStateBody>\n    20\t    </EmptyState>\n    21\t  );\n    22\t};\n    23\t\n    24\texport { ErrorMessage as default, ErrorMessage, type ErrorMessageProps };",
+                      "stderr": "",
+                      "exit_code": 0
+                    },
+                    "isError": false
+                  }
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_vrtx_015tubNS8YBb2dShMfPub5sc",
+            "role": "assistant",
+            "created": 1775751349,
+            "content": [
+              {
+                "type": "text",
+                "text": "Both fixes have been successfully applied:\n\n1. **Fix 1 (Line 16 → now line 15):** Removed `<EmptyStateIcon icon={ExclamationCircleIcon} />` from JSX and moved the `icon={ExclamationCircleIcon}` prop onto the parent `<EmptyState>` component.\n\n2. **Fix 2 (Line 3):** Removed `EmptyStateIcon` from the `@patternfly/react-core` import statement since it's no longer used.\n\nThe file is clean with no unused imports or artifacts."
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          }
+        ],
+        "metadata": {
+          "total_tokens": 5942,
+          "status": "completed"
+        }
+      }
+    }
+  ],
+  "total_chunks": 1,
+  "success": true,
+  "elapsed_secs": 22.351878375
+}
