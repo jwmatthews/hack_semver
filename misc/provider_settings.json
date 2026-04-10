@@ -1,0 +1,20 @@
+[
+    {
+        "name": "frontend",
+        "address": "localhost:9003",
+        "initConfig": [
+            {
+                "analysisMode": "source-only",
+                "location": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed"
+            }
+        ]
+    },
+    {
+        "name": "builtin",
+        "initConfig": [
+            {
+                "location": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed"
+            }
+        ]
+    }
+]
