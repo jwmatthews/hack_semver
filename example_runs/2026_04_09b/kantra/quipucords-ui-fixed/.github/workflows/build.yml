@@ -1,0 +1,150 @@
+name: Build Container Image
+
+on:
+  push:
+    branches: [ main ]
+    tags:
+      - '*'
+  pull_request:
+    branches: [ main ]
+
+env:
+  # Forks that do not set secrets and override the variables may fail build steps using them.
+  STABLE_TAG: ${{ github.event_name == 'push' && github.ref_name || format('pr-{0}', github.event.pull_request.number) }}
+  # We had a problem with GitHub setting quay expiration label also during
+  # merge to main, so we just set meaningless value as a workaround.
+  EXPIRATION_LABEL: ${{ github.event_name == 'push' && 'quipucords.source=github' || 'quay.expires-after=7d' }}
+  IMAGE_NAME: ${{ vars.IMAGE_NAME || 'quipucords/quipucords-ui' }}
+  REGISTRY: ${{ vars.REGISTRY || 'quay.io' }}
+
+
+jobs:
+  build-amd64:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repository
+        id: clone-repository-amd64
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0  # fetches all commits/tags
+
+      - name: Build amd64 image
+        id: build-image-amd64
+        uses: redhat-actions/buildah-build@v2
+        with:
+          image: ${{ env.IMAGE_NAME }}
+          archs: amd64
+          tags: ${{ env.STABLE_TAG != 'main' && format('{0}-amd64', env.STABLE_TAG) || 'latest-amd64' }}
+          containerfiles: |
+            ./Containerfile
+          labels: |
+            ${{ env.EXPIRATION_LABEL }}
+            quipucords.frontend.git_sha=${{ github.sha }}
+          extra-args: |
+            --ulimit nofile=4096:4096
+
+      - name: Push amd64 To quay.io
+        id: push-image-amd64
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: ${{ env.IMAGE_NAME }}
+          tags: ${{ steps.build-image-amd64.outputs.tags }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.QUAYIO_USERNAME }}
+          password: ${{ secrets.QUAYIO_PASSWORD }}
+
+  build-arm64:
+    runs-on: ubuntu-24.04-arm
+
+    steps:
+      - name: Clone repository
+        id: clone-repository-arm64
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0  # fetches all commits/tags
+
+      - name: Build arm64 image
+        id: build-image-arm64
+        uses: redhat-actions/buildah-build@v2
+        with:
+          image: ${{ env.IMAGE_NAME }}
+          archs: arm64
+          tags: ${{ env.STABLE_TAG != 'main' && format('{0}-arm64', env.STABLE_TAG) || 'latest-arm64' }}
+          containerfiles: |
+            ./Containerfile
+          labels: |
+            ${{ env.EXPIRATION_LABEL }}
+            quipucords.frontend.git_sha=${{ github.sha }}
+          extra-args: |
+            --ulimit nofile=4096:4096
+
+      - name: Push arm64 To quay.io
+        id: push-image-arm64
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: ${{ env.IMAGE_NAME }}
+          tags: ${{ steps.build-image-arm64.outputs.tags }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.QUAYIO_USERNAME }}
+          password: ${{ secrets.QUAYIO_PASSWORD }}
+
+  push-manifest:
+    runs-on: ubuntu-latest
+    needs: [build-amd64, build-arm64]
+
+    steps:
+      - name: Define Image Tag
+        id: define-image-tag
+        shell: bash
+        run: echo "IMAGE_TAG=${{ env.STABLE_TAG == 'main' && 'latest' || env.STABLE_TAG }}" >> "${GITHUB_ENV}"
+
+      - name: Define Release Tag
+        id: define-release-tag
+        shell: bash
+        run: echo "RELEASE_TAG=$([[ ${GITHUB_REF_NAME} =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] && echo ${GITHUB_REF_NAME%.[0-9]*} || echo)" >> "$GITHUB_ENV"
+
+      - name: Login to Registry
+        id: login-to-registry
+        shell: bash
+        run: podman login --username "${{ secrets.QUAYIO_USERNAME }}" --password "${{ secrets.QUAYIO_PASSWORD }}" "${{ env.REGISTRY }}"
+
+      - name: Create Manifest
+        id: create-manifest
+        shell: bash
+        run:  |
+              echo "Creating manifest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} ..."
+              buildah manifest create --all ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} \
+                ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}-amd64 \
+                ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}-arm64
+
+      - name: Push Manifest
+        id: push-manifest
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: ${{ env.IMAGE_NAME }}
+          tags: ${{ env.IMAGE_TAG }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.QUAYIO_USERNAME }}
+          password: ${{ secrets.QUAYIO_PASSWORD }}
+
+      - name: Create Release Manifest
+        id: create-release-manifest
+        if: contains( env.RELEASE_TAG, '.' )
+        shell: bash
+        run:  |
+              echo "Creating Release manifest ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.RELEASE_TAG }} ..."
+              buildah manifest create --all ${{ env.IMAGE_NAME }}:${{ env.RELEASE_TAG }} \
+                ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}-amd64 \
+                ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}-arm64
+
+      - name: Push Release Manifest
+        id: push-release-manifest
+        if: contains( env.RELEASE_TAG, '.' )
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: ${{ env.IMAGE_NAME }}
+          tags: ${{ env.RELEASE_TAG }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.QUAYIO_USERNAME }}
+          password: ${{ secrets.QUAYIO_PASSWORD }}

@@ -20,6 +20,7 @@ dest="${DEST_BASE}/${date_prefix}${suffix}"
 
 echo "Archiving $SRC -> $dest"
 rsync -a \
+  --exclude='repos' \
   --exclude='.git' \
   --exclude='node_modules' \
   --exclude='dist' \

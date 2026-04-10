@@ -1,0 +1,185 @@
+{
+  "file": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/vendor/react-table-batteries/tackle2-ui-legacy/components/ToolbarBulkSelector.tsx",
+  "rule_ids": [
+    "semver-packages-react-core-src-components-menutoggle-menutoggle-menutoggleprops-d-ts-menutoggle-splitbuttonoptions-signature-changed"
+  ],
+  "chunks": [
+    {
+      "chunk": 1,
+      "prompt": "You are applying a code migration fix.\n\nFile: /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/vendor/react-table-batteries/tackle2-ui-legacy/components/ToolbarBulkSelector.tsx\nLine: 134\n\nMigration rule [semver-packages-react-core-src-components-menutoggle-menutoggle-menutoggleprops-d-ts-menutoggle-splitbuttonoptions-signature-changed]:\nProperty 'MenuToggle.splitButtonOptions' had its signature changed (property): property `splitButtonOptions` was replaced by `splitButtonItems` in `MenuToggleProps` with a different type\n\nFile: packages/react-core/src/components/MenuToggle/MenuToggle.MenuToggleProps.d.ts\nBefore: property: splitButtonOptions: SplitButtonOptions\nAfter: property: splitButtonItems: ReactNode[]\n\nCode context:\n```\n  133                aria-label=\"Bulk selection menu toggle\"\n  134                splitButtonOptions={{\n  135                  items: [\n\n```\n\nInstructions:\n1. Read the file at /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/vendor/react-table-batteries/tackle2-ui-legacy/components/ToolbarBulkSelector.tsx\n2. Apply ONLY the change described by the migration rule at or near line 134\n3. Make the minimum edit necessary — do not change unrelated code, but DO clean up any artifacts caused by your change (e.g., remove imports that are no longer referenced, delete dead declarations)\n4. Write the fixed file\n\n\nBefore writing, reason through the fix step by step to ensure nothing is missed. Then read the file, make the edit, and write it.",
+      "response": "The edit has been applied. The change:\n\n- **Before:** `splitButtonOptions={{ items: [ ... ] }}` — an object with an `items` array\n- **After:** `splitButtonItems={[ ... ]}` — a direct `ReactNode[]` array\n\nNo imports needed to be added or removed since `MenuToggle` and `MenuToggleCheckbox` are still in use.",
+      "response_length": 310,
+      "elapsed_secs": 0.0,
+      "retried": false,
+      "status": "ok",
+      "goose_session": {
+        "messages": [
+          {
+            "id": null,
+            "role": "user",
+            "created": 1775770204,
+            "content": [
+              {
+                "type": "text",
+                "text": "You are applying a code migration fix.\n\nFile: /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/vendor/react-table-batteries/tackle2-ui-legacy/components/ToolbarBulkSelector.tsx\nLine: 134\n\nMigration rule [semver-packages-react-core-src-components-menutoggle-menutoggle-menutoggleprops-d-ts-menutoggle-splitbuttonoptions-signature-changed]:\nProperty 'MenuToggle.splitButtonOptions' had its signature changed (property): property `splitButtonOptions` was replaced by `splitButtonItems` in `MenuToggleProps` with a different type\n\nFile: packages/react-core/src/components/MenuToggle/MenuToggle.MenuToggleProps.d.ts\nBefore: property: splitButtonOptions: SplitButtonOptions\nAfter: property: splitButtonItems: ReactNode[]\n\nCode context:\n```\n  133                aria-label=\"Bulk selection menu toggle\"\n  134                splitButtonOptions={{\n  135                  items: [\n\n```\n\nInstructions:\n1. Read the file at /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/vendor/react-table-batteries/tackle2-ui-legacy/components/ToolbarBulkSelector.tsx\n2. Apply ONLY the change described by the migration rule at or near line 134\n3. Make the minimum edit necessary — do not change unrelated code, but DO clean up any artifacts caused by your change (e.g., remove imports that are no longer referenced, delete dead declarations)\n4. Write the fixed file\n\n\nBefore writing, reason through the fix step by step to ensure nothing is missed. Then read the file, make the edit, and write it."
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_vrtx_01UZwgFKeKKnVntT3bS2VFxt",
+            "role": "assistant",
+            "created": 1775770210,
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "Let me analyze the migration rule:\n\n1. `splitButtonOptions` property on `MenuToggle` has been replaced by `splitButtonItems`\n2. Before: `splitButtonOptions: SplitButtonOptions` (an object with structure)\n3. After: `splitButtonItems: ReactNode[]` (a simple array of ReactNode)\n\nSo the change is:\n- `splitButtonOptions={{ items: [...] }}` → `splitButtonItems={[...]}`\n\nThe old API had `splitButtonOptions` which was an object containing an `items` array. The new API flattens this to just `splitButtonItems` which directly takes the array.\n\n\nNow I need to look at the actual file to see how this property is being used and what needs to be updated.",
+                "signature": "EpAGClsIDBACGAIqQCyDTUzlJ2fjHJtFj4zudEkBOi8DC1I404iOQnVa+3fH6bcO1BVLa3cIsdb9V1XaqGlIefApV2JIhPKu4sKG2X4yD2NsYXVkZS1vcHVzLTQtNjgAEgyXJpkF0BCpBqmIuogaDPbLgue08htPv9xZPyIwRWxWWvQomcSymfC2ofvmdp5NE3TIqHo597Gc0nYSD+U+5AeYhOpmwMIr9nRsqrZFKuIEQmMJsETqnlJMpmfwj5AxpclapNFFvFwnB1X5XQ+cxRH6+uvmMMdoFkbYbhkR4E7dd9Hc7TEhzC9SfWnPM+Vc2ykfpJgNUapTZ1zCcYbQTLiuqWNpqT8LEdXOWrSHkyXGREL7YsbNmAjgV/1V9Md+jXANDwtTRaKICtz72V0e4ehQxDE6gSUAIsrcegmfuIxVQqKYEXO00G0U5z/FoBhkyG8zt8Xw2o3HBBpX5ZwQ4pmMXqrU0wl/PTIP91Y7bEx/1jmtL700187a8rMD2aZF4Swus//YAQ6VRJhd7ZSRu9oanmug+zXbqzVNOIx62jVadp45nSJB6I0OJrLN6G18IIUCcrg8w9JJ6qbUdyUHBUqS+kVjjXVCuJlC0I9GFIPDoJVuxYmsW/hRflTjCx0wKB2OrJbt3xZ/mEkUctudBEPzGIXCmWFvpOIvSxYkEUQ0crdD+5AAnAmUVDAsjCdfCF/yp4Bl3OlRovuAviliT2UyyaKj8VhUgO4DsndiACBMQoyY+e6GCu2K40lMqoFRGwU9C5woIu94QnxBqn1NCOumi2Pz0ACCQOGvnzB/jeKYb2fecENbmBQMP8loTEOHHoWLBSWhiRvdwlkw/cSCqKvh8iYDk+9PixbC3JPBe5U/cQtjuACqMZPIF/6FgYCbExcTOidcu64hRnksuqqzHCfKGYTQr44Qa6koeDQXLDyu62c/QvNXqfqOkl4RJ7f0qbOy83QtV9mmZG0ZutFg/MdIjDlHHU7PDKmJOQFW89U9qklUI388EclyMmOKRmdYJ+WCBgLM94oHlC1Tl90O51kythgB"
+              },
+              {
+                "type": "toolRequest",
+                "id": "toolu_vrtx_01EvSwUaqZZYWxE7svpbiJoY",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "name": "execute_typescript",
+                    "arguments": {
+                      "code": "async function run() {\n  const result = await Developer.shell({ command: \"cat /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/vendor/react-table-batteries/tackle2-ui-legacy/components/ToolbarBulkSelector.tsx\" });\n  return result.stdout;\n}\n"
+                    }
+                  }
+                },
+                "_meta": {
+                  "goose_extension": "code_execution"
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_f3987a83-7ed3-4d93-835e-9aea67802e4c",
+            "role": "user",
+            "created": 1775770210,
+            "content": [
+              {
+                "type": "toolResponse",
+                "id": "toolu_vrtx_01EvSwUaqZZYWxE7svpbiJoY",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Code Executed Successfully: true\n\n# Return Value\n```json\n\"import React, { useState } from 'react';\\nimport {\\n  Button,\\n  Dropdown,\\n  DropdownItem,\\n  DropdownList,\\n  MenuToggle,\\n  MenuToggleCheckbox,\\n  PaginationProps,\\n  ToolbarItem\\n} from '@patternfly/react-core';\\nimport AngleDownIcon from '@patternfly/react-icons/dist/esm/icons/angle-down-icon';\\nimport AngleRightIcon from '@patternfly/react-icons/dist/esm/icons/angle-right-icon';\\n\\nexport interface ToolbarBulkSelectorProps<T> {\\n  areAllSelected: boolean;\\n  areAllExpanded?: boolean;\\n  onSelectAll?: (flag?: boolean) => void;\\n  onSelectNone: () => void;\\n  onExpandAll?: (flag?: boolean) => void;\\n  selectedRows: T[];\\n  onSelectMultiple: (items: T[], isSelecting: boolean) => void;\\n  currentPageItems: T[];\\n  paginationProps: PaginationProps;\\n  isExpandable?: boolean;\\n}\\n\\n/**\\n * @deprecated this component comes from tackle2-ui legacy code and should probably be moved somewhere else like PF component groups\\n */\\nexport const ToolbarBulkSelector = <T,>({\\n  currentPageItems,\\n  areAllSelected,\\n  onSelectAll,\\n  onSelectNone,\\n  onExpandAll,\\n  areAllExpanded,\\n  selectedRows,\\n  onSelectMultiple,\\n  paginationProps,\\n  isExpandable\\n}: React.PropsWithChildren<ToolbarBulkSelectorProps<T>>): JSX.Element | null => {\\n  const [isOpen, setIsOpen] = useState(false);\\n\\n  const toggleCollapseAll = (collapse: boolean) => {\\n    onExpandAll && onExpandAll(!collapse);\\n  };\\n  const collapseAllBtn = () => (\\n    <Button\\n      variant=\\\"control\\\"\\n      title={`${!areAllExpanded ? 'Expand' : 'Collapse'} all`}\\n      onClick={() => {\\n        areAllExpanded !== undefined && toggleCollapseAll(areAllExpanded);\\n      }}\\n    >\\n      {areAllExpanded ? <AngleDownIcon /> : <AngleRightIcon />}\\n    </Button>\\n  );\\n\\n  const getBulkSelectState = () => {\\n    let state: boolean | null;\\n    if (areAllSelected) {\\n      state = true;\\n    } else if (selectedRows.length === 0) {\\n      state = false;\\n    } else {\\n      state = null;\\n    }\\n    return state;\\n  };\\n  const handleSelectAll = (checked: boolean) => {\\n    onSelectAll?.(!!checked);\\n  };\\n\\n  const selectPage = () =>\\n    onSelectMultiple(\\n      currentPageItems.map((item: T) => item),\\n      true\\n    );\\n\\n  // TODO support i18n / custom text for items below\\n\\n  const dropdownItems = [\\n    <DropdownItem\\n      onClick={() => {\\n        handleSelectAll(false);\\n        setIsOpen(false);\\n      }}\\n      data-action=\\\"none\\\"\\n      key=\\\"select-none\\\"\\n      component=\\\"button\\\"\\n    >\\n      Select none (0 items)\\n    </DropdownItem>,\\n    <DropdownItem\\n      onClick={() => {\\n        selectPage();\\n        setIsOpen(false);\\n      }}\\n      data-action=\\\"page\\\"\\n      key=\\\"select-page\\\"\\n      component=\\\"button\\\"\\n    >\\n      Select page ({currentPageItems.length} items)\\n    </DropdownItem>,\\n    ...(onSelectAll\\n      ? [\\n          <DropdownItem\\n            onClick={() => {\\n              handleSelectAll(true);\\n              setIsOpen(false);\\n            }}\\n            data-action=\\\"all\\\"\\n            key=\\\"select-all\\\"\\n            component=\\\"button\\\"\\n          >\\n            Select all ({paginationProps.itemCount})\\n          </DropdownItem>\\n        ]\\n      : [])\\n  ];\\n\\n  return (\\n    <React.Fragment>\\n      {isExpandable && <ToolbarItem>{collapseAllBtn()}</ToolbarItem>}\\n      <ToolbarItem>\\n        <Dropdown\\n          isOpen={isOpen}\\n          toggle={toggleRef => (\\n            <MenuToggle\\n              ref={toggleRef}\\n              onClick={() => setIsOpen(!isOpen)}\\n              aria-label=\\\"Bulk selection menu toggle\\\"\\n              splitButtonOptions={{\\n                items: [\\n                  <MenuToggleCheckbox\\n                    id=\\\"bulk-selected-items-checkbox\\\"\\n                    key=\\\"bulk-select-checkbox\\\"\\n                    aria-label=\\\"Select all\\\"\\n                    onChange={() => {\\n                      if (getBulkSelectState() !== false) {\\n                        onSelectNone();\\n                      } else if (onSelectAll) {\\n                        onSelectAll(true);\\n                      } else {\\n                        selectPage();\\n                      }\\n                    }}\\n                    isChecked={getBulkSelectState()}\\n                  />\\n                ]\\n              }}\\n            />\\n          )}\\n        >\\n          <DropdownList>{dropdownItems}</DropdownList>\\n        </Dropdown>\\n      </ToolbarItem>\\n    </React.Fragment>\\n  );\\n};\"\n```\n\n# STDOUT\n\n\n# STDERR\n\n"
+                      }
+                    ],
+                    "isError": false
+                  }
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_vrtx_01KZNBmemzMJmrDrRq2XvzfG",
+            "role": "assistant",
+            "created": 1775770217,
+            "content": [
+              {
+                "type": "thinking",
+                "thinking": "Let me analyze the migration rule:\n\n**Before:** `splitButtonOptions: SplitButtonOptions` (which is an object with an `items` property)\n**After:** `splitButtonItems: ReactNode[]` (which is a direct array of ReactNode)\n\nSo the change is:\n- `splitButtonOptions={{ items: [...] }}` → `splitButtonItems={[...]}`\n\nLooking at lines 134-135:\n```tsx\nsplitButtonOptions={{\n  items: [\n    <MenuToggleCheckbox\n      ...\n    />\n  ]\n}}\n```\n\nShould become:\n```tsx\nsplitButtonItems={[\n  <MenuToggleCheckbox\n    ...\n  />\n]}\n```\n\nThis is a straightforward property rename and flattening. The `splitButtonOptions={{ items: [...] }}` becomes `splitButtonItems={[...]}`. No imports need to change since we're still using `MenuToggle` and `MenuToggleCheckbox`. Let me make the edit.",
+                "signature": "EqkHClsIDBACGAIqQLLyqACwfftr3gEL8PIMWHpejqvmB6zDWtgremS4jEwFSRfmzA6TyZZjfkUdtswunGYGz+zBVPQWDEU8rdETqNQyD2NsYXVkZS1vcHVzLTQtNjgAEgzCc+O6kPJK96Wj4j0aDEP1E1TcdsAg1QDbwSIwXE4TrdsK5cpAvRyzZ6hIMcvsLvwdMv/HzfBbr2KFwwMrTXd2Pe8bAkN7ECc2slJnKvsF9EBWrIsVYhrMQutZ4CZk2MmcJ9BATPSSyfI85x+hXVS2XO+KyQMFsCF30Gs1Pg6wX3Apqqb0hSNPLaBgvXg4IzHaP/rWKc+ju5f2grUbn8WLIcx/egX1Gh3tQQFflWxLjCrv1T2YVZ3LSpVFt5AFRNiV9l/EAMMh2ORixjLFxO+VranplRfpoZHCGLz8a/7kT7Tx2OAOouw3+QrRp7Rbmfpr9kqHFxyXdlxxSF+lJZ8/fmx24QV1K/kya+yjyrE7OwATsAoNOG+fAM9B0OhNs/yGF2eHyrUyph233ah+BzTwtTsrTUYZ43F8SIOyT6rQO0xMsLgynrQdNDVB4lcFuIAnFXD6Qofl8lMcTxe6ReU6FPQACiNSw5EUE2jkbS3VuYSg9crRD7CIjkxBeC0wlxrjqe3K2XSgtP4AW5XRXk/DN92TOs3j5mqnTQdL6/V8XSaPSxCCxkMi2euq7jthDCrxM9SIvAXbmdkyRJ0NVn4DENBBRGtpTENI0MEE852Dr3ZBtXokIfv/ajAkG8kWZkWmq1XEM9eMbhOT08W88r6Ujevp1s3xD0Eg5W8RXLY7PUMX7d9gbFMPfdDnb34rdRvArFlJQFeU3FVZ9F2+TpKQHgwDrF0x6rvtUUf6SwRNL+3FxqS/n8Cg4QfGo0xoPEdYIEWbgwNnsRyuGKvbA8bnbF9hH9Em6rkg+N1J7RCn0dhlABKOyICcZPZfIXU8wUTnmDXaojfO5ld46YxV2Stqz7iH4c1ZUcUf06uFYjE4lWzCChydWPjX4JXoVPbUQpuWcvEcxFafbNbB//opxwJtBRgZRqp0EKFhlMZyYgDIG2CyD7NwaIDzAlJPAM3yQrw59gU0/h7v1U4G9Hg+hJYT/ry5kve3w6dJSkw7tfjcc/3OZec3KUwGWwL/Kg2cHv7wA1+3EK9LVxQh6jVouDNF7JAcQVa/AeVwKsZYcXz8ndLSMIQtNHTdJxcaHrpiX5Xksw41brcjvHWpuVDtYouytK/YZ6gEm3pJjhgB"
+              },
+              {
+                "type": "text",
+                "text": "Now I understand the file. Let me reason through the fix:\n\n**Migration rule:** `splitButtonOptions={{ items: [...] }}` → `splitButtonItems={[...]}`\n\nThe old API used `splitButtonOptions` which took an object `{ items: ReactNode[] }`. The new API uses `splitButtonItems` which takes a `ReactNode[]` directly.\n\nSo the change is:\n- `splitButtonOptions={{ items: [ ... ] }}` → `splitButtonItems={[ ... ]}`\n\nNo imports need to change — we still use `MenuToggle` and `MenuToggleCheckbox`."
+              },
+              {
+                "type": "toolRequest",
+                "id": "toolu_vrtx_01AK1SPMTXD7ciWzpyQRHTzP",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "name": "edit",
+                    "arguments": {
+                      "path": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/vendor/react-table-batteries/tackle2-ui-legacy/components/ToolbarBulkSelector.tsx",
+                      "before": "              splitButtonOptions={{\n                items: [\n                  <MenuToggleCheckbox\n                    id=\"bulk-selected-items-checkbox\"\n                    key=\"bulk-select-checkbox\"\n                    aria-label=\"Select all\"\n                    onChange={() => {\n                      if (getBulkSelectState() !== false) {\n                        onSelectNone();\n                      } else if (onSelectAll) {\n                        onSelectAll(true);\n                      } else {\n                        selectPage();\n                      }\n                    }}\n                    isChecked={getBulkSelectState()}\n                  />\n                ]\n              }}",
+                      "after": "              splitButtonItems={[\n                  <MenuToggleCheckbox\n                    id=\"bulk-selected-items-checkbox\"\n                    key=\"bulk-select-checkbox\"\n                    aria-label=\"Select all\"\n                    onChange={() => {\n                      if (getBulkSelectState() !== false) {\n                        onSelectNone();\n                      } else if (onSelectAll) {\n                        onSelectAll(true);\n                      } else {\n                        selectPage();\n                      }\n                    }}\n                    isChecked={getBulkSelectState()}\n                  />\n                ]}"
+                    }
+                  }
+                },
+                "_meta": {
+                  "goose_extension": "developer"
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_7c8dec44-c2f7-4d1f-bfef-a0295816c95d",
+            "role": "user",
+            "created": 1775770223,
+            "content": [
+              {
+                "type": "toolResponse",
+                "id": "toolu_vrtx_01AK1SPMTXD7ciWzpyQRHTzP",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Edited /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/vendor/react-table-batteries/tackle2-ui-legacy/components/ToolbarBulkSelector.tsx (19 lines -> 17 lines)",
+                        "annotations": {
+                          "priority": 0.0
+                        }
+                      }
+                    ],
+                    "isError": false
+                  }
+                }
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          },
+          {
+            "id": "msg_vrtx_01VHpQaznsM1LpRpfH8KKj3j",
+            "role": "assistant",
+            "created": 1775770224,
+            "content": [
+              {
+                "type": "text",
+                "text": "The edit has been applied. The change:\n\n- **Before:** `splitButtonOptions={{ items: [ ... ] }}` — an object with an `items` array\n- **After:** `splitButtonItems={[ ... ]}` — a direct `ReactNode[]` array\n\nNo imports needed to be added or removed since `MenuToggle` and `MenuToggleCheckbox` are still in use."
+              }
+            ],
+            "metadata": {
+              "userVisible": true,
+              "agentVisible": true
+            }
+          }
+        ],
+        "metadata": {
+          "total_tokens": 6404,
+          "status": "completed"
+        }
+      }
+    }
+  ],
+  "total_chunks": 1,
+  "success": true,
+  "elapsed_secs": 23.8397445
+}
