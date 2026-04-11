@@ -367,11 +367,49 @@ Fix any inconsistencies you find before writing the report. Do not write
 the report with known contradictions — resolve them first.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 6 — FINAL REPORT
+STAGE 3 — SYNTHESIS & FINAL REPORT (PHASE 6)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+The final report has three parts, each for a different audience. Write them
+in order.
+
+─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+PART 1: STAKEHOLDER BRIEF
+─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+
+Audience: engineering director or stakeholder deciding whether to invest in
+the automation tooling. No PF6 jargon, no component names.
+
+Write one paragraph covering:
+  - What was tested (one sentence)
+  - What the result means (one sentence)
+  - Clear recommendation: adopt as starting point / adopt with caveats /
+    do not adopt
+  - One metric that captures the story (e.g., "correctly handled 70% of
+    simple changes but 0% of complex structural rewrites")
+
+─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+PART 2: DEVELOPER PUNCH LIST
+─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+
+Audience: the developer who will fix the semver-migrated branch.
+
+Ordered table, highest risk first:
+
+  | Priority | File | What to Fix | Why | Effort |
+  |---|---|---|---|---|
+
+Effort as rough t-shirt sizing (minutes/hours). This replaces the scattered
+"REQUIRED FIX" blocks from per-file analysis — consolidate them here.
+
+─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+PART 3: TECHNICAL ASSESSMENT
+─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+
+Audience: prompt author and tool evaluator.
+
 ## Executive Summary
-3-5 sentences. Honest overall verdict. Lead with the most important finding.
+Full paragraph. Honest overall verdict. Lead with the most important finding.
 Do not bury the conclusion.
 
 ## Coverage and Quality Metrics
@@ -404,7 +442,7 @@ Report three separate coverage numbers — they will tell different stories:
     List any files where PF5 and PF6 are mixed — these are the highest
     priority cleanup items
 
-## Automation Capability Assessment
+## Appendix: Automation Tool Assessment
 Answer these directly. No hedging.
 
   1. What is the automation's effective ceiling?
