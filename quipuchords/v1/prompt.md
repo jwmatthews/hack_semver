@@ -123,6 +123,18 @@ PRIORITY files, use your judgment — if patterns become repetitive, note the
 pattern and summarize rather than repeating full analysis.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 1 CHECKPOINT — STOP AND OUTPUT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Stop and output your file inventory table and priority triage. Do not begin
+per-file analysis until you have committed to this inventory.
+
+Use the inventory above to guide your analysis in Stage 2. HIGH priority
+files get full analysis, MEDIUM files get focused analysis, LOW files get
+representative sampling. If you skipped this checkpoint, go back — the next
+stage depends on it.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 PHASE 3 — PER-FILE DEEP ANALYSIS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
