@@ -135,17 +135,26 @@ representative sampling. If you skipped this checkpoint, go back — the next
 stage depends on it.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 3 — PER-FILE DEEP ANALYSIS
+STAGE 2 — PER-FILE ANALYSIS (PHASE 3)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 For each file, retrieve the pre-migration PF5 source from the base branch
 whenever the two PRs diverge significantly, or when you need original intent
 to judge whether a migration was semantically correct.
 
-For each OVERLAP file, produce this block:
+Analyze files by tier, using your Stage 1 inventory to determine priority.
+
+─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+HIGH PRIORITY FILES — Full 8-Criterion Analysis
+─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+
+Files containing high-complexity components (Dropdown, Select, Wizard,
+ApplicationLauncher, ContextSelector). Use the full analysis template below.
+
+For each HIGH priority OVERLAP file, produce this block:
 
 ─────────────────────────────────────────────
-`path/to/file.tsx`  [HIGH/MEDIUM/LOW PRIORITY]
+`path/to/file.tsx`  [HIGH PRIORITY]
 ─────────────────────────────────────────────
 
 CHANGE CLASSIFICATION:
@@ -196,6 +205,11 @@ CRITERIA ASSESSMENT:
      or produce wrong behavior in PF6?
      RISK LEVEL: HIGH / MEDIUM / LOW / NONE
 
+EVIDENCE REQUIREMENT:
+  For any criterion you marked ✅ Correct, quote the specific diff hunk or
+  fetched source line(s) from semver-migrated that confirm correctness. If
+  you cannot quote evidence, downgrade to ⚠️ Partial.
+
 WHAT GOLDEN-SOURCE DID:
   1-3 sentences. Focus on the semantic intent, not just mechanics.
 
@@ -207,16 +221,82 @@ DELTA:
   rewrite, say exactly what the correct PF6 pattern should look like.
 
 DEVELOPER UTILITY VERDICT:
-  Choose one and justify in 1-2 sentences:
-    Helpful    — a developer would save meaningful time starting from this
-    Neutral    — correct direction but not enough to reduce developer effort
-    Harmful    — introduces problems the developer would spend time debugging
+  If a developer started from semver-migrated's version of this file instead
+  of the PF5 original, estimate the net time impact: saves time, costs time,
+  or roughly equivalent. Be specific about what they'd still need to do.
 
 IF RISK LEVEL IS HIGH — REQUIRED FIX:
   Tell the developer exactly what they need to do to make this file safe
   to use. Be specific: which lines, which pattern, which PF6 API.
 
 ─────────────────────────────────────────────
+
+MINI-CHECKPOINT — HIGH TIER COMPLETE:
+  Re-read your assessments for this tier. For any ✅ Correct verdict, confirm
+  you cited evidence. For any HIGH risk finding, confirm you described the
+  specific fix.
+
+─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+MEDIUM PRIORITY FILES — Focused 5-Criterion Analysis
+─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+
+Files with moderate-complexity changes. Use a reduced analysis template.
+
+For each MEDIUM priority OVERLAP file:
+
+─────────────────────────────────────────────
+`path/to/file.tsx`  [MEDIUM PRIORITY]
+─────────────────────────────────────────────
+
+CHANGE CLASSIFICATION:
+  Mechanical changes present:  yes/no — list them briefly
+  Semantic changes present:    yes/no — list them briefly
+
+CRITERIA ASSESSMENT (5 criteria — CSS tokens, TypeScript types, and
+structural/JSX correctness are folded into correctness risk):
+
+  1. Import correctness
+  2. Component API alignment
+  3. Half-migration risk  ⚠️ ELEVATED CRITERION
+  4. Correctness risk (RISK LEVEL: HIGH / MEDIUM / LOW / NONE)
+  5. Completeness vs. golden-source (EQUIVALENT / SUBSET / SUPERSET / DIVERGENT)
+
+DEVELOPER UTILITY VERDICT:
+  If a developer started from semver-migrated's version of this file instead
+  of the PF5 original, estimate the net time impact: saves time, costs time,
+  or roughly equivalent. Be specific about what they'd still need to do.
+
+IF RISK LEVEL IS HIGH — REQUIRED FIX:
+  Specific fix instructions.
+
+─────────────────────────────────────────────
+
+MINI-CHECKPOINT — MEDIUM TIER COMPLETE:
+  Re-read your assessments for this tier. For any ✅ Correct verdict, confirm
+  you cited evidence. For any HIGH risk finding, confirm you described the
+  specific fix.
+
+─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+LOW PRIORITY FILES — Representative Sampling
+─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+
+Files where only mechanical changes are expected.
+
+Pick 1-2 representative LOW priority files and analyze them using the
+MEDIUM template above.
+
+Then list the remaining LOW priority files. For each, state whether it
+follows the same pattern as the representative file or diverges. If a
+file diverges from the representative pattern, promote it to MEDIUM and
+analyze with the MEDIUM template.
+
+MINI-CHECKPOINT — LOW TIER COMPLETE:
+  Re-read your assessments. Confirm any promoted files received MEDIUM-depth
+  analysis.
+
+─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+GOLDEN-ONLY AND AUTO-ONLY FILES
+─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
 
 For GOLDEN-ONLY files:
 `path/to/file.tsx`  *(not touched by semver-migrated)*
