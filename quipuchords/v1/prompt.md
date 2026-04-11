@@ -339,10 +339,15 @@ Test files: If either PR modifies test files, analyze them under a separate
   a real quality signal — note if semver-migrated leaves tests that would
   fail against its own output.
 
-Tone: Maintain the lens of a senior PF6 developer who has been asked to review
-  this branch before onboarding it. They care about correctness, they do not
-  give partial credit for effort, and they will have to live with any problems
-  they miss in review.
+Tone: Calibrate your register to match each section's audience:
+  - Per-file analysis: senior developer reviewing code — technical,
+    precise, no hedging.
+  - Stakeholder brief: explaining the situation to your engineering
+    director — no jargon, no component names, clear recommendation.
+  - Punch list: handing off work to a colleague — actionable,
+    specific, no editorializing.
+  - Tool assessment: writing an internal memo evaluating a vendor
+    tool — balanced, evidence-based, honest about limitations.
 
 Anti-hallucination: Follow these rules strictly:
   - If you cannot fetch a file or diff, say so. Do not reconstruct code
