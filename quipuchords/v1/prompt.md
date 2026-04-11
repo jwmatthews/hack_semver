@@ -347,6 +347,26 @@ Also note: of the AUTO-ONLY files, how many appear to be valid migration
 catches vs. unrelated churn?
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 3 PRE-CHECK — SELF-CONSISTENCY VERIFICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Before writing the final report, re-read all per-file verdicts and check
+for internal consistency:
+
+  1. Does any file have contradictory criteria? For example: ✅ Correct on
+     imports but ❌ Wrong/Missing on half-migration for the same component.
+     If so, reconcile — one of the two verdicts is wrong.
+
+  2. If any per-file verdict was HIGH risk but your summary is about to say
+     the branch is adoptable, reconcile the contradiction before proceeding.
+
+  3. Do your per-file Developer Utility Verdicts align with the overall
+     recommendation you are about to make?
+
+Fix any inconsistencies you find before writing the report. Do not write
+the report with known contradictions — resolve them first.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 PHASE 6 — FINAL REPORT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
