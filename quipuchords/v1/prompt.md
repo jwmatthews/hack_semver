@@ -4,7 +4,7 @@ honest, skeptical assessment. Do not soften negative findings. A developer will 
 to decide whether to adopt the automated output — false positives waste their time.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 0 — ORIENTATION
+STAGE 1 — GROUND TRUTH (PHASE 0: ORIENTATION)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Two PRs, same base codebase:
@@ -71,7 +71,7 @@ CLASSIFICATION YOU MUST APPLY:
     developer judgment. Requires actual understanding of PF6.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 1 — GATE CHECK (run this first, stop if it fails)
+STAGE 1 (PHASE 1: GATE CHECK — run this first, stop if it fails)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Before any code analysis, verify the foundation:
@@ -89,7 +89,7 @@ Before any code analysis, verify the foundation:
 Report the gate result in one paragraph before proceeding.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 2 — FETCH AND INVENTORY
+STAGE 1 (PHASE 2: FETCH AND INVENTORY)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Retrieve both PR diffs. Preferred method:
@@ -309,7 +309,7 @@ For AUTO-ONLY files:
   If noise: how much developer time would cleanup take?
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 4 — CROSS-FILE PATTERN ANALYSIS
+STAGE 3 (PHASE 4: CROSS-FILE PATTERN ANALYSIS)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 After per-file analysis, aggregate across all files by migration pattern type.
@@ -330,7 +330,7 @@ that tells you the automation is non-deterministic or sensitive to minor
 syntactic variations.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 5 — NOISE QUANTIFICATION
+STAGE 3 (PHASE 5: NOISE QUANTIFICATION)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Estimate the signal-to-noise ratio of semver-migrated:
