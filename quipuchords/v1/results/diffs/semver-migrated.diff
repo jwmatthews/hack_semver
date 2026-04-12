@@ -1,0 +1,854 @@
+diff --git a/package-lock.json b/package-lock.json
+index 9a9aa8500..38a1a05b6 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -9,11 +9,11 @@
+       "version": "2.1.0",
+       "license": "GPL-3.0",
+       "dependencies": {
+-        "@patternfly/patternfly": "5.3.1",
+-        "@patternfly/react-core": "5.3.4",
+-        "@patternfly/react-icons": "5.3.2",
+-        "@patternfly/react-styles": "5.3.1",
+-        "@patternfly/react-table": "5.3.4",
++        "@patternfly/patternfly": "^6.4.0",
++        "@patternfly/react-core": "^6.4.1",
++        "@patternfly/react-icons": "^6.4.0",
++        "@patternfly/react-styles": "^6.4.0",
++        "@patternfly/react-table": "^6.4.1",
+         "@tanstack/react-query": "^5.55.4",
+         "@types/jest": "^29.5.12",
+         "@types/react": "^18.3.5",
+@@ -3626,67 +3626,67 @@
+       }
+     },
+     "node_modules/@patternfly/patternfly": {
+-      "version": "5.3.1",
+-      "resolved": "https://registry.npmjs.org/@patternfly/patternfly/-/patternfly-5.3.1.tgz",
+-      "integrity": "sha512-KYIr9pKRTzHZNGuDuaa5j5CaZyLltvotPFGG1BiJalBDBGSOyk0BZCgHLowm4txKZXrLhorEuuv9XLrMQL8eoA==",
++      "version": "6.4.0",
++      "resolved": "https://registry.npmjs.org/@patternfly/patternfly/-/patternfly-6.4.0.tgz",
++      "integrity": "sha512-4drFhg74sEc/fftark5wZevODIog17qR4pwLCdB3j5iK3Uu5oMA2SdLhsEeEQggalfnFzve/Km87MdVR0ghhvQ==",
+       "license": "MIT"
+     },
+     "node_modules/@patternfly/react-core": {
+-      "version": "5.3.4",
+-      "resolved": "https://registry.npmjs.org/@patternfly/react-core/-/react-core-5.3.4.tgz",
+-      "integrity": "sha512-zr2yeilIoFp8MFOo0vNgI8XuM+P2466zHvy4smyRNRH2/but2WObqx7Wu4ftd/eBMYdNqmTeuXe6JeqqRqnPMQ==",
++      "version": "6.4.1",
++      "resolved": "https://registry.npmjs.org/@patternfly/react-core/-/react-core-6.4.1.tgz",
++      "integrity": "sha512-EUSV76Eifkt4R3q2JIaiB6/FHeQqOCttK1DQMXNoOCNa3ODkZ7H+KlMdminufMDfRzhwAgTVihZ62K9PFfc8Vg==",
+       "license": "MIT",
+       "dependencies": {
+-        "@patternfly/react-icons": "^5.3.2",
+-        "@patternfly/react-styles": "^5.3.1",
+-        "@patternfly/react-tokens": "^5.3.1",
+-        "focus-trap": "7.5.2",
+-        "react-dropzone": "^14.2.3",
+-        "tslib": "^2.5.0"
++        "@patternfly/react-icons": "^6.4.0",
++        "@patternfly/react-styles": "^6.4.0",
++        "@patternfly/react-tokens": "^6.4.0",
++        "focus-trap": "7.6.4",
++        "react-dropzone": "^14.3.5",
++        "tslib": "^2.8.1"
+       },
+       "peerDependencies": {
+-        "react": "^17 || ^18",
+-        "react-dom": "^17 || ^18"
++        "react": "^17 || ^18 || ^19",
++        "react-dom": "^17 || ^18 || ^19"
+       }
+     },
+     "node_modules/@patternfly/react-icons": {
+-      "version": "5.3.2",
+-      "resolved": "https://registry.npmjs.org/@patternfly/react-icons/-/react-icons-5.3.2.tgz",
+-      "integrity": "sha512-GEygYbl0H4zD8nZuTQy2dayKIrV2bMMeWKSOEZ16Y3EYNgYVUOUnN+J0naAEuEGH39Xb1DE9n+XUbE1PC4CxPA==",
++      "version": "6.4.0",
++      "resolved": "https://registry.npmjs.org/@patternfly/react-icons/-/react-icons-6.4.0.tgz",
++      "integrity": "sha512-SPjzatm73NUYv/BL6A/cjRA5sFQ15NkiyPAcT8gmklI7HY+ptd6/eg49uBDFmxTQcSwbb5ISW/R6wwCQBY2M+Q==",
+       "license": "MIT",
+       "peerDependencies": {
+-        "react": "^17 || ^18",
+-        "react-dom": "^17 || ^18"
++        "react": "^17 || ^18 || ^19",
++        "react-dom": "^17 || ^18 || ^19"
+       }
+     },
+     "node_modules/@patternfly/react-styles": {
+-      "version": "5.3.1",
+-      "resolved": "https://registry.npmjs.org/@patternfly/react-styles/-/react-styles-5.3.1.tgz",
+-      "integrity": "sha512-H6uBoFH3bJjD6PP75qZ4k+2TtF59vxf9sIVerPpwrGJcRgBZbvbMZCniSC3+S2LQ8DgXLnDvieq78jJzHz0hiA==",
++      "version": "6.4.0",
++      "resolved": "https://registry.npmjs.org/@patternfly/react-styles/-/react-styles-6.4.0.tgz",
++      "integrity": "sha512-EXmHA67s5sy+Wy/0uxWoUQ52jr9lsH2wV3QcgtvVc5zxpyBX89gShpqv4jfVqaowznHGDoL6fVBBrSe9BYOliQ==",
+       "license": "MIT"
+     },
+     "node_modules/@patternfly/react-table": {
+-      "version": "5.3.4",
+-      "resolved": "https://registry.npmjs.org/@patternfly/react-table/-/react-table-5.3.4.tgz",
+-      "integrity": "sha512-jGaiuo02scaC1HdGNHuYVRjtQCOB+vtvfbgS7nl1Y8ZcJ08wyUGhGSrEpNHfGAQ1XDSSoELAxj0cjOQwAAQw1A==",
++      "version": "6.4.1",
++      "resolved": "https://registry.npmjs.org/@patternfly/react-table/-/react-table-6.4.1.tgz",
++      "integrity": "sha512-dceS5X1I5gmhRfEf6gsLIdFhrQd5hY+SWRIYzEvI19rrdN9VwCVWg+bhSsNv05pQnGs8uOlzYVBI25p7PJtFeA==",
+       "license": "MIT",
+       "dependencies": {
+-        "@patternfly/react-core": "^5.3.4",
+-        "@patternfly/react-icons": "^5.3.2",
+-        "@patternfly/react-styles": "^5.3.1",
+-        "@patternfly/react-tokens": "^5.3.1",
+-        "lodash": "^4.17.19",
+-        "tslib": "^2.5.0"
++        "@patternfly/react-core": "^6.4.1",
++        "@patternfly/react-icons": "^6.4.0",
++        "@patternfly/react-styles": "^6.4.0",
++        "@patternfly/react-tokens": "^6.4.0",
++        "lodash": "^4.17.23",
++        "tslib": "^2.8.1"
+       },
+       "peerDependencies": {
+-        "react": "^17 || ^18",
+-        "react-dom": "^17 || ^18"
++        "react": "^17 || ^18 || ^19",
++        "react-dom": "^17 || ^18 || ^19"
+       }
+     },
+     "node_modules/@patternfly/react-tokens": {
+-      "version": "5.4.1",
+-      "resolved": "https://registry.npmjs.org/@patternfly/react-tokens/-/react-tokens-5.4.1.tgz",
+-      "integrity": "sha512-eygdHE7Krta1mijAv/E8RHiKIgysD0eeNTo8EXUYC8/M4e5K6sqpr2p6rQBF8QiRMN8FnbXvZT3K2OQ28pYt9Q==",
++      "version": "6.4.0",
++      "resolved": "https://registry.npmjs.org/@patternfly/react-tokens/-/react-tokens-6.4.0.tgz",
++      "integrity": "sha512-iZthBoXSGQ/+PfGTdPFJVulaJZI3rwE+7A/whOXPGp3Jyq3k6X52pr1+5nlO6WHasbZ9FyeZGqXf4fazUZNjbw==",
+       "license": "MIT"
+     },
+     "node_modules/@pkgjs/parseargs": {
+@@ -9156,9 +9156,9 @@
+       "license": "ISC"
+     },
+     "node_modules/focus-trap": {
+-      "version": "7.5.2",
+-      "resolved": "https://registry.npmjs.org/focus-trap/-/focus-trap-7.5.2.tgz",
+-      "integrity": "sha512-p6vGNNWLDGwJCiEjkSK6oERj/hEyI9ITsSwIUICBoKLlWiTWXJRfQibCwcoi50rTZdbi87qDtUlMCmQwsGSgPw==",
++      "version": "7.6.4",
++      "resolved": "https://registry.npmjs.org/focus-trap/-/focus-trap-7.6.4.tgz",
++      "integrity": "sha512-xx560wGBk7seZ6y933idtjJQc1l+ck+pI3sKvhKozdBV1dRZoKhkW5xoCaFv9tQiX5RH1xfSxjuNu6g+lmN/gw==",
+       "license": "MIT",
+       "dependencies": {
+         "tabbable": "^6.2.0"
+@@ -12416,9 +12416,9 @@
+       }
+     },
+     "node_modules/lodash": {
+-      "version": "4.17.21",
+-      "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz",
+-      "integrity": "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==",
++      "version": "4.18.1",
++      "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.18.1.tgz",
++      "integrity": "sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==",
+       "license": "MIT"
+     },
+     "node_modules/lodash.debounce": {
+@@ -16238,9 +16238,9 @@
+       }
+     },
+     "node_modules/tabbable": {
+-      "version": "6.2.0",
+-      "resolved": "https://registry.npmjs.org/tabbable/-/tabbable-6.2.0.tgz",
+-      "integrity": "sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==",
++      "version": "6.4.0",
++      "resolved": "https://registry.npmjs.org/tabbable/-/tabbable-6.4.0.tgz",
++      "integrity": "sha512-05PUHKSNE8ou2dwIxTngl4EzcnsCDZGJ/iCLtDflR/SHB/ny14rXc+qU5P4mG9JkusiV7EivzY9Mhm55AzAvCg==",
+       "license": "MIT"
+     },
+     "node_modules/tapable": {
+diff --git a/package.json b/package.json
+index f9b6d8205..7dfd72238 100644
+--- a/package.json
++++ b/package.json
+@@ -49,11 +49,11 @@
+     "test:types": "tsc --noEmit"
+   },
+   "dependencies": {
+-    "@patternfly/patternfly": "5.3.1",
+-    "@patternfly/react-core": "5.3.4",
+-    "@patternfly/react-icons": "5.3.2",
+-    "@patternfly/react-styles": "5.3.1",
+-    "@patternfly/react-table": "5.3.4",
++    "@patternfly/patternfly": "^6.4.0",
++    "@patternfly/react-core": "^6.4.1",
++    "@patternfly/react-icons": "^6.4.0",
++    "@patternfly/react-styles": "^6.4.0",
++    "@patternfly/react-table": "^6.4.1",
+     "@tanstack/react-query": "^5.55.4",
+     "@types/jest": "^29.5.12",
+     "@types/react": "^18.3.5",
+diff --git a/src/components/aboutModal/aboutModal.tsx b/src/components/aboutModal/aboutModal.tsx
+index b706e1765..fe8a88efd 100644
+--- a/src/components/aboutModal/aboutModal.tsx
++++ b/src/components/aboutModal/aboutModal.tsx
+@@ -1,6 +1,6 @@
+ import React, { useEffect, useState } from 'react';
+ import { useTranslation } from 'react-i18next';
+-import { AboutModal as PfAboutModal, TextContent, TextList, TextListItem } from '@patternfly/react-core';
++import { AboutModal as PfAboutModal, Content } from '@patternfly/react-core';
+ import { detect } from 'detect-browser';
+ import moment from 'moment/moment';
+ import { helpers } from '../../helpers';
+@@ -57,54 +57,54 @@ const AboutModal: React.FC<AboutModalProps> = ({
+       onClose={() => onClose()}
+       trademark={t('about.copyright', { year: currentYear })}
+     >
+-      <TextContent className={loadingClassName}>
+-        <TextList component="dl">
++      <Content className={loadingClassName}>
++        <Content component="dl">
+           {userName && (
+             <React.Fragment>
+-              <TextListItem component="dt">{t('about.username')}</TextListItem>
+-              <TextListItem component="dd">{userName}</TextListItem>
++              <Content component="dt">{t('about.username')}</Content>
++              <Content component="dd">{userName}</Content>
+             </React.Fragment>
+           )}
+           {browser && (
+             <React.Fragment>
+-              <TextListItem component="dt">{t('about.browser-version')}</TextListItem>
+-              <TextListItem component="dd">{`${browser.name} ${browser.version}`}</TextListItem>
++              <Content component="dt">{t('about.browser-version')}</Content>
++              <Content component="dd">{`${browser.name} ${browser.version}`}</Content>
+             </React.Fragment>
+           )}
+           {browser && (
+             <React.Fragment>
+-              <TextListItem component="dt">{t('about.browser-os')}</TextListItem>
+-              <TextListItem component="dd">{browser.os || ''}</TextListItem>
++              <Content component="dt">{t('about.browser-os')}</Content>
++              <Content component="dd">{browser.os || ''}</Content>
+             </React.Fragment>
+           )}
+           {uiVersion && (
+             <React.Fragment>
+-              <TextListItem component="dt">{t('about.ui-version')}</TextListItem>
+-              <TextListItem component="dd">{uiVersion}</TextListItem>
++              <Content component="dt">{t('about.ui-version')}</Content>
++              <Content component="dd">{uiVersion}</Content>
+             </React.Fragment>
+           )}
+           {stats?.server_version && (
+             <React.Fragment>
+-              <TextListItem className={loadingClassName} component="dt">
++              <Content className={loadingClassName} component="dt">
+                 {t('about.server-version')}
+-              </TextListItem>
+-              <TextListItem className={loadingClassName} component="dd">
++              </Content>
++              <Content className={loadingClassName} component="dd">
+                 {stats.server_version}
+-              </TextListItem>
++              </Content>
+             </React.Fragment>
+           )}
+           {stats?.platform.machine && (
+             <React.Fragment>
+-              <TextListItem className={loadingClassName} component="dt">
++              <Content className={loadingClassName} component="dt">
+                 {t('about.server-cpu-arch')}
+-              </TextListItem>
+-              <TextListItem className={loadingClassName} component="dd">
++              </Content>
++              <Content className={loadingClassName} component="dd">
+                 {stats.platform.machine}
+-              </TextListItem>
++              </Content>
+             </React.Fragment>
+           )}
+-        </TextList>
+-      </TextContent>
++        </Content>
++      </Content>
+     </PfAboutModal>
+   );
+ };
+diff --git a/src/components/contextIcon/contextIcon.tsx b/src/components/contextIcon/contextIcon.tsx
+index 5d8bde66c..9b345f3aa 100644
+--- a/src/components/contextIcon/contextIcon.tsx
++++ b/src/components/contextIcon/contextIcon.tsx
+@@ -29,10 +29,10 @@ import {
+   UserIcon
+ } from '@patternfly/react-icons';
+ import {
+-  global_Color_dark_100 as gray,
+-  global_success_color_100 as green,
+-  global_warning_color_100 as yellow,
+-  global_danger_color_100 as red
++  t_global_text_color_regular as gray,
++  t_global_color_status_success_default as green,
++  t_global_color_status_warning_default as yellow,
++  t_global_color_status_danger_default as red
+ } from '@patternfly/react-tokens';
+ 
+ /**
+diff --git a/src/components/errorMessage/errorMessage.tsx b/src/components/errorMessage/errorMessage.tsx
+index c95ffd8f2..0d3c23da1 100644
+--- a/src/components/errorMessage/errorMessage.tsx
++++ b/src/components/errorMessage/errorMessage.tsx
+@@ -1,6 +1,6 @@
+ import React from 'react';
+ import { useTranslation } from 'react-i18next';
+-import { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant, Title } from '@patternfly/react-core';
++import { EmptyState, EmptyStateBody, EmptyStateVariant, Title } from '@patternfly/react-core';
+ import { ExclamationCircleIcon } from '@patternfly/react-icons';
+ import { helpers } from '../../helpers';
+ 
+@@ -12,11 +12,12 @@ interface ErrorMessageProps {
+ const ErrorMessage: React.FC<ErrorMessageProps> = ({ description, title }) => {
+   const { t } = useTranslation();
+   return (
+-    <EmptyState variant={EmptyStateVariant.full}>
+-      <EmptyStateIcon icon={ExclamationCircleIcon} />
+-      <Title headingLevel="h2" size="lg">
+-        {title || t('view.error', { context: 'title', appName: helpers.UI_NAME })}
+-      </Title>
++    <EmptyState variant={EmptyStateVariant.full} icon={ExclamationCircleIcon}>
++      <EmptyStateBody>
++        <Title headingLevel="h2" size="lg">
++          {title || t('view.error', { context: 'title', appName: helpers.UI_NAME })}
++        </Title>
++      </EmptyStateBody>
+       <EmptyStateBody>{description || t('view.error', { context: 'description' })}</EmptyStateBody>
+     </EmptyState>
+   );
+diff --git a/src/components/typeAheadCheckboxes/typeaheadCheckboxes.tsx b/src/components/typeAheadCheckboxes/typeaheadCheckboxes.tsx
+index e865c7be9..6d21d232c 100644
+--- a/src/components/typeAheadCheckboxes/typeaheadCheckboxes.tsx
++++ b/src/components/typeAheadCheckboxes/typeaheadCheckboxes.tsx
+@@ -193,21 +193,23 @@ const TypeaheadCheckboxes: React.FC<TypeaheadCheckboxesProps> = ({
+       data-ouia-component-id={menuToggleOuiaId}
+     >
+       <TextInputGroup isPlain>
+-        <TextInputGroupMain
+-          value={inputValue}
+-          onClick={onToggleClick}
+-          onChange={onTextInputChange}
+-          onKeyDown={onInputKeyDown}
+-          id="multi-typeahead-select-checkbox-input"
+-          autoComplete="off"
+-          innerRef={textInputRef}
+-          placeholder={activePlaceholder}
+-          {...(activeItem && { 'aria-activedescendant': activeItem })}
+-          role="combobox"
+-          isExpanded={isOpen}
+-          aria-controls="select-multi-typeahead-checkbox-listbox"
+-          data-ouia-component-id="credentials_list_input"
+-        />
++        <TextInputGroupUtilities>
++          <TextInputGroupMain
++            value={inputValue}
++            onClick={onToggleClick}
++            onChange={onTextInputChange}
++            onKeyDown={onInputKeyDown}
++            id="multi-typeahead-select-checkbox-input"
++            autoComplete="off"
++            innerRef={textInputRef}
++            placeholder={activePlaceholder}
++            {...(activeItem && { 'aria-activedescendant': activeItem })}
++            role="combobox"
++            isExpanded={isOpen}
++            aria-controls="select-multi-typeahead-checkbox-listbox"
++            data-ouia-component-id="credentials_list_input"
++          />
++        </TextInputGroupUtilities>
+         <TextInputGroupUtilities>
+           {selectedOptions.length > 0 && (
+             <Button
+diff --git a/src/components/viewLayout/viewLayout.tsx b/src/components/viewLayout/viewLayout.tsx
+index 25ecacb6c..6aaaf2e73 100644
+--- a/src/components/viewLayout/viewLayout.tsx
++++ b/src/components/viewLayout/viewLayout.tsx
+@@ -21,6 +21,7 @@ import {
+   NavItem,
+   NavList,
+   Page,
++  PageBreadcrumb,
+   PageSidebar,
+   PageSidebarBody,
+   SkipToContent
+@@ -79,15 +80,15 @@ const AppLayout: React.FC<AppLayoutProps> = ({
+ 
+   // FixMe: PF spelling bug in attr "forwardScrollAriaLabel"
+   const Navigation = (
+-    <Nav id="nav-primary-simple" theme="dark">
++    <Nav id="nav-primary-simple">
+       <NavList id="nav-list-simple" forwardScrollAriaLabel="Scroll forward">
+-        {routes.map((route, idx) => route.label && renderNavItem(route, idx))}
++        {routes.filter(route => route.label).map((route, idx) => renderNavItem(route, idx))}
+       </NavList>
+     </Nav>
+   );
+ 
+   const Sidebar = (
+-    <PageSidebar theme="dark">
++    <PageSidebar>
+       <PageSidebarBody>{Navigation}</PageSidebarBody>
+     </PageSidebar>
+   );
+@@ -110,7 +111,8 @@ const AppLayout: React.FC<AppLayoutProps> = ({
+   );
+ 
+   return (
+-    <Page mainContainerId={pageId} header={Header} sidebar={sidebarOpen && Sidebar} skipToContent={PageSkipToContent}>
++    <Page mainContainerId={pageId} masthead={Header} sidebar={sidebarOpen && Sidebar} skipToContent={PageSkipToContent}>
++      <PageBreadcrumb />
+       {children}
+     </Page>
+   );
+diff --git a/src/components/viewLayout/viewLayoutToolbar.css b/src/components/viewLayout/viewLayoutToolbar.css
+index d639f8063..edaf16615 100644
+--- a/src/components/viewLayout/viewLayoutToolbar.css
++++ b/src/components/viewLayout/viewLayoutToolbar.css
+@@ -1,9 +1,9 @@
+ .quipucords-toolbar__user-dropdown {
+   align-items: center;
+   display: flex;
+-  gap: var(--pf-v5-global--spacer--sm);
++  gap: var(--pf-t--global--spacer--200);
+ }
+-.quipucords-toolbar__user-dropdown .pf-v5-c-avatar {
++.quipucords-toolbar__user-dropdown .pf-v6-c-avatar {
+   width: 36px;
+   height: 36px;
+   background: url(../../images/imgAvatar.svg);
+diff --git a/src/components/viewLayout/viewLayoutToolbar.tsx b/src/components/viewLayout/viewLayoutToolbar.tsx
+index b3ad40020..bbb180446 100644
+--- a/src/components/viewLayout/viewLayoutToolbar.tsx
++++ b/src/components/viewLayout/viewLayoutToolbar.tsx
+@@ -15,8 +15,10 @@ import {
+   ToggleGroupItem,
+   Toolbar,
+   ToolbarContent,
++  ToolbarExpandIconWrapper,
+   ToolbarGroup,
+-  ToolbarItem
++  ToolbarItem,
++  ToolbarToggleGroup
+ } from '@patternfly/react-core';
+ import { EllipsisVIcon, MoonIcon, QuestionCircleIcon, SunIcon } from '@patternfly/react-icons';
+ import { useLogoutApi, useUserApi } from '../../hooks/useLoginApi';
+@@ -50,9 +52,9 @@ const AppToolbar: React.FC<AppToolbarProps> = ({ useLogout = useLogoutApi, useUs
+     const htmlElement = document.getElementsByTagName('html')[0];
+     if (htmlElement) {
+       if (isDark) {
+-        htmlElement.classList.add('pf-v5-theme-dark');
++        htmlElement.classList.add('pf-v6-theme-dark');
+       } else {
+-        htmlElement.classList.remove('pf-v5-theme-dark');
++        htmlElement.classList.remove('pf-v6-theme-dark');
+       }
+     }
+   };
+@@ -81,11 +83,11 @@ const AppToolbar: React.FC<AppToolbarProps> = ({ useLogout = useLogoutApi, useUs
+       <Toolbar id="toolbar" isFullHeight isStatic>
+         <ToolbarContent>
+           <ToolbarGroup
+-            variant="icon-button-group"
++
+             align={{ default: 'alignRight' }}
+-            spacer={{ default: 'spacerNone', md: 'spacerMd' }}
++            gap={{ default: 'spacerNone', md: 'spacerMd' }}
+           >
+-            <ToolbarGroup variant="icon-button-group" visibility={{ default: 'hidden', lg: 'visible' }}>
++            <ToolbarGroup visibility={{ default: 'hidden', lg: 'visible' }}>
+               <ToolbarItem>
+                 <ToggleGroup aria-label="Dark theme toggle group">
+                   <ToggleGroupItem
+@@ -183,7 +185,7 @@ const AppToolbar: React.FC<AppToolbarProps> = ({ useLogout = useLogoutApi, useUs
+                   data-ouia-component-id="user_dropdown_button"
+                 >
+                   <div className="quipucords-toolbar__user-dropdown">
+-                    <span className="pf-v5-c-avatar" />
++                    <span className="pf-v6-c-avatar" />
+                     {userName}
+                   </div>
+                 </MenuToggle>
+diff --git a/src/vendor/react-table-batteries/components/ExtendedButton/__tests__/ExtendedButton.test.tsx b/src/vendor/react-table-batteries/components/ExtendedButton/__tests__/ExtendedButton.test.tsx
+index 906afbf46..3a8b35747 100644
+--- a/src/vendor/react-table-batteries/components/ExtendedButton/__tests__/ExtendedButton.test.tsx
++++ b/src/vendor/react-table-batteries/components/ExtendedButton/__tests__/ExtendedButton.test.tsx
+@@ -29,7 +29,7 @@ test('Passes inherited props to the returned component', () => {
+ test('Renders as a primary button initially', () => {
+   render(<ExtendedButton>Test</ExtendedButton>);
+ 
+-  expect(screen.getByRole('button')).toHaveClass('pf-v5-c-button pf-m-primary', { exact: true });
++  expect(screen.getByRole('button')).toHaveClass('pf-v6-c-button pf-m-primary', { exact: true });
+ });
+ 
+ test('Renders as a secondary button once it has been clicked once', () => {
+@@ -38,7 +38,7 @@ test('Renders as a secondary button once it has been clicked once', () => {
+   userEvent.click(screen.getByRole('button'));
+ 
+   waitFor(() => {
+-    expect(button).toHaveClass('pf-v5-c-button pf-m-secondary', { exact: true });
++    expect(button).toHaveClass('pf-v6-c-button pf-m-secondary', { exact: true });
+   });
+ });
+ 
+@@ -50,7 +50,7 @@ test('Renders as a tertiary button once it has been clicked twice', () => {
+   userEvent.click(button);
+ 
+   waitFor(() => {
+-    expect(button).toHaveClass('pf-v5-c-button pf-m-tertiary', { exact: true });
++    expect(button).toHaveClass('pf-v6-c-button pf-m-tertiary', { exact: true });
+   });
+ });
+ 
+@@ -62,7 +62,7 @@ test('Loops back to rendering a primary button again after being clicked three t
+   userEvent.click(button);
+   userEvent.click(button);
+ 
+-  expect(button).toHaveClass('pf-v5-c-button pf-m-primary', { exact: true });
++  expect(button).toHaveClass('pf-v6-c-button pf-m-primary', { exact: true });
+ });
+ 
+ test('Matches expected default snapshot', () => {
+diff --git a/src/vendor/react-table-batteries/components/useTableWithBatteries.tsx b/src/vendor/react-table-batteries/components/useTableWithBatteries.tsx
+index 1b4b451c0..87a067601 100644
+--- a/src/vendor/react-table-batteries/components/useTableWithBatteries.tsx
++++ b/src/vendor/react-table-batteries/components/useTableWithBatteries.tsx
+@@ -18,8 +18,10 @@ export const useTableWithBatteries = <
+   const { propHelpers } = batteries;
+   const TableWithBatteries = useDeepCompareMemo(
+     () =>
+-      React.forwardRef((props: Omit<TableProps, 'ref'>, ref: React.Ref<HTMLTableElement>) => (
+-        <Table {...propHelpers.tableProps} innerRef={ref as React.MutableRefObject<HTMLTableElement>} {...props} />
++      React.forwardRef(({ children, ...props }: Omit<TableProps, 'ref'>, ref: React.Ref<HTMLTableElement>) => (
++        <Table {...propHelpers.tableProps} innerRef={ref as React.MutableRefObject<HTMLTableElement>} {...props}>
++          {children}
++        </Table>
+       )),
+     [propHelpers.tableProps]
+   );
+diff --git a/src/vendor/react-table-batteries/hooks/pagination/usePaginationPropHelpers.ts b/src/vendor/react-table-batteries/hooks/pagination/usePaginationPropHelpers.ts
+index 4b2eb5417..6a24f5fd6 100644
+--- a/src/vendor/react-table-batteries/hooks/pagination/usePaginationPropHelpers.ts
++++ b/src/vendor/react-table-batteries/hooks/pagination/usePaginationPropHelpers.ts
+@@ -50,7 +50,7 @@ export const usePaginationPropHelpers = (args: UsePaginationPropHelpersExternalA
+    */
+   const paginationToolbarItemProps: ToolbarItemProps = {
+     variant: 'pagination',
+-    align: { default: 'alignRight' }
++    align: { default: 'alignEnd' }
+   };
+ 
+   return { paginationProps, paginationToolbarItemProps };
+diff --git a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/FilterToolbar.tsx b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/FilterToolbar.tsx
+index 9ebe03be7..5ae3057c5 100644
+--- a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/FilterToolbar.tsx
++++ b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/FilterToolbar.tsx
+@@ -6,9 +6,9 @@ import {
+   DropdownList,
+   MenuToggle,
+   ToolbarToggleGroup,
+-  ToolbarItem
++  ToolbarItem,
++  SelectOptionProps
+ } from '@patternfly/react-core';
+-import { SelectOptionProps } from '@patternfly/react-core/deprecated';
+ import FilterIcon from '@patternfly/react-icons/dist/esm/icons/filter-icon';
+ import { FilterControl } from './FilterControl';
+ 
+@@ -151,7 +151,7 @@ export const FilterToolbar = <TItem, TFilterCategoryKey extends string>({
+         variant="filter-group"
+         toggleIcon={<FilterIcon />}
+         breakpoint="2xl"
+-        spaceItems={showFiltersSideBySide ? { default: 'spaceItemsMd' } : undefined}
++
+       >
+         {!showFiltersSideBySide && (
+           <ToolbarItem>
+diff --git a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/MultiselectFilterControl.tsx b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/MultiselectFilterControl.tsx
+index c4aae745e..7ec4a74f7 100644
+--- a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/MultiselectFilterControl.tsx
++++ b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/MultiselectFilterControl.tsx
+@@ -88,8 +88,8 @@ export const MultiselectFilterControl = <TItem, TFilterCategoryKey extends strin
+   return (
+     <ToolbarFilter
+       id={`${id}-filter-control-${category.key}`}
+-      chips={chips}
+-      deleteChip={(_, chip) => onFilterClear(chip as string)}
++      labels={chips}
++      deleteLabel={(_, chip) => onFilterClear(chip as string)}
+       categoryName={category.title}
+       showToolbarItem={showToolbarItem}
+     >
+diff --git a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/SearchFilterControl.tsx b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/SearchFilterControl.tsx
+index 829386097..024659127 100644
+--- a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/SearchFilterControl.tsx
++++ b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/SearchFilterControl.tsx
+@@ -33,8 +33,8 @@ export const SearchFilterControl = <TItem, TFilterCategoryKey extends string>({
+   const inputId = `${id}-${category.key}-input`;
+   return (
+     <ToolbarFilter
+-      chips={filterValue || []}
+-      deleteChip={() => setFilterValue([])}
++      labels={filterValue || []}
++      deleteLabel={() => setFilterValue([])}
+       categoryName={category.title}
+       showToolbarItem={showToolbarItem}
+     >
+diff --git a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/SelectFilterControl.tsx b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/SelectFilterControl.tsx
+index 00e195ebc..bc5187a3c 100644
+--- a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/SelectFilterControl.tsx
++++ b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/SelectFilterControl.tsx
+@@ -57,8 +57,8 @@ export const SelectFilterControl = <TItem, TFilterCategoryKey extends string>({
+   return (
+     <ToolbarFilter
+       id={`${id}-filter-control-${category.key}`}
+-      chips={chips}
+-      deleteChip={(_, chip) => onFilterClear(chip as string)}
++      labels={chips}
++      deleteLabel={(_, chip) => onFilterClear(chip as string)}
+       categoryName={category.title}
+       showToolbarItem={showToolbarItem}
+     >
+diff --git a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/select-overrides.css b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/select-overrides.css
+index 8fe8da929..e69de29bb 100644
+--- a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/select-overrides.css
++++ b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/FilterToolbar/select-overrides.css
+@@ -1,4 +0,0 @@
+-.pf-v5-c-select.isScrollable .pf-v5-c-select__menu {
+-  max-height: 60vh;
+-  overflow-y: auto;
+-}
+diff --git a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/TableControls/NoDataEmptyState.tsx b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/TableControls/NoDataEmptyState.tsx
+index 4398e8a4b..15bf541f8 100644
+--- a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/TableControls/NoDataEmptyState.tsx
++++ b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/TableControls/NoDataEmptyState.tsx
+@@ -1,5 +1,5 @@
+ import React from 'react';
+-import { EmptyState, EmptyStateBody, EmptyStateIcon, EmptyStateVariant, Title } from '@patternfly/react-core';
++import { EmptyState, EmptyStateBody, EmptyStateVariant, Title } from '@patternfly/react-core';
+ import CubesIcon from '@patternfly/react-icons/dist/esm/icons/cubes-icon';
+ 
+ export interface NoDataEmptyStateProps {
+@@ -8,11 +8,12 @@ export interface NoDataEmptyStateProps {
+ }
+ 
+ export const NoDataEmptyState: React.FC<NoDataEmptyStateProps> = ({ title, description }) => (
+-  <EmptyState variant={EmptyStateVariant.sm}>
+-    <EmptyStateIcon icon={CubesIcon} />
+-    <Title headingLevel="h2" size="lg">
+-      {title}
+-    </Title>
++  <EmptyState variant={EmptyStateVariant.sm} icon={CubesIcon}>
++    <EmptyStateBody>
++      <Title headingLevel="h2" size="lg">
++        {title}
++      </Title>
++    </EmptyStateBody>
+     {description && <EmptyStateBody>{description}</EmptyStateBody>}
+   </EmptyState>
+ );
+diff --git a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/TableControls/StateError.tsx b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/TableControls/StateError.tsx
+index ce2e83426..01f6d5dab 100644
+--- a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/TableControls/StateError.tsx
++++ b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/TableControls/StateError.tsx
+@@ -1,14 +1,14 @@
+ import React from 'react';
+-import { EmptyState, EmptyStateIcon, EmptyStateVariant, Title, EmptyStateBody } from '@patternfly/react-core';
++import { EmptyState, EmptyStateVariant, Title, EmptyStateBody } from '@patternfly/react-core';
+ import ExclamationCircleIcon from '@patternfly/react-icons/dist/esm/icons/exclamation-circle-icon';
+-import { global_danger_color_200 as globalDangerColor200 } from '@patternfly/react-tokens';
+ 
+ export const StateError: React.FC = () => (
+-  <EmptyState variant={EmptyStateVariant.sm}>
+-    <EmptyStateIcon icon={ExclamationCircleIcon} color={globalDangerColor200.value} />
+-    <Title headingLevel="h2" size="lg">
+-      Unable to connect
+-    </Title>
++  <EmptyState variant={EmptyStateVariant.sm} icon={ExclamationCircleIcon}>
++    <EmptyStateBody>
++      <Title headingLevel="h2" size="lg">
++        Unable to connect
++      </Title>
++    </EmptyStateBody>
+     <EmptyStateBody>There was an error retrieving data. Check your connection and try again.</EmptyStateBody>
+   </EmptyState>
+ );
+diff --git a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/ToolbarBulkSelector.tsx b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/ToolbarBulkSelector.tsx
+index 664061a2b..c5602bf5e 100644
+--- a/src/vendor/react-table-batteries/tackle2-ui-legacy/components/ToolbarBulkSelector.tsx
++++ b/src/vendor/react-table-batteries/tackle2-ui-legacy/components/ToolbarBulkSelector.tsx
+@@ -131,8 +131,7 @@ export const ToolbarBulkSelector = <T,>({
+               ref={toggleRef}
+               onClick={() => setIsOpen(!isOpen)}
+               aria-label="Bulk selection menu toggle"
+-              splitButtonOptions={{
+-                items: [
++              splitButtonItems={[
+                   <MenuToggleCheckbox
+                     id="bulk-selected-items-checkbox"
+                     key="bulk-select-checkbox"
+@@ -148,8 +147,7 @@ export const ToolbarBulkSelector = <T,>({
+                     }}
+                     isChecked={getBulkSelectState()}
+                   />
+-                ]
+-              }}
++                ]}
+             />
+           )}
+         >
+diff --git a/src/views/credentials/viewCredentialsList.tsx b/src/views/credentials/viewCredentialsList.tsx
+index 5ab27b529..35fc4bf54 100644
+--- a/src/views/credentials/viewCredentialsList.tsx
++++ b/src/views/credentials/viewCredentialsList.tsx
+@@ -246,7 +246,7 @@ const CredentialsListView: React.FunctionComponent = () => {
+   );
+ 
+   return (
+-    <PageSection variant="light">
++    <PageSection>
+       {renderToolbar()}
+       <Table aria-label="Example things table" variant="compact">
+         <Thead>
+diff --git a/src/views/notFound/notFound.tsx b/src/views/notFound/notFound.tsx
+index f42002474..c6166eca4 100644
+--- a/src/views/notFound/notFound.tsx
++++ b/src/views/notFound/notFound.tsx
+@@ -13,8 +13,6 @@ import {
+   EmptyState,
+   EmptyStateBody,
+   EmptyStateFooter,
+-  EmptyStateHeader,
+-  EmptyStateIcon,
+   PageSection
+ } from '@patternfly/react-core';
+ import { ExclamationTriangleIcon } from '@patternfly/react-icons';
+@@ -25,12 +23,12 @@ const NotFound: React.FC = () => {
+ 
+   return (
+     <PageSection>
+-      <EmptyState variant="full">
+-        <EmptyStateHeader
+-          titleText={t('view.empty-state_title_not-found')}
+-          icon={<EmptyStateIcon icon={ExclamationTriangleIcon} />}
+-          headingLevel="h1"
+-        />
++      <EmptyState
++        variant="full"
++        titleText={t('view.empty-state_title_not-found')}
++        icon={ExclamationTriangleIcon}
++        headingLevel="h1"
++      >
+         <EmptyStateBody>{t('view.empty-state_description_not-found')}</EmptyStateBody>
+         <EmptyStateFooter>
+           <Button onClick={() => navigate('/')}>{t('view.label_not-found_home')}</Button>
+diff --git a/src/views/scans/showAggregateReportModal.tsx b/src/views/scans/showAggregateReportModal.tsx
+index f2f2d70c2..8a2543619 100644
+--- a/src/views/scans/showAggregateReportModal.tsx
++++ b/src/views/scans/showAggregateReportModal.tsx
+@@ -6,6 +6,9 @@ import {
+   DescriptionListDescription,
+   DescriptionListGroup,
+   Modal,
++  ModalBody,
++  ModalFooter,
++  ModalHeader,
+   ModalVariant,
+   Title
+ } from '@patternfly/react-core';
+@@ -87,24 +90,26 @@ const ShowAggregateReportModal: React.FC<ShowAggregateReportModalProps> = ({
+   return (
+     <Modal
+       variant={ModalVariant.small}
+-      title={t('modal.title', { context: 'scan-summary' })}
+       isOpen={isOpen}
+       onClose={() => onClose()}
+-      {...(actions && { actions })}
+     >
+-      <Title className="pf-v5-u-mb-lg" headingLevel="h2" size="md">
+-        {t('modal.subtitle', { context: 'scan-id', value: report?.id })}
+-      </Title>
+-      <DescriptionList isHorizontal isFluid isCompact>
+-        {stats.map(([key, value]) => {
+-          return (
+-            <DescriptionListGroup data-ouia-component-id={key} key={key}>
+-              <DescriptionListTerm>{t('modal.label', { context: key })}</DescriptionListTerm>
+-              <DescriptionListDescription>{value}</DescriptionListDescription>
+-            </DescriptionListGroup>
+-          );
+-        })}
+-      </DescriptionList>
++      <ModalHeader title={t('modal.title', { context: 'scan-summary' })} />
++      <ModalBody>
++        <Title className="pf-v6-u-mb-lg" headingLevel="h2" size="md">
++          {t('modal.subtitle', { context: 'scan-id', value: report?.id })}
++        </Title>
++        <DescriptionList isHorizontal isFluid isCompact>
++          {stats.map(([key, value]) => {
++            return (
++              <DescriptionListGroup data-ouia-component-id={key} key={key}>
++                <DescriptionListTerm>{t('modal.label', { context: key })}</DescriptionListTerm>
++                <DescriptionListDescription>{value}</DescriptionListDescription>
++              </DescriptionListGroup>
++            );
++          })}
++        </DescriptionList>
++      </ModalBody>
++      {actions && <ModalFooter>{actions}</ModalFooter>}
+     </Modal>
+   );
+ };
+diff --git a/src/views/scans/viewScansList.tsx b/src/views/scans/viewScansList.tsx
+index 82e50720c..7a01347d9 100644
+--- a/src/views/scans/viewScansList.tsx
++++ b/src/views/scans/viewScansList.tsx
+@@ -194,7 +194,7 @@ const ScansListView: React.FunctionComponent = () => {
+   );
+ 
+   return (
+-    <PageSection variant="light">
++    <PageSection>
+       {renderToolbar()}
+       <Table aria-label="Example things table" variant="compact">
+         <Thead>
+diff --git a/src/views/sources/__tests__/addSourceModal.test.tsx b/src/views/sources/__tests__/addSourceModal.test.tsx
+index 487dec7d2..2eabdede8 100644
+--- a/src/views/sources/__tests__/addSourceModal.test.tsx
++++ b/src/views/sources/__tests__/addSourceModal.test.tsx
+@@ -273,8 +273,8 @@ describe('SourceForm', () => {
+     const sourceTypes = ['network', 'openshift', 'rhacs', 'ansible', 'satellite', 'vcenter'];
+     for (const type of sourceTypes) {
+       const component = await shallowComponent(<SourceForm sourceType={type} />);
+-      const portFormGroup = component.querySelector('#source-port').closest('.pf-v5-c-form__group');
+-      const portHelperText = portFormGroup.querySelector('.pf-v5-c-helper-text');
++      const portFormGroup = component.querySelector('#source-port').closest('.pf-v6-c-form__group');
++      const portHelperText = portFormGroup.querySelector('.pf-v6-c-helper-text');
+       expect(portHelperText).toMatchSnapshot(`form, ${type}`);
+     }
+   });
+diff --git a/src/views/sources/showSourceConnectionsModal.css b/src/views/sources/showSourceConnectionsModal.css
+index 829bee71d..3dd50ddc4 100644
+--- a/src/views/sources/showSourceConnectionsModal.css
++++ b/src/views/sources/showSourceConnectionsModal.css
+@@ -1,3 +1,3 @@
+-.pf-v5-c-table {
+-    --pf-v5-c-table__expandable-row-content--PaddingTop: 0;
++.pf-v6-c-table {
++    --pf-v6-c-table__expandable-row-content--PaddingBlockStart: 0;
+ }
+\ No newline at end of file
+diff --git a/src/views/sources/viewSourcesList.tsx b/src/views/sources/viewSourcesList.tsx
+index 421ffe5bb..3ca75d5b3 100644
+--- a/src/views/sources/viewSourcesList.tsx
++++ b/src/views/sources/viewSourcesList.tsx
+@@ -337,7 +337,7 @@ const SourcesListView: React.FunctionComponent = () => {
+   };
+ 
+   return (
+-    <PageSection variant="light">
++    <PageSection>
+       {renderToolbar()}
+       <Table aria-label="Example things table" variant="compact">
+         <Thead>
