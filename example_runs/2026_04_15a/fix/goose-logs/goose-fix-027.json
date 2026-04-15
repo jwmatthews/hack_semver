@@ -1,0 +1,377 @@
+{
+  "chunks": [
+    {
+      "chunk": 1,
+      "elapsed_secs": 0.0,
+      "goose_session": {
+        "messages": [
+          {
+            "content": [
+              {
+                "text": "You are applying a code migration fix.\n\nFile: /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/showSourceConnectionsModal.tsx\nLine: 43\n\nMigration rule [family:Modal]:\n## Modal Family Migration\n\nTarget structure (correct v6 composition):\n```jsx\n  <Modal appendTo={...} backdropClassName={...} disableFocusTrap={...} elementToFocus={...} id={...} isOpen={...} maxWidth={...} onClose={...}>\n    <ModalBody role={...} />\n    <ModalHeader description={...} descriptorId={...} help={...} labelId={...} title={...} titleIconVariant={...} titleScreenReaderText={...} />\n    <ModalFooter />\n  </Modal>\n```\n\nProps that stay on <Modal>: appendTo, backdropClassName, disableFocusTrap, elementToFocus, id, isOpen, maxWidth, onClose, onEscapePress, ouiaId, ouiaSafe, position, positionOffset, variant, width\n\nProps that move to child components:\n  description -> <ModalHeader />\n  help -> <ModalHeader />\n  title -> <ModalHeader />\n  titleIconVariant -> <ModalHeader />\n\nRemoved props (move to child component as children or remove):\n  actions -> map to appropriate child component (any)\n  bodyAriaLabel -> ModalBody (as children, string)\n  bodyAriaRole -> ModalBody (as children, string)\n  footer -> ModalFooter (as children, ReactNode)\n  hasNoBodyWrapper -> map to appropriate child component (boolean)\n  header -> ModalHeader (as children, ReactNode)\n  showClose -> map to appropriate child component (boolean)\n  titleLabel -> map to appropriate child component (string)\n\nRemoved children (no longer valid JSX): ModalBox, ModalBoxHeader, ModalContent, ModalBoxBody, ModalBoxCloseButton, ModalBoxFooter\n\nAdd imports: ModalBody, ModalHeader, ModalFooter from '@patternfly/react-core'\n\nRemove imports (if no longer used): ModalBox, ModalBoxHeader, ModalContent, ModalBoxBody, ModalBoxCloseButton, ModalBoxFooter\n\nIncidents found in this file:\n  Line 43: [sd-prop-to-child-modal-title-to-modalheader]\n    componentName: Modal\n    module: @patternfly/react-core\n    propName: title\n    propValue: source?.name\n    Fix strategy:\n      Strategy: PropToChild\n      Component: Modal\n      Prop: title\n      From: title\n      Replacement: ModalHeader\n  Line 43: [semver-modal-component-import-deprecated]\n    componentName: Modal\n    module: @patternfly/react-core\n    propName: title\n    propValue: source?.name\n    Fix strategy:\n      Strategy: LlmAssisted\n  Line 49: (same rule semver-modal-component-import-deprecated)\n    componentName: Modal\n    module: @patternfly/react-core\n    propName: actions\n    propValue: [\n    <Button\n    key=\"cancel\"\n    variant=\"secondary\"\n    onClick={() => {\n    setExpanded([]);\n    return onClose();\n    }}\n    >\n    Close\n    </Button>\n    ]\n    Fix strategy:\n      Strategy: LlmAssisted\n\nCode contexts:\n  (line 43):\n   42        variant={ModalVariant.small}\n   43        title={source?.name}\n   44        isOpen={isOpen}\n\n  (line 49):\n   48        }}\n   49        actions={[\n   50          <Button\n\n\n\nCode context:\n```\n(no code snippet available)\n```\n\nInstructions:\n1. Read the file at /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/showSourceConnectionsModal.tsx\n2. Apply ONLY the change described by the migration rule at or near line 43\n3. Make the minimum edit necessary — do not change unrelated code, but DO clean up any artifacts caused by your change (e.g., remove imports that are no longer referenced, delete dead declarations)\n4. Write the fixed file\n\n\nBefore writing, reason through the fix step by step to ensure nothing is missed. Then read the file, make the edit, and write it.\n\nAfter writing the file, produce a '## Changes Applied' section that lists the change you made, or note if the fix was already applied or could not be applied (with a brief reason).",
+                "type": "text"
+              }
+            ],
+            "created": 1776293367,
+            "id": null,
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "user"
+          },
+          {
+            "content": [
+              {
+                "signature": "Ep0CClsIDBACGAIqQB0jIFB82+EyYLGCBuFJqpvR4x2QWOKFyG5SbLVR5VBr8jcFoD/mXOLy1TTYgIh6G4iNBFz2Imo1M/+eViStTGkyD2NsYXVkZS1vcHVzLTQtNjgAEgz5Kf37FqCGljmbtnsaDEmg5SYq2ZGM6R/BtSIwuJLnOTm/YcVReUlPHO+Q0yh8aFNMXPrlmzapTTi7rIrEbCYEdcfLD67Zxy87ITU1KnD00STs+p/mIdxHddeip/KWy0ZfGKJBnn6+41XYfbdb2d6AruKdAzBkJ3yc1JSC57q7B0AK7x9ap5yTaORaQUjvfrZEbV2f7AFq6n3L20nZ0qH0TQVVX1aNNKVQLtJ1i+3jFEPf6Oqqtt78F+WTfN3VGAE=",
+                "thinking": "Let me start by reading the file to understand its current state, then apply the migration rule.",
+                "type": "thinking"
+              },
+              {
+                "_meta": {
+                  "goose_extension": "developer"
+                },
+                "id": "toolu_vrtx_01L44ndZGzeubT4e51DeUWeX",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "arguments": {
+                      "command": "cat -n /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/showSourceConnectionsModal.tsx"
+                    },
+                    "name": "shell"
+                  }
+                },
+                "type": "toolRequest"
+              }
+            ],
+            "created": 1776293369,
+            "id": "msg_vrtx_01MrK5pkVRaaAZVg55wSAJiB",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "assistant"
+          },
+          {
+            "content": [
+              {
+                "id": "toolu_vrtx_01L44ndZGzeubT4e51DeUWeX",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "annotations": {
+                          "priority": 0.0
+                        },
+                        "text": "     1\t/**\n     2\t * A modal component displaying connection statuses (successful, failed, unreachable) for a source.\n     3\t * Utilizes expandable lists and status icons for clarity.\n     4\t *\n     5\t * @module connectionsModal\n     6\t */\n     7\timport React, { useCallback, useState } from 'react';\n     8\timport { Modal, ModalVariant, Button, Icon, List, ListItem } from '@patternfly/react-core';\n     9\timport { ExclamationCircleIcon, ExclamationTriangleIcon, CheckCircleIcon } from '@patternfly/react-icons';\n    10\timport { Tbody, Tr, Td, Table, ExpandableRowContent } from '@patternfly/react-table';\n    11\timport { type SourceType, type Connections } from '../../types/types';\n    12\timport './showSourceConnectionsModal.css';\n    13\t\n    14\tinterface ShowConnectionsModalProps {\n    15\t  isOpen: boolean;\n    16\t  source?: Pick<SourceType, 'name'>;\n    17\t  onClose?: () => void;\n    18\t  connections: Connections;\n    19\t}\n    20\t\n    21\tconst ShowConnectionsModal: React.FC<ShowConnectionsModalProps> = ({\n    22\t  isOpen,\n    23\t  source,\n    24\t  onClose = Function.prototype,\n    25\t  connections\n    26\t}) => {\n    27\t  const [expanded, setExpanded] = useState<string[]>([]);\n    28\t  const onToggle = useCallback(\n    29\t    section => {\n    30\t      const index = expanded.indexOf(section);\n    31\t      const newExpanded =\n    32\t        index >= 0\n    33\t          ? [...expanded.slice(0, index), ...expanded.slice(index + 1, expanded.length)]\n    34\t          : [...expanded, section];\n    35\t      setExpanded(newExpanded);\n    36\t    },\n    37\t    [expanded]\n    38\t  );\n    39\t\n    40\t  return (\n    41\t    <Modal\n    42\t      variant={ModalVariant.small}\n    43\t      title={source?.name}\n    44\t      isOpen={isOpen}\n    45\t      onClose={() => {\n    46\t        setExpanded([]);\n    47\t        return onClose();\n    48\t      }}\n    49\t      actions={[\n    50\t        <Button\n    51\t          key=\"cancel\"\n    52\t          variant=\"secondary\"\n    53\t          onClick={() => {\n    54\t            setExpanded([]);\n    55\t            return onClose();\n    56\t          }}\n    57\t        >\n    58\t          Close\n    59\t        </Button>\n    60\t      ]}\n    61\t    >\n    62\t      <Table aria-label={'Connections lists'}>\n    63\t        {[\n    64\t          {\n    65\t            category: 'failed',\n    66\t            icon: (\n    67\t              <Icon status=\"danger\">\n    68\t                <ExclamationCircleIcon />\n    69\t              </Icon>\n    70\t            ),\n    71\t            label: 'Failed connections'\n    72\t          },\n    73\t          {\n    74\t            category: 'unreachable',\n    75\t            icon: (\n    76\t              <Icon status=\"warning\">\n    77\t                <ExclamationTriangleIcon />\n    78\t              </Icon>\n    79\t            ),\n    80\t            label: 'Unreachable systems'\n    81\t          },\n    82\t          {\n    83\t            category: 'successful',\n    84\t            icon: (\n    85\t              <Icon status=\"success\">\n    86\t                <CheckCircleIcon />\n    87\t              </Icon>\n    88\t            ),\n    89\t            label: 'Successful connections'\n    90\t          }\n    91\t        ].map((obj, rowIndex) => {\n    92\t          return (\n    93\t            <Tbody key={obj.category} isExpanded={expanded.includes(obj.category)}>\n    94\t              <Tr>\n    95\t                <Td\n    96\t                  width={10}\n    97\t                  expand={{\n    98\t                    rowIndex,\n    99\t                    isExpanded: expanded.includes(obj.category),\n   100\t                    onToggle: () => onToggle(obj.category),\n   101\t                    expandId: `${obj.category}-expandable`\n   102\t                  }}\n   103\t                />\n   104\t                <Td width={10}>{obj.icon}</Td>\n   105\t                <Td width={80}>{obj.label}</Td>\n   106\t              </Tr>\n   107\t              <Tr isExpanded={expanded.includes(obj.category)}>\n   108\t                <Td />\n   109\t                <Td />\n   110\t                <Td>\n   111\t                  <ExpandableRowContent>\n   112\t                    <List isPlain>\n   113\t                      {(connections[obj.category]?.length &&\n   114\t                        connections[obj.category].map(connection => (\n   115\t                          <ListItem key={connection.name}>{connection.name}</ListItem>\n   116\t                        ))) || <ListItem>N/A</ListItem>}\n   117\t                    </List>\n   118\t                  </ExpandableRowContent>\n   119\t                </Td>\n   120\t              </Tr>\n   121\t            </Tbody>\n   122\t          );\n   123\t        })}\n   124\t      </Table>\n   125\t    </Modal>\n   126\t  );\n   127\t};\n   128\t\n   129\texport { ShowConnectionsModal as default, ShowConnectionsModal, type ShowConnectionsModalProps };",
+                        "type": "text"
+                      }
+                    ],
+                    "isError": false,
+                    "structuredContent": {
+                      "exit_code": 0,
+                      "stderr": "",
+                      "stdout": "     1\t/**\n     2\t * A modal component displaying connection statuses (successful, failed, unreachable) for a source.\n     3\t * Utilizes expandable lists and status icons for clarity.\n     4\t *\n     5\t * @module connectionsModal\n     6\t */\n     7\timport React, { useCallback, useState } from 'react';\n     8\timport { Modal, ModalVariant, Button, Icon, List, ListItem } from '@patternfly/react-core';\n     9\timport { ExclamationCircleIcon, ExclamationTriangleIcon, CheckCircleIcon } from '@patternfly/react-icons';\n    10\timport { Tbody, Tr, Td, Table, ExpandableRowContent } from '@patternfly/react-table';\n    11\timport { type SourceType, type Connections } from '../../types/types';\n    12\timport './showSourceConnectionsModal.css';\n    13\t\n    14\tinterface ShowConnectionsModalProps {\n    15\t  isOpen: boolean;\n    16\t  source?: Pick<SourceType, 'name'>;\n    17\t  onClose?: () => void;\n    18\t  connections: Connections;\n    19\t}\n    20\t\n    21\tconst ShowConnectionsModal: React.FC<ShowConnectionsModalProps> = ({\n    22\t  isOpen,\n    23\t  source,\n    24\t  onClose = Function.prototype,\n    25\t  connections\n    26\t}) => {\n    27\t  const [expanded, setExpanded] = useState<string[]>([]);\n    28\t  const onToggle = useCallback(\n    29\t    section => {\n    30\t      const index = expanded.indexOf(section);\n    31\t      const newExpanded =\n    32\t        index >= 0\n    33\t          ? [...expanded.slice(0, index), ...expanded.slice(index + 1, expanded.length)]\n    34\t          : [...expanded, section];\n    35\t      setExpanded(newExpanded);\n    36\t    },\n    37\t    [expanded]\n    38\t  );\n    39\t\n    40\t  return (\n    41\t    <Modal\n    42\t      variant={ModalVariant.small}\n    43\t      title={source?.name}\n    44\t      isOpen={isOpen}\n    45\t      onClose={() => {\n    46\t        setExpanded([]);\n    47\t        return onClose();\n    48\t      }}\n    49\t      actions={[\n    50\t        <Button\n    51\t          key=\"cancel\"\n    52\t          variant=\"secondary\"\n    53\t          onClick={() => {\n    54\t            setExpanded([]);\n    55\t            return onClose();\n    56\t          }}\n    57\t        >\n    58\t          Close\n    59\t        </Button>\n    60\t      ]}\n    61\t    >\n    62\t      <Table aria-label={'Connections lists'}>\n    63\t        {[\n    64\t          {\n    65\t            category: 'failed',\n    66\t            icon: (\n    67\t              <Icon status=\"danger\">\n    68\t                <ExclamationCircleIcon />\n    69\t              </Icon>\n    70\t            ),\n    71\t            label: 'Failed connections'\n    72\t          },\n    73\t          {\n    74\t            category: 'unreachable',\n    75\t            icon: (\n    76\t              <Icon status=\"warning\">\n    77\t                <ExclamationTriangleIcon />\n    78\t              </Icon>\n    79\t            ),\n    80\t            label: 'Unreachable systems'\n    81\t          },\n    82\t          {\n    83\t            category: 'successful',\n    84\t            icon: (\n    85\t              <Icon status=\"success\">\n    86\t                <CheckCircleIcon />\n    87\t              </Icon>\n    88\t            ),\n    89\t            label: 'Successful connections'\n    90\t          }\n    91\t        ].map((obj, rowIndex) => {\n    92\t          return (\n    93\t            <Tbody key={obj.category} isExpanded={expanded.includes(obj.category)}>\n    94\t              <Tr>\n    95\t                <Td\n    96\t                  width={10}\n    97\t                  expand={{\n    98\t                    rowIndex,\n    99\t                    isExpanded: expanded.includes(obj.category),\n   100\t                    onToggle: () => onToggle(obj.category),\n   101\t                    expandId: `${obj.category}-expandable`\n   102\t                  }}\n   103\t                />\n   104\t                <Td width={10}>{obj.icon}</Td>\n   105\t                <Td width={80}>{obj.label}</Td>\n   106\t              </Tr>\n   107\t              <Tr isExpanded={expanded.includes(obj.category)}>\n   108\t                <Td />\n   109\t                <Td />\n   110\t                <Td>\n   111\t                  <ExpandableRowContent>\n   112\t                    <List isPlain>\n   113\t                      {(connections[obj.category]?.length &&\n   114\t                        connections[obj.category].map(connection => (\n   115\t                          <ListItem key={connection.name}>{connection.name}</ListItem>\n   116\t                        ))) || <ListItem>N/A</ListItem>}\n   117\t                    </List>\n   118\t                  </ExpandableRowContent>\n   119\t                </Td>\n   120\t              </Tr>\n   121\t            </Tbody>\n   122\t          );\n   123\t        })}\n   124\t      </Table>\n   125\t    </Modal>\n   126\t  );\n   127\t};\n   128\t\n   129\texport { ShowConnectionsModal as default, ShowConnectionsModal, type ShowConnectionsModalProps };"
+                    }
+                  }
+                },
+                "type": "toolResponse"
+              }
+            ],
+            "created": 1776293369,
+            "id": "msg_bb39eb53-538e-473e-986f-7b26b6cce4cb",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "user"
+          },
+          {
+            "content": [
+              {
+                "signature": "Eo8LClsIDBACGAIqQK8cVurlls4GmhCyYJ5/NTqfZqv7zByZucq8LqAnNkt8JXplCBpxxywpLKz0lEle862MwKIx9XB8O66ESi0YFkMyD2NsYXVkZS1vcHVzLTQtNjgAEgyajHttF9X9VynsuhgaDF8wRy4TiCaSu7uHWyIwySjiC4pRRdZXeDOWlE2YcOruXiWuoGl8/xyDVT9kHIcbE+pbMMsecYxG6rgEWVb8KuEJiYF/XmEICtIYjHT42CgaMpJ8WOqhBt6AP+A4vu0WVZSJUADkaa2ryxaFmltG24FTA9vE+Nz8gD3EtUPjBIDKfdapRhHj40qVWlEPAc9pvgbi3w4pM1/F/Vzwbw0+0ZRex8ontgUJbPhJxY01VbqbO5yxx83wRtyIvKkV+6cBxVmUBn+gr2UdTaV7+ZqqDNHWpaFOLBQ2V7eGdqVPX93taX+ci9+8r/W4xiGdzMEtM/Ap/I15jyxOmmM8+21uloRjaoQKsbMZnmAt+qJKVCFMoAKtAskKb91Omr+chNZ2asf0msBK1b7lccKmjRn+ovb6evr4n2LttKUdDWsV6As0IXMupyv2eqkRQ7IGN2rJvC2dWGr4wi4JE+KlY2CsrqY9s1qWGJLI5HJHRXdB1m/1FDdtKv9elq6M3yoKjuxFzpBASBglakh/lb9wqBXpHa7Fs22E4hyXMEJFSAurp80MrxITufANhdLLMlDyLLHBCSMYT4HCcWViVgI+2oTbsODSfccFTy5xqlUKUIbsNgdrukNvRRfPljV8Hw0AaEcHDpON7Klr7+J8umlvt7IwPsWmjqD5Kanf4d8avWA+OVqatkhnhvjPcCz3kQSsv0aYd2OoBAQVua+OuUZ0b73X6u7bwpdySByFwnxq6UUK3pvbzgBeFf/9dP4ZfbD6gpUkisVj26MVy81PkqoZCsoJxCmeY7o9UknxUl+go22vR+P6HhYYJ4R0voAgXUYRjzZUL+yzoqTn8ZoYDYRhdzGAWinNPeO6eBCHJIxCbpoPSTcnFhICLCH7OfBEzpmgxn/KM9TOAgCAwbxdPbIX0GAIhKLm3aYeBSaHjQYeLvtM9tF/LokgOou0OYQkt2L5GoPD+we7g586nOBIhHyL6GFeX8ZHAHCPdcQDvvmg5LFxxJ2rHktKHpdb/nN/jsbu6MXMCt8OZW1PDfoxyevAamyFy0wN3n8zTQeU6JHiXFvKXfUDwR6maO4MHwqwbqswwu8bTegJcEjba3AUbrvZCTqASC+vYaiL7s8gQcC2WkYzIrNEElkOjuQIprPcZE20fs0UFPj8XnI2plWUBaejIjnGGgFGs1xOmIgwuIxWC8TKvyJ+UuWI43uzU5xOoP7Chf9a8pgPkugaP0545fU7LbfyaloH6ESJWLUiR/eACJVx/J/d/iMMKmAbK0b29BMoZqboRdIAA9mbJAIsmuc0gGGAo+3as86naeBZPnkZro2BQgQaKl+fXj7FS8I91RlXLrGxIRd3RXgtnjrSQXIiFPQEesq1vwSGwkg5FlVuSXK7JlpEs4y+9EnNWvdvG3Fvf4Nw8D0vbj50o/wdpXM3KULWSlV3/ivREpddwYQKsyfG5hvxx+RVYC/grdLfwaAogOuCbQjYLqCPB96Idyrc1A8XvK9/FPexAROf7d5//3fwStMoe7swGpIgyMqMOy52+VyXKuDsg/UhhdDiBw7hJoUfzOJ1yixmADxkp7OQdqJXSuVPq8hSy1KT4EEBZO2ydld192mYcXAd/hnOUjzJxcpE4Nc2/kj9y0Muo/PkQhEQY2vzFQSHX2ru9vCdmpGXWa37No9UWy5NA4xpeuorb4ghr06imFpG3GULBP0g48qClkPT0PD1ucrAqm9HYPqvZ3SZccNrT8DtIjsY5GDavH54YENadRgB",
+                "thinking": "Let me analyze the migration needed:\n\n1. **`title` prop on `<Modal>` (line 43)**: Move to `<ModalHeader title={...} />` child component\n2. **`actions` prop on `<Modal>` (lines 49-60)**: Move to `<ModalFooter>` child component (actions become children of ModalFooter)\n3. **Import updates**: Add `ModalBody`, `ModalHeader`, `ModalFooter` to imports\n\nLet me trace through the changes:\n\n**Current structure:**\n```jsx\n<Modal\n  variant={ModalVariant.small}\n  title={source?.name}\n  isOpen={isOpen}\n  onClose={...}\n  actions={[<Button ...>Close</Button>]}\n>\n  <Table ...>...</Table>\n</Modal>\n```\n\n**Target structure:**\n```jsx\n<Modal\n  variant={ModalVariant.small}\n  isOpen={isOpen}\n  onClose={...}\n>\n  <ModalHeader title={source?.name} />\n  <ModalBody>\n    <Table ...>...</Table>\n  </ModalBody>\n  <ModalFooter>\n    <Button ...>Close</Button>\n  </ModalFooter>\n</Modal>\n```\n\nSo I need to extract the title and actions props from the Modal component and restructure them as child components with ModalHeader, ModalBody, and ModalFooter.",
+                "type": "thinking"
+              },
+              {
+                "text": "Now let me reason through the fix step by step:\n\n1. **`title` prop (line 43)**: Remove from `<Modal>`, move to `<ModalHeader title={source?.name} />` child.\n2. **`actions` prop (lines 49-60)**: Remove from `<Modal>`, move the Button into `<ModalFooter>` as a child (not array).\n3. **Existing children** (`<Table>...`): Wrap in `<ModalBody>`.\n4. **Imports**: Add `ModalBody`, `ModalHeader`, `ModalFooter` to the `@patternfly/react-core` import.\n\nLet me apply these edits:",
+                "type": "text"
+              },
+              {
+                "_meta": {
+                  "goose_extension": "developer"
+                },
+                "id": "toolu_vrtx_014VR4un7Ev5dbcychui5jnG",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "arguments": {
+                      "after": "import { Modal, ModalVariant, ModalBody, ModalHeader, ModalFooter, Button, Icon, List, ListItem } from '@patternfly/react-core';",
+                      "before": "import { Modal, ModalVariant, Button, Icon, List, ListItem } from '@patternfly/react-core';",
+                      "path": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/showSourceConnectionsModal.tsx"
+                    },
+                    "name": "edit"
+                  }
+                },
+                "type": "toolRequest"
+              }
+            ],
+            "created": 1776293378,
+            "id": "msg_vrtx_01UKVB713K34A396Zib38Tns",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "assistant"
+          },
+          {
+            "content": [
+              {
+                "id": "toolu_vrtx_014VR4un7Ev5dbcychui5jnG",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "annotations": {
+                          "priority": 0.0
+                        },
+                        "text": "Edited /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/showSourceConnectionsModal.tsx (1 lines -> 1 lines)",
+                        "type": "text"
+                      }
+                    ],
+                    "isError": false
+                  }
+                },
+                "type": "toolResponse"
+              }
+            ],
+            "created": 1776293383,
+            "id": "msg_e8ac4605-76ef-43f0-9938-cb6383a97720",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "user"
+          },
+          {
+            "content": [
+              {
+                "_meta": {
+                  "goose_extension": "developer"
+                },
+                "id": "toolu_vrtx_01JwEWiaRjHP8eTnyeiCacnz",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "arguments": {
+                      "after": "    <Modal\n      variant={ModalVariant.small}\n      isOpen={isOpen}\n      onClose={() => {\n        setExpanded([]);\n        return onClose();\n      }}\n    >\n      <ModalHeader title={source?.name} />\n      <ModalBody>\n      <Table aria-label={'Connections lists'}>",
+                      "before": "    <Modal\n      variant={ModalVariant.small}\n      title={source?.name}\n      isOpen={isOpen}\n      onClose={() => {\n        setExpanded([]);\n        return onClose();\n      }}\n      actions={[\n        <Button\n          key=\"cancel\"\n          variant=\"secondary\"\n          onClick={() => {\n            setExpanded([]);\n            return onClose();\n          }}\n        >\n          Close\n        </Button>\n      ]}\n    >\n      <Table aria-label={'Connections lists'}>",
+                      "path": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/showSourceConnectionsModal.tsx"
+                    },
+                    "name": "edit"
+                  }
+                },
+                "type": "toolRequest"
+              }
+            ],
+            "created": 1776293388,
+            "id": "msg_vrtx_01LQRqSVXsPYa5hWzh9Kfb2g",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "assistant"
+          },
+          {
+            "content": [
+              {
+                "id": "toolu_vrtx_01JwEWiaRjHP8eTnyeiCacnz",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "annotations": {
+                          "priority": 0.0
+                        },
+                        "text": "Edited /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/showSourceConnectionsModal.tsx (22 lines -> 11 lines)",
+                        "type": "text"
+                      }
+                    ],
+                    "isError": false
+                  }
+                },
+                "type": "toolResponse"
+              }
+            ],
+            "created": 1776293388,
+            "id": "msg_bc378c61-9861-4549-99e7-87128862d0a5",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "user"
+          },
+          {
+            "content": [
+              {
+                "_meta": {
+                  "goose_extension": "developer"
+                },
+                "id": "toolu_vrtx_01K6gHQVp33SKruRysDjaDHe",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "arguments": {
+                      "after": "      </Table>\n      </ModalBody>\n      <ModalFooter>\n        <Button\n          key=\"cancel\"\n          variant=\"secondary\"\n          onClick={() => {\n            setExpanded([]);\n            return onClose();\n          }}\n        >\n          Close\n        </Button>\n      </ModalFooter>\n    </Modal>",
+                      "before": "      </Table>\n    </Modal>",
+                      "path": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/showSourceConnectionsModal.tsx"
+                    },
+                    "name": "edit"
+                  }
+                },
+                "type": "toolRequest"
+              }
+            ],
+            "created": 1776293391,
+            "id": "msg_vrtx_01FZhPYC7eLLgLq93w94n7i5",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "assistant"
+          },
+          {
+            "content": [
+              {
+                "id": "toolu_vrtx_01K6gHQVp33SKruRysDjaDHe",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "annotations": {
+                          "priority": 0.0
+                        },
+                        "text": "Edited /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/showSourceConnectionsModal.tsx (2 lines -> 15 lines)",
+                        "type": "text"
+                      }
+                    ],
+                    "isError": false
+                  }
+                },
+                "type": "toolResponse"
+              }
+            ],
+            "created": 1776293391,
+            "id": "msg_fe2ed5dc-586f-48fa-8ed7-c44e3b5c81f8",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "user"
+          },
+          {
+            "content": [
+              {
+                "text": "Now let me verify the final file looks correct:",
+                "type": "text"
+              },
+              {
+                "_meta": {
+                  "goose_extension": "developer"
+                },
+                "id": "toolu_vrtx_01QaU5ei63fVdJ5hnbxdiNj5",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "arguments": {
+                      "command": "cat -n /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/showSourceConnectionsModal.tsx"
+                    },
+                    "name": "shell"
+                  }
+                },
+                "type": "toolRequest"
+              }
+            ],
+            "created": 1776293393,
+            "id": "msg_vrtx_01STrtS9Y1ZBgGuatwuY8aP4",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "assistant"
+          },
+          {
+            "content": [
+              {
+                "id": "toolu_vrtx_01QaU5ei63fVdJ5hnbxdiNj5",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "annotations": {
+                          "priority": 0.0
+                        },
+                        "text": "     1\t/**\n     2\t * A modal component displaying connection statuses (successful, failed, unreachable) for a source.\n     3\t * Utilizes expandable lists and status icons for clarity.\n     4\t *\n     5\t * @module connectionsModal\n     6\t */\n     7\timport React, { useCallback, useState } from 'react';\n     8\timport { Modal, ModalVariant, ModalBody, ModalHeader, ModalFooter, Button, Icon, List, ListItem } from '@patternfly/react-core';\n     9\timport { ExclamationCircleIcon, ExclamationTriangleIcon, CheckCircleIcon } from '@patternfly/react-icons';\n    10\timport { Tbody, Tr, Td, Table, ExpandableRowContent } from '@patternfly/react-table';\n    11\timport { type SourceType, type Connections } from '../../types/types';\n    12\timport './showSourceConnectionsModal.css';\n    13\t\n    14\tinterface ShowConnectionsModalProps {\n    15\t  isOpen: boolean;\n    16\t  source?: Pick<SourceType, 'name'>;\n    17\t  onClose?: () => void;\n    18\t  connections: Connections;\n    19\t}\n    20\t\n    21\tconst ShowConnectionsModal: React.FC<ShowConnectionsModalProps> = ({\n    22\t  isOpen,\n    23\t  source,\n    24\t  onClose = Function.prototype,\n    25\t  connections\n    26\t}) => {\n    27\t  const [expanded, setExpanded] = useState<string[]>([]);\n    28\t  const onToggle = useCallback(\n    29\t    section => {\n    30\t      const index = expanded.indexOf(section);\n    31\t      const newExpanded =\n    32\t        index >= 0\n    33\t          ? [...expanded.slice(0, index), ...expanded.slice(index + 1, expanded.length)]\n    34\t          : [...expanded, section];\n    35\t      setExpanded(newExpanded);\n    36\t    },\n    37\t    [expanded]\n    38\t  );\n    39\t\n    40\t  return (\n    41\t    <Modal\n    42\t      variant={ModalVariant.small}\n    43\t      isOpen={isOpen}\n    44\t      onClose={() => {\n    45\t        setExpanded([]);\n    46\t        return onClose();\n    47\t      }}\n    48\t    >\n    49\t      <ModalHeader title={source?.name} />\n    50\t      <ModalBody>\n    51\t      <Table aria-label={'Connections lists'}>\n    52\t        {[\n    53\t          {\n    54\t            category: 'failed',\n    55\t            icon: (\n    56\t              <Icon status=\"danger\">\n    57\t                <ExclamationCircleIcon />\n    58\t              </Icon>\n    59\t            ),\n    60\t            label: 'Failed connections'\n    61\t          },\n    62\t          {\n    63\t            category: 'unreachable',\n    64\t            icon: (\n    65\t              <Icon status=\"warning\">\n    66\t                <ExclamationTriangleIcon />\n    67\t              </Icon>\n    68\t            ),\n    69\t            label: 'Unreachable systems'\n    70\t          },\n    71\t          {\n    72\t            category: 'successful',\n    73\t            icon: (\n    74\t              <Icon status=\"success\">\n    75\t                <CheckCircleIcon />\n    76\t              </Icon>\n    77\t            ),\n    78\t            label: 'Successful connections'\n    79\t          }\n    80\t        ].map((obj, rowIndex) => {\n    81\t          return (\n    82\t            <Tbody key={obj.category} isExpanded={expanded.includes(obj.category)}>\n    83\t              <Tr>\n    84\t                <Td\n    85\t                  width={10}\n    86\t                  expand={{\n    87\t                    rowIndex,\n    88\t                    isExpanded: expanded.includes(obj.category),\n    89\t                    onToggle: () => onToggle(obj.category),\n    90\t                    expandId: `${obj.category}-expandable`\n    91\t                  }}\n    92\t                />\n    93\t                <Td width={10}>{obj.icon}</Td>\n    94\t                <Td width={80}>{obj.label}</Td>\n    95\t              </Tr>\n    96\t              <Tr isExpanded={expanded.includes(obj.category)}>\n    97\t                <Td />\n    98\t                <Td />\n    99\t                <Td>\n   100\t                  <ExpandableRowContent>\n   101\t                    <List isPlain>\n   102\t                      {(connections[obj.category]?.length &&\n   103\t                        connections[obj.category].map(connection => (\n   104\t                          <ListItem key={connection.name}>{connection.name}</ListItem>\n   105\t                        ))) || <ListItem>N/A</ListItem>}\n   106\t                    </List>\n   107\t                  </ExpandableRowContent>\n   108\t                </Td>\n   109\t              </Tr>\n   110\t            </Tbody>\n   111\t          );\n   112\t        })}\n   113\t      </Table>\n   114\t      </ModalBody>\n   115\t      <ModalFooter>\n   116\t        <Button\n   117\t          key=\"cancel\"\n   118\t          variant=\"secondary\"\n   119\t          onClick={() => {\n   120\t            setExpanded([]);\n   121\t            return onClose();\n   122\t          }}\n   123\t        >\n   124\t          Close\n   125\t        </Button>\n   126\t      </ModalFooter>\n   127\t    </Modal>\n   128\t  );\n   129\t};\n   130\t\n   131\texport { ShowConnectionsModal as default, ShowConnectionsModal, type ShowConnectionsModalProps };",
+                        "type": "text"
+                      }
+                    ],
+                    "isError": false,
+                    "structuredContent": {
+                      "exit_code": 0,
+                      "stderr": "",
+                      "stdout": "     1\t/**\n     2\t * A modal component displaying connection statuses (successful, failed, unreachable) for a source.\n     3\t * Utilizes expandable lists and status icons for clarity.\n     4\t *\n     5\t * @module connectionsModal\n     6\t */\n     7\timport React, { useCallback, useState } from 'react';\n     8\timport { Modal, ModalVariant, ModalBody, ModalHeader, ModalFooter, Button, Icon, List, ListItem } from '@patternfly/react-core';\n     9\timport { ExclamationCircleIcon, ExclamationTriangleIcon, CheckCircleIcon } from '@patternfly/react-icons';\n    10\timport { Tbody, Tr, Td, Table, ExpandableRowContent } from '@patternfly/react-table';\n    11\timport { type SourceType, type Connections } from '../../types/types';\n    12\timport './showSourceConnectionsModal.css';\n    13\t\n    14\tinterface ShowConnectionsModalProps {\n    15\t  isOpen: boolean;\n    16\t  source?: Pick<SourceType, 'name'>;\n    17\t  onClose?: () => void;\n    18\t  connections: Connections;\n    19\t}\n    20\t\n    21\tconst ShowConnectionsModal: React.FC<ShowConnectionsModalProps> = ({\n    22\t  isOpen,\n    23\t  source,\n    24\t  onClose = Function.prototype,\n    25\t  connections\n    26\t}) => {\n    27\t  const [expanded, setExpanded] = useState<string[]>([]);\n    28\t  const onToggle = useCallback(\n    29\t    section => {\n    30\t      const index = expanded.indexOf(section);\n    31\t      const newExpanded =\n    32\t        index >= 0\n    33\t          ? [...expanded.slice(0, index), ...expanded.slice(index + 1, expanded.length)]\n    34\t          : [...expanded, section];\n    35\t      setExpanded(newExpanded);\n    36\t    },\n    37\t    [expanded]\n    38\t  );\n    39\t\n    40\t  return (\n    41\t    <Modal\n    42\t      variant={ModalVariant.small}\n    43\t      isOpen={isOpen}\n    44\t      onClose={() => {\n    45\t        setExpanded([]);\n    46\t        return onClose();\n    47\t      }}\n    48\t    >\n    49\t      <ModalHeader title={source?.name} />\n    50\t      <ModalBody>\n    51\t      <Table aria-label={'Connections lists'}>\n    52\t        {[\n    53\t          {\n    54\t            category: 'failed',\n    55\t            icon: (\n    56\t              <Icon status=\"danger\">\n    57\t                <ExclamationCircleIcon />\n    58\t              </Icon>\n    59\t            ),\n    60\t            label: 'Failed connections'\n    61\t          },\n    62\t          {\n    63\t            category: 'unreachable',\n    64\t            icon: (\n    65\t              <Icon status=\"warning\">\n    66\t                <ExclamationTriangleIcon />\n    67\t              </Icon>\n    68\t            ),\n    69\t            label: 'Unreachable systems'\n    70\t          },\n    71\t          {\n    72\t            category: 'successful',\n    73\t            icon: (\n    74\t              <Icon status=\"success\">\n    75\t                <CheckCircleIcon />\n    76\t              </Icon>\n    77\t            ),\n    78\t            label: 'Successful connections'\n    79\t          }\n    80\t        ].map((obj, rowIndex) => {\n    81\t          return (\n    82\t            <Tbody key={obj.category} isExpanded={expanded.includes(obj.category)}>\n    83\t              <Tr>\n    84\t                <Td\n    85\t                  width={10}\n    86\t                  expand={{\n    87\t                    rowIndex,\n    88\t                    isExpanded: expanded.includes(obj.category),\n    89\t                    onToggle: () => onToggle(obj.category),\n    90\t                    expandId: `${obj.category}-expandable`\n    91\t                  }}\n    92\t                />\n    93\t                <Td width={10}>{obj.icon}</Td>\n    94\t                <Td width={80}>{obj.label}</Td>\n    95\t              </Tr>\n    96\t              <Tr isExpanded={expanded.includes(obj.category)}>\n    97\t                <Td />\n    98\t                <Td />\n    99\t                <Td>\n   100\t                  <ExpandableRowContent>\n   101\t                    <List isPlain>\n   102\t                      {(connections[obj.category]?.length &&\n   103\t                        connections[obj.category].map(connection => (\n   104\t                          <ListItem key={connection.name}>{connection.name}</ListItem>\n   105\t                        ))) || <ListItem>N/A</ListItem>}\n   106\t                    </List>\n   107\t                  </ExpandableRowContent>\n   108\t                </Td>\n   109\t              </Tr>\n   110\t            </Tbody>\n   111\t          );\n   112\t        })}\n   113\t      </Table>\n   114\t      </ModalBody>\n   115\t      <ModalFooter>\n   116\t        <Button\n   117\t          key=\"cancel\"\n   118\t          variant=\"secondary\"\n   119\t          onClick={() => {\n   120\t            setExpanded([]);\n   121\t            return onClose();\n   122\t          }}\n   123\t        >\n   124\t          Close\n   125\t        </Button>\n   126\t      </ModalFooter>\n   127\t    </Modal>\n   128\t  );\n   129\t};\n   130\t\n   131\texport { ShowConnectionsModal as default, ShowConnectionsModal, type ShowConnectionsModalProps };"
+                    }
+                  }
+                },
+                "type": "toolResponse"
+              }
+            ],
+            "created": 1776293394,
+            "id": "msg_55932e71-01b2-450e-bac8-39d80d9c556a",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "user"
+          },
+          {
+            "content": [
+              {
+                "text": "I've reached the maximum number of actions I can do without user input. Would you like me to continue?",
+                "type": "text"
+              }
+            ],
+            "created": 1776293394,
+            "id": null,
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "assistant"
+          }
+        ],
+        "metadata": {
+          "status": "completed",
+          "total_tokens": 7491
+        }
+      },
+      "prompt": "You are applying a code migration fix.\n\nFile: /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/showSourceConnectionsModal.tsx\nLine: 43\n\nMigration rule [family:Modal]:\n## Modal Family Migration\n\nTarget structure (correct v6 composition):\n```jsx\n  <Modal appendTo={...} backdropClassName={...} disableFocusTrap={...} elementToFocus={...} id={...} isOpen={...} maxWidth={...} onClose={...}>\n    <ModalBody role={...} />\n    <ModalHeader description={...} descriptorId={...} help={...} labelId={...} title={...} titleIconVariant={...} titleScreenReaderText={...} />\n    <ModalFooter />\n  </Modal>\n```\n\nProps that stay on <Modal>: appendTo, backdropClassName, disableFocusTrap, elementToFocus, id, isOpen, maxWidth, onClose, onEscapePress, ouiaId, ouiaSafe, position, positionOffset, variant, width\n\nProps that move to child components:\n  description -> <ModalHeader />\n  help -> <ModalHeader />\n  title -> <ModalHeader />\n  titleIconVariant -> <ModalHeader />\n\nRemoved props (move to child component as children or remove):\n  actions -> map to appropriate child component (any)\n  bodyAriaLabel -> ModalBody (as children, string)\n  bodyAriaRole -> ModalBody (as children, string)\n  footer -> ModalFooter (as children, ReactNode)\n  hasNoBodyWrapper -> map to appropriate child component (boolean)\n  header -> ModalHeader (as children, ReactNode)\n  showClose -> map to appropriate child component (boolean)\n  titleLabel -> map to appropriate child component (string)\n\nRemoved children (no longer valid JSX): ModalBox, ModalBoxHeader, ModalContent, ModalBoxBody, ModalBoxCloseButton, ModalBoxFooter\n\nAdd imports: ModalBody, ModalHeader, ModalFooter from '@patternfly/react-core'\n\nRemove imports (if no longer used): ModalBox, ModalBoxHeader, ModalContent, ModalBoxBody, ModalBoxCloseButton, ModalBoxFooter\n\nIncidents found in this file:\n  Line 43: [sd-prop-to-child-modal-title-to-modalheader]\n    componentName: Modal\n    module: @patternfly/react-core\n    propName: title\n    propValue: source?.name\n    Fix strategy:\n      Strategy: PropToChild\n      Component: Modal\n      Prop: title\n      From: title\n      Replacement: ModalHeader\n  Line 43: [semver-modal-component-import-deprecated]\n    componentName: Modal\n    module: @patternfly/react-core\n    propName: title\n    propValue: source?.name\n    Fix strategy:\n      Strategy: LlmAssisted\n  Line 49: (same rule semver-modal-component-import-deprecated)\n    componentName: Modal\n    module: @patternfly/react-core\n    propName: actions\n    propValue: [\n    <Button\n    key=\"cancel\"\n    variant=\"secondary\"\n    onClick={() => {\n    setExpanded([]);\n    return onClose();\n    }}\n    >\n    Close\n    </Button>\n    ]\n    Fix strategy:\n      Strategy: LlmAssisted\n\nCode contexts:\n  (line 43):\n   42        variant={ModalVariant.small}\n   43        title={source?.name}\n   44        isOpen={isOpen}\n\n  (line 49):\n   48        }}\n   49        actions={[\n   50          <Button\n\n\n\nCode context:\n```\n(no code snippet available)\n```\n\nInstructions:\n1. Read the file at /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/showSourceConnectionsModal.tsx\n2. Apply ONLY the change described by the migration rule at or near line 43\n3. Make the minimum edit necessary — do not change unrelated code, but DO clean up any artifacts caused by your change (e.g., remove imports that are no longer referenced, delete dead declarations)\n4. Write the fixed file\n\n\nBefore writing, reason through the fix step by step to ensure nothing is missed. Then read the file, make the edit, and write it.\n\nAfter writing the file, produce a '## Changes Applied' section that lists the change you made, or note if the fix was already applied or could not be applied (with a brief reason).",
+      "response": "I've reached the maximum number of actions I can do without user input. Would you like me to continue?",
+      "response_length": 102,
+      "retried": false,
+      "status": "ok"
+    }
+  ],
+  "elapsed_secs": 29.251166334,
+  "file": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/sources/showSourceConnectionsModal.tsx",
+  "rule_ids": [
+    "family:Modal"
+  ],
+  "success": true,
+  "total_chunks": 1
+}

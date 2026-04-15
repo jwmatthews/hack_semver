@@ -1,0 +1,318 @@
+{
+  "chunks": [
+    {
+      "chunk": 1,
+      "elapsed_secs": 0.0,
+      "goose_session": {
+        "messages": [
+          {
+            "content": [
+              {
+                "text": "You are applying a code migration fix.\n\nFile: /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/scans/showAggregateReportModal.tsx\nLine: 90\n\nMigration rule [family:Modal]:\n## Modal Family Migration\n\nTarget structure (correct v6 composition):\n```jsx\n  <Modal appendTo={...} backdropClassName={...} disableFocusTrap={...} elementToFocus={...} id={...} isOpen={...} maxWidth={...} onClose={...}>\n    <ModalBody role={...} />\n    <ModalHeader description={...} descriptorId={...} help={...} labelId={...} title={...} titleIconVariant={...} titleScreenReaderText={...} />\n    <ModalFooter />\n  </Modal>\n```\n\nProps that stay on <Modal>: appendTo, backdropClassName, disableFocusTrap, elementToFocus, id, isOpen, maxWidth, onClose, onEscapePress, ouiaId, ouiaSafe, position, positionOffset, variant, width\n\nProps that move to child components:\n  description -> <ModalHeader />\n  help -> <ModalHeader />\n  title -> <ModalHeader />\n  titleIconVariant -> <ModalHeader />\n\nRemoved props (move to child component as children or remove):\n  actions -> map to appropriate child component (any)\n  bodyAriaLabel -> ModalBody (as children, string)\n  bodyAriaRole -> ModalBody (as children, string)\n  footer -> ModalFooter (as children, ReactNode)\n  hasNoBodyWrapper -> map to appropriate child component (boolean)\n  header -> ModalHeader (as children, ReactNode)\n  showClose -> map to appropriate child component (boolean)\n  titleLabel -> map to appropriate child component (string)\n\nRemoved children (no longer valid JSX): ModalBox, ModalBoxHeader, ModalContent, ModalBoxBody, ModalBoxCloseButton, ModalBoxFooter\n\nAdd imports: ModalBody, ModalHeader, ModalFooter from '@patternfly/react-core'\n\nRemove imports (if no longer used): ModalBox, ModalBoxHeader, ModalContent, ModalBoxBody, ModalBoxCloseButton, ModalBoxFooter\n\nIncidents found in this file:\n  Line 95: [sd-cf-modal-modal-req-wrap]\n    componentName: Title\n    module: @patternfly/react-core\n    parentFrom: @patternfly/react-core\n    parentName: Modal\n    Fix strategy:\n      Strategy: LlmAssisted\n      Component: Modal\n      Replacement: ModalBody\n  Line 98: (same rule sd-cf-modal-modal-req-wrap)\n    componentName: DescriptionList\n    module: @patternfly/react-core\n    parentFrom: @patternfly/react-core\n    parentName: Modal\n    Fix strategy:\n      Strategy: LlmAssisted\n      Component: Modal\n      Replacement: ModalBody\n  Line 90: [sd-prop-to-child-modal-title-to-modalheader]\n    componentName: Modal\n    module: @patternfly/react-core\n    propName: title\n    propValue: t('modal.title', { context: 'scan-summary' })\n    Fix strategy:\n      Strategy: PropToChild\n      Component: Modal\n      Prop: title\n      From: title\n      Replacement: ModalHeader\n  Line 90: [semver-modal-component-import-deprecated]\n    componentName: Modal\n    module: @patternfly/react-core\n    propName: title\n    propValue: t('modal.title', { context: 'scan-summary' })\n    Fix strategy:\n      Strategy: LlmAssisted\n\nCode contexts:\n  (line 95):\n   94      >\n   95        <Title className=\"pf-v6-u-mb-lg\" headingLevel=\"h2\" size=\"md\">\n   96          {t('modal.subtitle', { context: 'scan-id', value: report?.id })}\n\n  (line 98):\n   97        </Title>\n   98        <DescriptionList isHorizontal isFluid isCompact>\n   99          {stats.map(([key, value]) => {\n\n  (line 90):\n   89        variant={ModalVariant.small}\n   90        title={t('modal.title', { context: 'scan-summary' })}\n   91        isOpen={isOpen}\n\n\n\nCode context:\n```\n(no code snippet available)\n```\n\nInstructions:\n1. Read the file at /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/scans/showAggregateReportModal.tsx\n2. Apply ONLY the change described by the migration rule at or near line 90\n3. Make the minimum edit necessary — do not change unrelated code, but DO clean up any artifacts caused by your change (e.g., remove imports that are no longer referenced, delete dead declarations)\n4. Write the fixed file\n\n\nBefore writing, reason through the fix step by step to ensure nothing is missed. Then read the file, make the edit, and write it.\n\nAfter writing the file, produce a '## Changes Applied' section that lists the change you made, or note if the fix was already applied or could not be applied (with a brief reason).",
+                "type": "text"
+              }
+            ],
+            "created": 1776293198,
+            "id": null,
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "user"
+          },
+          {
+            "content": [
+              {
+                "signature": "EocCClsIDBACGAIqQB+gOsNyXNVCJlUFmDyhWhEAs2b3wvm3/x5QAZorqalwtJQwAOik5ixR3lZGD75Owzqzxx7H5KCSy6rmxnJYkC0yD2NsYXVkZS1vcHVzLTQtNjgAEgzdJk3ee1AhCRpsyEUaDBiH4pz89663eA15qSIwL7YRq6JCUH0aUApKmZruby43pGA0ngChCsNPBxAMqtx3cIOQW2P4Ci5fVEhQbxaSKloYhjZDTyjyZooLtqd4YTuwhUDJNgq1HL9X2Ki0lJEyCj30H+4tbFVA3IxFwXU2+PXbof8W8k+qS2GdM3HA7+7Y5voY3Vzx5SrTpzmorIhVlkFYCj9yE6amSwQYAQ==",
+                "thinking": "Let me start by reading the file to understand the current code structure.",
+                "type": "thinking"
+              },
+              {
+                "_meta": {
+                  "goose_extension": "developer"
+                },
+                "id": "toolu_vrtx_01HV2W4dt3XBAhe7bt7Wfpb9",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "arguments": {
+                      "command": "cat -n /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/scans/showAggregateReportModal.tsx"
+                    },
+                    "name": "shell"
+                  }
+                },
+                "type": "toolRequest"
+              }
+            ],
+            "created": 1776293201,
+            "id": "msg_vrtx_01MeS2pvQ8fw8A1HJNi9iXQz",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "assistant"
+          },
+          {
+            "content": [
+              {
+                "id": "toolu_vrtx_01HV2W4dt3XBAhe7bt7Wfpb9",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "annotations": {
+                          "priority": 0.0
+                        },
+                        "text": "     1\timport React from 'react';\n     2\timport { useTranslation } from 'react-i18next';\n     3\timport {\n     4\t  DescriptionList,\n     5\t  DescriptionListTerm,\n     6\t  DescriptionListDescription,\n     7\t  DescriptionListGroup,\n     8\t  Modal,\n     9\t  ModalVariant,\n    10\t  Title\n    11\t} from '@patternfly/react-core';\n    12\timport { helpers } from '../../helpers';\n    13\timport { type ReportAggregateDiagnosticsType, type ReportAggregateResultsType } from '../../types/types';\n    14\t\n    15\ttype PartialReportsAggregateResponse = {\n    16\t  results?: Partial<ReportAggregateResultsType>;\n    17\t  diagnostics?: Partial<ReportAggregateDiagnosticsType>;\n    18\t};\n    19\t\n    20\ttype Report = {\n    21\t  id: number;\n    22\t  report: PartialReportsAggregateResponse;\n    23\t};\n    24\t\n    25\tinterface ShowAggregateReportModalProps {\n    26\t  isOpen: boolean;\n    27\t  report?: Report;\n    28\t  onClose?: () => void;\n    29\t  actions?: React.ReactNode[];\n    30\t}\n    31\t\n    32\t/**\n    33\t * A filter list for displaying specific report properties. Order does not represent display sort.\n    34\t */\n    35\tconst statsFilter = [\n    36\t  'ansible_hosts_all',\n    37\t  'instances_hypervisor',\n    38\t  'instances_physical',\n    39\t  'instances_virtual',\n    40\t  'openshift_cores',\n    41\t  'socket_pairs',\n    42\t  'system_creation_date_average',\n    43\t  'vmware_hosts',\n    44\t  'inspect_result_status_failed',\n    45\t  'inspect_result_status_success',\n    46\t  'inspect_result_status_unknown',\n    47\t  'inspect_result_status_unreachable',\n    48\t  'missing_pem_files',\n    49\t  'missing_system_creation_date',\n    50\t  'missing_system_purpose'\n    51\t];\n    52\t\n    53\t/**\n    54\t * Apply list format, sort, and filter to report\n    55\t */\n    56\tconst formatSortFilterReportStats = (\n    57\t  report: PartialReportsAggregateResponse = {},\n    58\t  { filter = statsFilter }: { filter?: string[] } = {}\n    59\t) => {\n    60\t  const { results: resultStats = {}, diagnostics: diagnosticStats = {} } = report;\n    61\t\n    62\t  return [...Object.entries(resultStats || {}), ...Object.entries(diagnosticStats || {})]\n    63\t    .filter(([key]) => filter.includes(key))\n    64\t    .sort(([aKey], [bKey]) => aKey.localeCompare(bKey))\n    65\t    .map(([key, value]) => {\n    66\t      const updatedValue = (\n    67\t        (key === 'system_creation_date_average' && helpers.formatDate(value as Date, 'DD MMMM Y')) ||\n    68\t        value\n    69\t      )?.toString();\n    70\t\n    71\t      return [key, updatedValue];\n    72\t    });\n    73\t};\n    74\t\n    75\t/**\n    76\t * Modal display for report summary stats.\n    77\t */\n    78\tconst ShowAggregateReportModal: React.FC<ShowAggregateReportModalProps> = ({\n    79\t  isOpen,\n    80\t  report,\n    81\t  onClose = Function.prototype,\n    82\t  actions\n    83\t}) => {\n    84\t  const { t } = useTranslation();\n    85\t  const stats = formatSortFilterReportStats(report?.report);\n    86\t\n    87\t  return (\n    88\t    <Modal\n    89\t      variant={ModalVariant.small}\n    90\t      title={t('modal.title', { context: 'scan-summary' })}\n    91\t      isOpen={isOpen}\n    92\t      onClose={() => onClose()}\n    93\t      {...(actions && { actions })}\n    94\t    >\n    95\t      <Title className=\"pf-v6-u-mb-lg\" headingLevel=\"h2\" size=\"md\">\n    96\t        {t('modal.subtitle', { context: 'scan-id', value: report?.id })}\n    97\t      </Title>\n    98\t      <DescriptionList isHorizontal isFluid isCompact>\n    99\t        {stats.map(([key, value]) => {\n   100\t          return (\n   101\t            <DescriptionListGroup data-ouia-component-id={key} key={key}>\n   102\t              <DescriptionListTerm>{t('modal.label', { context: key })}</DescriptionListTerm>\n   103\t              <DescriptionListDescription>{value}</DescriptionListDescription>\n   104\t            </DescriptionListGroup>\n   105\t          );\n   106\t        })}\n   107\t      </DescriptionList>\n   108\t    </Modal>\n   109\t  );\n   110\t};\n   111\t\n   112\texport {\n   113\t  ShowAggregateReportModal as default,\n   114\t  ShowAggregateReportModal,\n   115\t  formatSortFilterReportStats,\n   116\t  statsFilter,\n   117\t  type PartialReportsAggregateResponse,\n   118\t  type Report,\n   119\t  type ShowAggregateReportModalProps\n   120\t};",
+                        "type": "text"
+                      }
+                    ],
+                    "isError": false,
+                    "structuredContent": {
+                      "exit_code": 0,
+                      "stderr": "",
+                      "stdout": "     1\timport React from 'react';\n     2\timport { useTranslation } from 'react-i18next';\n     3\timport {\n     4\t  DescriptionList,\n     5\t  DescriptionListTerm,\n     6\t  DescriptionListDescription,\n     7\t  DescriptionListGroup,\n     8\t  Modal,\n     9\t  ModalVariant,\n    10\t  Title\n    11\t} from '@patternfly/react-core';\n    12\timport { helpers } from '../../helpers';\n    13\timport { type ReportAggregateDiagnosticsType, type ReportAggregateResultsType } from '../../types/types';\n    14\t\n    15\ttype PartialReportsAggregateResponse = {\n    16\t  results?: Partial<ReportAggregateResultsType>;\n    17\t  diagnostics?: Partial<ReportAggregateDiagnosticsType>;\n    18\t};\n    19\t\n    20\ttype Report = {\n    21\t  id: number;\n    22\t  report: PartialReportsAggregateResponse;\n    23\t};\n    24\t\n    25\tinterface ShowAggregateReportModalProps {\n    26\t  isOpen: boolean;\n    27\t  report?: Report;\n    28\t  onClose?: () => void;\n    29\t  actions?: React.ReactNode[];\n    30\t}\n    31\t\n    32\t/**\n    33\t * A filter list for displaying specific report properties. Order does not represent display sort.\n    34\t */\n    35\tconst statsFilter = [\n    36\t  'ansible_hosts_all',\n    37\t  'instances_hypervisor',\n    38\t  'instances_physical',\n    39\t  'instances_virtual',\n    40\t  'openshift_cores',\n    41\t  'socket_pairs',\n    42\t  'system_creation_date_average',\n    43\t  'vmware_hosts',\n    44\t  'inspect_result_status_failed',\n    45\t  'inspect_result_status_success',\n    46\t  'inspect_result_status_unknown',\n    47\t  'inspect_result_status_unreachable',\n    48\t  'missing_pem_files',\n    49\t  'missing_system_creation_date',\n    50\t  'missing_system_purpose'\n    51\t];\n    52\t\n    53\t/**\n    54\t * Apply list format, sort, and filter to report\n    55\t */\n    56\tconst formatSortFilterReportStats = (\n    57\t  report: PartialReportsAggregateResponse = {},\n    58\t  { filter = statsFilter }: { filter?: string[] } = {}\n    59\t) => {\n    60\t  const { results: resultStats = {}, diagnostics: diagnosticStats = {} } = report;\n    61\t\n    62\t  return [...Object.entries(resultStats || {}), ...Object.entries(diagnosticStats || {})]\n    63\t    .filter(([key]) => filter.includes(key))\n    64\t    .sort(([aKey], [bKey]) => aKey.localeCompare(bKey))\n    65\t    .map(([key, value]) => {\n    66\t      const updatedValue = (\n    67\t        (key === 'system_creation_date_average' && helpers.formatDate(value as Date, 'DD MMMM Y')) ||\n    68\t        value\n    69\t      )?.toString();\n    70\t\n    71\t      return [key, updatedValue];\n    72\t    });\n    73\t};\n    74\t\n    75\t/**\n    76\t * Modal display for report summary stats.\n    77\t */\n    78\tconst ShowAggregateReportModal: React.FC<ShowAggregateReportModalProps> = ({\n    79\t  isOpen,\n    80\t  report,\n    81\t  onClose = Function.prototype,\n    82\t  actions\n    83\t}) => {\n    84\t  const { t } = useTranslation();\n    85\t  const stats = formatSortFilterReportStats(report?.report);\n    86\t\n    87\t  return (\n    88\t    <Modal\n    89\t      variant={ModalVariant.small}\n    90\t      title={t('modal.title', { context: 'scan-summary' })}\n    91\t      isOpen={isOpen}\n    92\t      onClose={() => onClose()}\n    93\t      {...(actions && { actions })}\n    94\t    >\n    95\t      <Title className=\"pf-v6-u-mb-lg\" headingLevel=\"h2\" size=\"md\">\n    96\t        {t('modal.subtitle', { context: 'scan-id', value: report?.id })}\n    97\t      </Title>\n    98\t      <DescriptionList isHorizontal isFluid isCompact>\n    99\t        {stats.map(([key, value]) => {\n   100\t          return (\n   101\t            <DescriptionListGroup data-ouia-component-id={key} key={key}>\n   102\t              <DescriptionListTerm>{t('modal.label', { context: key })}</DescriptionListTerm>\n   103\t              <DescriptionListDescription>{value}</DescriptionListDescription>\n   104\t            </DescriptionListGroup>\n   105\t          );\n   106\t        })}\n   107\t      </DescriptionList>\n   108\t    </Modal>\n   109\t  );\n   110\t};\n   111\t\n   112\texport {\n   113\t  ShowAggregateReportModal as default,\n   114\t  ShowAggregateReportModal,\n   115\t  formatSortFilterReportStats,\n   116\t  statsFilter,\n   117\t  type PartialReportsAggregateResponse,\n   118\t  type Report,\n   119\t  type ShowAggregateReportModalProps\n   120\t};"
+                    }
+                  }
+                },
+                "type": "toolResponse"
+              }
+            ],
+            "created": 1776293201,
+            "id": "msg_3fea83b1-bfde-482b-abc3-a9be656bacc2",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "user"
+          },
+          {
+            "content": [
+              {
+                "signature": "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",
+                "thinking": "Let me analyze the migration requirements:\n\n1. **Line 90**: `title` prop on `<Modal>` needs to move to `<ModalHeader>` component\n2. **Line 95**: `<Title>` component inside `<Modal>` needs to be wrapped in `<ModalBody>`\n3. **Line 98**: `<DescriptionList>` inside `<Modal>` needs to be wrapped in `<ModalBody>`\n4. **Line 90**: The `actions` prop on `<Modal>` needs to move to `<ModalFooter>`\n\nLet me think through all the changes:\n\n\n- I need to remove the `title` prop from `<Modal>` and create a `<ModalHeader>` component with that title\n- The existing `<Title>` and `<DescriptionList>` children should be wrapped in `<ModalBody>`\n- The `actions` prop, which is conditionally spread, needs to move to a new `<ModalFooter>` component\n- I'll need to add imports for `ModalBody`, `ModalHeader`, and `ModalFooter`, and remove the `Title` import since it's no longer used at the top level\n\nActually, looking more carefully at the migration, `Title` is still being used inside the modal body, so I should keep that import. Let me map out the exact changes: I'm adding the three new modal subcomponents to the imports, removing the `title` and `actions` props from the main `<Modal>` element, then restructuring the children with `<ModalHeader>` at the top, followed by `<ModalBody>` wrapping the existing content, and finally a conditional `<ModalFooter>` if actions exist.\n\nFor the `actions` array, I need to render them as children of `<ModalFooter>` instead of passing them as a prop—in v6, the footer component handles displaying those action buttons.\n\nBuilding the updated JSX structure... Closing out the Modal component and adding the necessary imports for ModalBody, ModalHeader, and ModalFooter.",
+                "type": "thinking"
+              },
+              {
+                "text": "Now I understand the full picture. Let me reason through the required changes:\n\n1. **`title` prop (line 90)**: Move from `<Modal title={...}>` to `<ModalHeader title={...} />`\n2. **`actions` prop (line 93)**: Remove from `<Modal>` spread, move to `<ModalFooter>` children\n3. **Children wrapping (lines 95-107)**: Wrap `<Title>` and `<DescriptionList>` in `<ModalBody>`\n4. **Imports**: Add `ModalBody`, `ModalHeader`, `ModalFooter` to imports\n\nLet me apply the edits:",
+                "type": "text"
+              },
+              {
+                "_meta": {
+                  "goose_extension": "developer"
+                },
+                "id": "toolu_vrtx_01NMqZYfE3Hr871YpPDpWHAD",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "arguments": {
+                      "after": "  DescriptionListGroup,\n  Modal,\n  ModalBody,\n  ModalFooter,\n  ModalHeader,\n  ModalVariant,\n  Title\n} from '@patternfly/react-core';",
+                      "before": "  DescriptionListGroup,\n  Modal,\n  ModalVariant,\n  Title\n} from '@patternfly/react-core';",
+                      "path": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/scans/showAggregateReportModal.tsx"
+                    },
+                    "name": "edit"
+                  }
+                },
+                "type": "toolRequest"
+              }
+            ],
+            "created": 1776293218,
+            "id": "msg_vrtx_012uNYTR3ayrZpyviMHDWiXc",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "assistant"
+          },
+          {
+            "content": [
+              {
+                "id": "toolu_vrtx_01NMqZYfE3Hr871YpPDpWHAD",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "annotations": {
+                          "priority": 0.0
+                        },
+                        "text": "Edited /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/scans/showAggregateReportModal.tsx (5 lines -> 8 lines)",
+                        "type": "text"
+                      }
+                    ],
+                    "isError": false
+                  }
+                },
+                "type": "toolResponse"
+              }
+            ],
+            "created": 1776293223,
+            "id": "msg_70662d2e-8c9c-419c-89c7-13a65c8fc63e",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "user"
+          },
+          {
+            "content": [
+              {
+                "_meta": {
+                  "goose_extension": "developer"
+                },
+                "id": "toolu_vrtx_01K3MGMdenCj5WB2NfPgS2rN",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "arguments": {
+                      "after": "    <Modal\n      variant={ModalVariant.small}\n      isOpen={isOpen}\n      onClose={() => onClose()}\n    >\n      <ModalHeader title={t('modal.title', { context: 'scan-summary' })} />\n      <ModalBody>\n        <Title className=\"pf-v6-u-mb-lg\" headingLevel=\"h2\" size=\"md\">\n          {t('modal.subtitle', { context: 'scan-id', value: report?.id })}\n        </Title>\n        <DescriptionList isHorizontal isFluid isCompact>\n          {stats.map(([key, value]) => {\n            return (\n              <DescriptionListGroup data-ouia-component-id={key} key={key}>\n                <DescriptionListTerm>{t('modal.label', { context: key })}</DescriptionListTerm>\n                <DescriptionListDescription>{value}</DescriptionListDescription>\n              </DescriptionListGroup>\n            );\n          })}\n        </DescriptionList>\n      </ModalBody>\n      {actions && <ModalFooter>{actions}</ModalFooter>}\n    </Modal>",
+                      "before": "    <Modal\n      variant={ModalVariant.small}\n      title={t('modal.title', { context: 'scan-summary' })}\n      isOpen={isOpen}\n      onClose={() => onClose()}\n      {...(actions && { actions })}\n    >\n      <Title className=\"pf-v6-u-mb-lg\" headingLevel=\"h2\" size=\"md\">\n        {t('modal.subtitle', { context: 'scan-id', value: report?.id })}\n      </Title>\n      <DescriptionList isHorizontal isFluid isCompact>\n        {stats.map(([key, value]) => {\n          return (\n            <DescriptionListGroup data-ouia-component-id={key} key={key}>\n              <DescriptionListTerm>{t('modal.label', { context: key })}</DescriptionListTerm>\n              <DescriptionListDescription>{value}</DescriptionListDescription>\n            </DescriptionListGroup>\n          );\n        })}\n      </DescriptionList>\n    </Modal>",
+                      "path": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/scans/showAggregateReportModal.tsx"
+                    },
+                    "name": "edit"
+                  }
+                },
+                "type": "toolRequest"
+              }
+            ],
+            "created": 1776293231,
+            "id": "msg_vrtx_01TfKf6jaUTYmmpDMguByHgt",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "assistant"
+          },
+          {
+            "content": [
+              {
+                "id": "toolu_vrtx_01K3MGMdenCj5WB2NfPgS2rN",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "annotations": {
+                          "priority": 0.0
+                        },
+                        "text": "Edited /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/scans/showAggregateReportModal.tsx (21 lines -> 23 lines)",
+                        "type": "text"
+                      }
+                    ],
+                    "isError": false
+                  }
+                },
+                "type": "toolResponse"
+              }
+            ],
+            "created": 1776293231,
+            "id": "msg_63a3d2aa-b67e-46d5-a907-90c16f4d23bb",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "user"
+          },
+          {
+            "content": [
+              {
+                "text": "Now let me verify the final file looks correct:",
+                "type": "text"
+              },
+              {
+                "_meta": {
+                  "goose_extension": "developer"
+                },
+                "id": "toolu_vrtx_013JEffJrPuHbu1Mr2EUQDSC",
+                "toolCall": {
+                  "status": "success",
+                  "value": {
+                    "arguments": {
+                      "command": "cat -n /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/scans/showAggregateReportModal.tsx"
+                    },
+                    "name": "shell"
+                  }
+                },
+                "type": "toolRequest"
+              }
+            ],
+            "created": 1776293232,
+            "id": "msg_vrtx_01KRDdyyaD3UEJtKf6B2ssnw",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "assistant"
+          },
+          {
+            "content": [
+              {
+                "id": "toolu_vrtx_013JEffJrPuHbu1Mr2EUQDSC",
+                "toolResult": {
+                  "status": "success",
+                  "value": {
+                    "content": [
+                      {
+                        "annotations": {
+                          "priority": 0.0
+                        },
+                        "text": "     1\timport React from 'react';\n     2\timport { useTranslation } from 'react-i18next';\n     3\timport {\n     4\t  DescriptionList,\n     5\t  DescriptionListTerm,\n     6\t  DescriptionListDescription,\n     7\t  DescriptionListGroup,\n     8\t  Modal,\n     9\t  ModalBody,\n    10\t  ModalFooter,\n    11\t  ModalHeader,\n    12\t  ModalVariant,\n    13\t  Title\n    14\t} from '@patternfly/react-core';\n    15\timport { helpers } from '../../helpers';\n    16\timport { type ReportAggregateDiagnosticsType, type ReportAggregateResultsType } from '../../types/types';\n    17\t\n    18\ttype PartialReportsAggregateResponse = {\n    19\t  results?: Partial<ReportAggregateResultsType>;\n    20\t  diagnostics?: Partial<ReportAggregateDiagnosticsType>;\n    21\t};\n    22\t\n    23\ttype Report = {\n    24\t  id: number;\n    25\t  report: PartialReportsAggregateResponse;\n    26\t};\n    27\t\n    28\tinterface ShowAggregateReportModalProps {\n    29\t  isOpen: boolean;\n    30\t  report?: Report;\n    31\t  onClose?: () => void;\n    32\t  actions?: React.ReactNode[];\n    33\t}\n    34\t\n    35\t/**\n    36\t * A filter list for displaying specific report properties. Order does not represent display sort.\n    37\t */\n    38\tconst statsFilter = [\n    39\t  'ansible_hosts_all',\n    40\t  'instances_hypervisor',\n    41\t  'instances_physical',\n    42\t  'instances_virtual',\n    43\t  'openshift_cores',\n    44\t  'socket_pairs',\n    45\t  'system_creation_date_average',\n    46\t  'vmware_hosts',\n    47\t  'inspect_result_status_failed',\n    48\t  'inspect_result_status_success',\n    49\t  'inspect_result_status_unknown',\n    50\t  'inspect_result_status_unreachable',\n    51\t  'missing_pem_files',\n    52\t  'missing_system_creation_date',\n    53\t  'missing_system_purpose'\n    54\t];\n    55\t\n    56\t/**\n    57\t * Apply list format, sort, and filter to report\n    58\t */\n    59\tconst formatSortFilterReportStats = (\n    60\t  report: PartialReportsAggregateResponse = {},\n    61\t  { filter = statsFilter }: { filter?: string[] } = {}\n    62\t) => {\n    63\t  const { results: resultStats = {}, diagnostics: diagnosticStats = {} } = report;\n    64\t\n    65\t  return [...Object.entries(resultStats || {}), ...Object.entries(diagnosticStats || {})]\n    66\t    .filter(([key]) => filter.includes(key))\n    67\t    .sort(([aKey], [bKey]) => aKey.localeCompare(bKey))\n    68\t    .map(([key, value]) => {\n    69\t      const updatedValue = (\n    70\t        (key === 'system_creation_date_average' && helpers.formatDate(value as Date, 'DD MMMM Y')) ||\n    71\t        value\n    72\t      )?.toString();\n    73\t\n    74\t      return [key, updatedValue];\n    75\t    });\n    76\t};\n    77\t\n    78\t/**\n    79\t * Modal display for report summary stats.\n    80\t */\n    81\tconst ShowAggregateReportModal: React.FC<ShowAggregateReportModalProps> = ({\n    82\t  isOpen,\n    83\t  report,\n    84\t  onClose = Function.prototype,\n    85\t  actions\n    86\t}) => {\n    87\t  const { t } = useTranslation();\n    88\t  const stats = formatSortFilterReportStats(report?.report);\n    89\t\n    90\t  return (\n    91\t    <Modal\n    92\t      variant={ModalVariant.small}\n    93\t      isOpen={isOpen}\n    94\t      onClose={() => onClose()}\n    95\t    >\n    96\t      <ModalHeader title={t('modal.title', { context: 'scan-summary' })} />\n    97\t      <ModalBody>\n    98\t        <Title className=\"pf-v6-u-mb-lg\" headingLevel=\"h2\" size=\"md\">\n    99\t          {t('modal.subtitle', { context: 'scan-id', value: report?.id })}\n   100\t        </Title>\n   101\t        <DescriptionList isHorizontal isFluid isCompact>\n   102\t          {stats.map(([key, value]) => {\n   103\t            return (\n   104\t              <DescriptionListGroup data-ouia-component-id={key} key={key}>\n   105\t                <DescriptionListTerm>{t('modal.label', { context: key })}</DescriptionListTerm>\n   106\t                <DescriptionListDescription>{value}</DescriptionListDescription>\n   107\t              </DescriptionListGroup>\n   108\t            );\n   109\t          })}\n   110\t        </DescriptionList>\n   111\t      </ModalBody>\n   112\t      {actions && <ModalFooter>{actions}</ModalFooter>}\n   113\t    </Modal>\n   114\t  );\n   115\t};\n   116\t\n   117\texport {\n   118\t  ShowAggregateReportModal as default,\n   119\t  ShowAggregateReportModal,\n   120\t  formatSortFilterReportStats,\n   121\t  statsFilter,\n   122\t  type PartialReportsAggregateResponse,\n   123\t  type Report,\n   124\t  type ShowAggregateReportModalProps\n   125\t};",
+                        "type": "text"
+                      }
+                    ],
+                    "isError": false,
+                    "structuredContent": {
+                      "exit_code": 0,
+                      "stderr": "",
+                      "stdout": "     1\timport React from 'react';\n     2\timport { useTranslation } from 'react-i18next';\n     3\timport {\n     4\t  DescriptionList,\n     5\t  DescriptionListTerm,\n     6\t  DescriptionListDescription,\n     7\t  DescriptionListGroup,\n     8\t  Modal,\n     9\t  ModalBody,\n    10\t  ModalFooter,\n    11\t  ModalHeader,\n    12\t  ModalVariant,\n    13\t  Title\n    14\t} from '@patternfly/react-core';\n    15\timport { helpers } from '../../helpers';\n    16\timport { type ReportAggregateDiagnosticsType, type ReportAggregateResultsType } from '../../types/types';\n    17\t\n    18\ttype PartialReportsAggregateResponse = {\n    19\t  results?: Partial<ReportAggregateResultsType>;\n    20\t  diagnostics?: Partial<ReportAggregateDiagnosticsType>;\n    21\t};\n    22\t\n    23\ttype Report = {\n    24\t  id: number;\n    25\t  report: PartialReportsAggregateResponse;\n    26\t};\n    27\t\n    28\tinterface ShowAggregateReportModalProps {\n    29\t  isOpen: boolean;\n    30\t  report?: Report;\n    31\t  onClose?: () => void;\n    32\t  actions?: React.ReactNode[];\n    33\t}\n    34\t\n    35\t/**\n    36\t * A filter list for displaying specific report properties. Order does not represent display sort.\n    37\t */\n    38\tconst statsFilter = [\n    39\t  'ansible_hosts_all',\n    40\t  'instances_hypervisor',\n    41\t  'instances_physical',\n    42\t  'instances_virtual',\n    43\t  'openshift_cores',\n    44\t  'socket_pairs',\n    45\t  'system_creation_date_average',\n    46\t  'vmware_hosts',\n    47\t  'inspect_result_status_failed',\n    48\t  'inspect_result_status_success',\n    49\t  'inspect_result_status_unknown',\n    50\t  'inspect_result_status_unreachable',\n    51\t  'missing_pem_files',\n    52\t  'missing_system_creation_date',\n    53\t  'missing_system_purpose'\n    54\t];\n    55\t\n    56\t/**\n    57\t * Apply list format, sort, and filter to report\n    58\t */\n    59\tconst formatSortFilterReportStats = (\n    60\t  report: PartialReportsAggregateResponse = {},\n    61\t  { filter = statsFilter }: { filter?: string[] } = {}\n    62\t) => {\n    63\t  const { results: resultStats = {}, diagnostics: diagnosticStats = {} } = report;\n    64\t\n    65\t  return [...Object.entries(resultStats || {}), ...Object.entries(diagnosticStats || {})]\n    66\t    .filter(([key]) => filter.includes(key))\n    67\t    .sort(([aKey], [bKey]) => aKey.localeCompare(bKey))\n    68\t    .map(([key, value]) => {\n    69\t      const updatedValue = (\n    70\t        (key === 'system_creation_date_average' && helpers.formatDate(value as Date, 'DD MMMM Y')) ||\n    71\t        value\n    72\t      )?.toString();\n    73\t\n    74\t      return [key, updatedValue];\n    75\t    });\n    76\t};\n    77\t\n    78\t/**\n    79\t * Modal display for report summary stats.\n    80\t */\n    81\tconst ShowAggregateReportModal: React.FC<ShowAggregateReportModalProps> = ({\n    82\t  isOpen,\n    83\t  report,\n    84\t  onClose = Function.prototype,\n    85\t  actions\n    86\t}) => {\n    87\t  const { t } = useTranslation();\n    88\t  const stats = formatSortFilterReportStats(report?.report);\n    89\t\n    90\t  return (\n    91\t    <Modal\n    92\t      variant={ModalVariant.small}\n    93\t      isOpen={isOpen}\n    94\t      onClose={() => onClose()}\n    95\t    >\n    96\t      <ModalHeader title={t('modal.title', { context: 'scan-summary' })} />\n    97\t      <ModalBody>\n    98\t        <Title className=\"pf-v6-u-mb-lg\" headingLevel=\"h2\" size=\"md\">\n    99\t          {t('modal.subtitle', { context: 'scan-id', value: report?.id })}\n   100\t        </Title>\n   101\t        <DescriptionList isHorizontal isFluid isCompact>\n   102\t          {stats.map(([key, value]) => {\n   103\t            return (\n   104\t              <DescriptionListGroup data-ouia-component-id={key} key={key}>\n   105\t                <DescriptionListTerm>{t('modal.label', { context: key })}</DescriptionListTerm>\n   106\t                <DescriptionListDescription>{value}</DescriptionListDescription>\n   107\t              </DescriptionListGroup>\n   108\t            );\n   109\t          })}\n   110\t        </DescriptionList>\n   111\t      </ModalBody>\n   112\t      {actions && <ModalFooter>{actions}</ModalFooter>}\n   113\t    </Modal>\n   114\t  );\n   115\t};\n   116\t\n   117\texport {\n   118\t  ShowAggregateReportModal as default,\n   119\t  ShowAggregateReportModal,\n   120\t  formatSortFilterReportStats,\n   121\t  statsFilter,\n   122\t  type PartialReportsAggregateResponse,\n   123\t  type Report,\n   124\t  type ShowAggregateReportModalProps\n   125\t};"
+                    }
+                  }
+                },
+                "type": "toolResponse"
+              }
+            ],
+            "created": 1776293233,
+            "id": "msg_baaa20db-7eeb-4a7c-9929-180a0e850450",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "user"
+          },
+          {
+            "content": [
+              {
+                "text": "The file looks correct. All changes have been applied properly.\n\n## Changes Applied\n\n1. **`title` prop moved to `<ModalHeader>`** (line 90→96): Removed `title={t('modal.title', { context: 'scan-summary' })}` from `<Modal>` and added `<ModalHeader title={t('modal.title', { context: 'scan-summary' })} />` as a child component.\n\n2. **`actions` prop moved to `<ModalFooter>`** (line 93→112): Removed the spread `{...(actions && { actions })}` from `<Modal>` and added a conditional `{actions && <ModalFooter>{actions}</ModalFooter>}` child.\n\n3. **Modal children wrapped in `<ModalBody>`** (lines 97-111): Wrapped the `<Title>` and `<DescriptionList>` children in a `<ModalBody>` component, addressing the `sd-cf-modal-modal-req-wrap` incidents at lines 95 and 98.\n\n4. **Imports updated** (lines 9-11): Added `ModalBody`, `ModalFooter`, and `ModalHeader` to the `@patternfly/react-core` import block. No unused imports needed removal.",
+                "type": "text"
+              }
+            ],
+            "created": 1776293234,
+            "id": "msg_vrtx_019SkA7y7ZgwdAVjSttCcvtS",
+            "metadata": {
+              "agentVisible": true,
+              "userVisible": true
+            },
+            "role": "assistant"
+          }
+        ],
+        "metadata": {
+          "status": "completed",
+          "total_tokens": 9659
+        }
+      },
+      "prompt": "You are applying a code migration fix.\n\nFile: /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/scans/showAggregateReportModal.tsx\nLine: 90\n\nMigration rule [family:Modal]:\n## Modal Family Migration\n\nTarget structure (correct v6 composition):\n```jsx\n  <Modal appendTo={...} backdropClassName={...} disableFocusTrap={...} elementToFocus={...} id={...} isOpen={...} maxWidth={...} onClose={...}>\n    <ModalBody role={...} />\n    <ModalHeader description={...} descriptorId={...} help={...} labelId={...} title={...} titleIconVariant={...} titleScreenReaderText={...} />\n    <ModalFooter />\n  </Modal>\n```\n\nProps that stay on <Modal>: appendTo, backdropClassName, disableFocusTrap, elementToFocus, id, isOpen, maxWidth, onClose, onEscapePress, ouiaId, ouiaSafe, position, positionOffset, variant, width\n\nProps that move to child components:\n  description -> <ModalHeader />\n  help -> <ModalHeader />\n  title -> <ModalHeader />\n  titleIconVariant -> <ModalHeader />\n\nRemoved props (move to child component as children or remove):\n  actions -> map to appropriate child component (any)\n  bodyAriaLabel -> ModalBody (as children, string)\n  bodyAriaRole -> ModalBody (as children, string)\n  footer -> ModalFooter (as children, ReactNode)\n  hasNoBodyWrapper -> map to appropriate child component (boolean)\n  header -> ModalHeader (as children, ReactNode)\n  showClose -> map to appropriate child component (boolean)\n  titleLabel -> map to appropriate child component (string)\n\nRemoved children (no longer valid JSX): ModalBox, ModalBoxHeader, ModalContent, ModalBoxBody, ModalBoxCloseButton, ModalBoxFooter\n\nAdd imports: ModalBody, ModalHeader, ModalFooter from '@patternfly/react-core'\n\nRemove imports (if no longer used): ModalBox, ModalBoxHeader, ModalContent, ModalBoxBody, ModalBoxCloseButton, ModalBoxFooter\n\nIncidents found in this file:\n  Line 95: [sd-cf-modal-modal-req-wrap]\n    componentName: Title\n    module: @patternfly/react-core\n    parentFrom: @patternfly/react-core\n    parentName: Modal\n    Fix strategy:\n      Strategy: LlmAssisted\n      Component: Modal\n      Replacement: ModalBody\n  Line 98: (same rule sd-cf-modal-modal-req-wrap)\n    componentName: DescriptionList\n    module: @patternfly/react-core\n    parentFrom: @patternfly/react-core\n    parentName: Modal\n    Fix strategy:\n      Strategy: LlmAssisted\n      Component: Modal\n      Replacement: ModalBody\n  Line 90: [sd-prop-to-child-modal-title-to-modalheader]\n    componentName: Modal\n    module: @patternfly/react-core\n    propName: title\n    propValue: t('modal.title', { context: 'scan-summary' })\n    Fix strategy:\n      Strategy: PropToChild\n      Component: Modal\n      Prop: title\n      From: title\n      Replacement: ModalHeader\n  Line 90: [semver-modal-component-import-deprecated]\n    componentName: Modal\n    module: @patternfly/react-core\n    propName: title\n    propValue: t('modal.title', { context: 'scan-summary' })\n    Fix strategy:\n      Strategy: LlmAssisted\n\nCode contexts:\n  (line 95):\n   94      >\n   95        <Title className=\"pf-v6-u-mb-lg\" headingLevel=\"h2\" size=\"md\">\n   96          {t('modal.subtitle', { context: 'scan-id', value: report?.id })}\n\n  (line 98):\n   97        </Title>\n   98        <DescriptionList isHorizontal isFluid isCompact>\n   99          {stats.map(([key, value]) => {\n\n  (line 90):\n   89        variant={ModalVariant.small}\n   90        title={t('modal.title', { context: 'scan-summary' })}\n   91        isOpen={isOpen}\n\n\n\nCode context:\n```\n(no code snippet available)\n```\n\nInstructions:\n1. Read the file at /tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/scans/showAggregateReportModal.tsx\n2. Apply ONLY the change described by the migration rule at or near line 90\n3. Make the minimum edit necessary — do not change unrelated code, but DO clean up any artifacts caused by your change (e.g., remove imports that are no longer referenced, delete dead declarations)\n4. Write the fixed file\n\n\nBefore writing, reason through the fix step by step to ensure nothing is missed. Then read the file, make the edit, and write it.\n\nAfter writing the file, produce a '## Changes Applied' section that lists the change you made, or note if the fix was already applied or could not be applied (with a brief reason).",
+      "response": "The file looks correct. All changes have been applied properly.\n\n## Changes Applied\n\n1. **`title` prop moved to `<ModalHeader>`** (line 90→96): Removed `title={t('modal.title', { context: 'scan-summary' })}` from `<Modal>` and added `<ModalHeader title={t('modal.title', { context: 'scan-summary' })} />` as a child component.\n\n2. **`actions` prop moved to `<ModalFooter>`** (line 93→112): Removed the spread `{...(actions && { actions })}` from `<Modal>` and added a conditional `{actions && <ModalFooter>{actions}</ModalFooter>}` child.\n\n3. **Modal children wrapped in `<ModalBody>`** (lines 97-111): Wrapped the `<Title>` and `<DescriptionList>` children in a `<ModalBody>` component, addressing the `sd-cf-modal-modal-req-wrap` incidents at lines 95 and 98.\n\n4. **Imports updated** (lines 9-11): Added `ModalBody`, `ModalFooter`, and `ModalHeader` to the `@patternfly/react-core` import block. No unused imports needed removal.",
+      "response_length": 935,
+      "retried": false,
+      "status": "ok"
+    }
+  ],
+  "elapsed_secs": 43.32787375,
+  "file": "/tmp/semver-pipeline-v2/kantra/quipucords-ui-fixed/src/views/scans/showAggregateReportModal.tsx",
+  "rule_ids": [
+    "family:Modal"
+  ],
+  "success": true,
+  "total_chunks": 1
+}

@@ -1,0 +1,10 @@
+.quipucords-toolbar__user-dropdown {
+  align-items: center;
+  display: flex;
+  gap: var(--pf-t--global--spacer--200);
+}
+.quipucords-toolbar__user-dropdown .pf-v6-c-avatar {
+  width: 36px;
+  height: 36px;
+  background: url(../../images/imgAvatar.svg);
+}
