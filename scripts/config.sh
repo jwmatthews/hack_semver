@@ -22,6 +22,10 @@ FIX_BIN="$HOME/synced/fix-engine/target/release/fix-engine-cli"
 KANTRA_BIN="$HOME/bin/kantra"
 KANTRA_DIR="$HOME/.kantra"
 
+# ── LLM ─────────────────────────────────────────────────────────────────
+LLM_COMMAND="goose run --no-session -q --max-turns 5 -t"
+LLM_TIMEOUT=600
+
 # ── Agent ───────────────────────────────────────────────────────────────
 AGENT="${AGENT:-goose}"
 

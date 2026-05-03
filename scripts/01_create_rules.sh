@@ -22,10 +22,12 @@ time "$SEMVER_BIN" analyze typescript \
   --dep-from "$PF_CSS_FROM" \
   --dep-to "$PF_CSS_TAG" \
   --dep-build-command "source ~/.nvm/nvm.sh && nvm exec ${TO_NODE_VERSION} bash -c 'export NODE_ENV=development && corepack yarn install --immutable && corepack yarn gulp buildPatternfly'" \
-  --llm-command "goose run --no-session -q --max-turns 5 -t" \
+  --llm-command "$LLM_COMMAND" \
+  --llm-timeout "$LLM_TIMEOUT" \
   --log-level debug \
-  --log-file "$RULES_DIR/semver_analyze_debug.log"
-  -o "$SEMVER_REPORT" 2>&1 | tee "$RULES_DIR/semver_analyze.log"
+  2>&1 | tee "$RULES_DIR/semver_analyze.log"
+  #--log-file "$RULES_DIR/semver_analyze_debug.log" \
+  #-o "$SEMVER_REPORT" 2>&1 | tee "$RULES_DIR/semver_analyze.log"
 
 echo "Report: $SEMVER_REPORT"
 
